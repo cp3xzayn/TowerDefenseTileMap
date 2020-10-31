@@ -45,10 +45,12 @@ public class AutoMaping : MonoBehaviour
             if (xory == 0)
             {
                 j++;
+                int amari = j % roomX;
                 if (j < tileIndex)
                 {
                     tile[j] = roadTile;
                 }
+
             }
             if (xory == 1)
             {
