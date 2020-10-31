@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_tilemap: {fileID: 1692044350}
+  m_roomX: 10
+  m_roomY: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
