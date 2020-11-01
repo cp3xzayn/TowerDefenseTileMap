@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class Astar : MonoBehaviour
+public class MapGenerator : MonoBehaviour
 {
     [SerializeField] Tilemap m_tilemap;
     /// <summary>部屋のxの長さ</summary>
@@ -18,21 +18,6 @@ public class Astar : MonoBehaviour
     Tile[] m_startTile;
     /// <summary>スタートのタイル/ </summary>
     Tile[] m_goalTile;
-
-    //それぞれのTileの状態
-    enum NodState
-    {
-        None,
-        Open,
-        Close
-    }
-    NodState nodState;
-    /// <summary>実コスト/ </summary>
-    int cost;
-    /// <summary>推定コスト/ </summary>
-    int estimatedCost;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -42,16 +27,15 @@ public class Astar : MonoBehaviour
         m_startTile = Resources.LoadAll<Tile>("StartPalette");
         m_goalTile = Resources.LoadAll<Tile>("GoalPalette");
         Vector3Int m_vector3Int = new Vector3Int(0, 0, 0);
-        RoomMaping(m_wallTile[0], m_roadTile[0], m_startTile[0], m_goalTile[0], m_vector3Int, m_roomX, m_roomY);
+        AutoMaping(m_wallTile[0], m_roadTile[0], m_startTile[0], m_goalTile[0], m_vector3Int, m_roomX, m_roomY);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
-    void RoomMaping(Tile wallTile, Tile roadTile, Tile startTile, Tile goalTile, Vector3Int position, int roomX, int roomY)
+    }
+    void AutoMaping(Tile wallTile, Tile roadTile, Tile startTile, Tile goalTile, Vector3Int position, int roomX, int roomY)
     {
         //roomX×roomYの部屋を想定(xの横並びで考える)
         Tile[,] tile = new Tile[roomX, roomY];
