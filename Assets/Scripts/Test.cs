@@ -14,29 +14,11 @@ public class Test : MonoBehaviour
     Tile[] m_hubTile;
     /// <summary>障害物のタイル</summary>
     Tile[] m_wallTile;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Resourcesフォルダーからタイルを読み込む
-        m_startTile = Resources.LoadAll<Tile>("StartPalette");
-        m_enemyRoadTile = Resources.LoadAll<Tile>("EnemyRoadPalette");
-        m_prayerRoadTile = Resources.LoadAll<Tile>("PlayerRoadPalette");
-        m_hubTile = Resources.LoadAll<Tile>("HubPalette");
-        m_wallTile = Resources.LoadAll<Tile>("WallPalette");
-        
-        Vector3Int m_vector3Int = new Vector3Int(0, 0, 0);
-        TestMap(m_startTile[0], m_enemyRoadTile[0], m_prayerRoadTile[0], m_hubTile[0], m_wallTile[0], m_vector3Int);
-    }
+    /// <summary>敵のオブジェクト </summary>
+    [SerializeField] GameObject m_enemy;
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    void TestMap(Tile es ,Tile er, Tile pr, Tile hu, Tile ob, Vector3Int position)
-    {
-        //mapを配列で定義
-        int[,] map = new int[13, 13]{
+    //mapを配列で定義
+    internal int[,] map = new int[13, 13]{
             {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 0},
             {1, 1, 1, 2, 4, 2, 4, 2, 2, 2, 1, 2, 2},
             {2, 2, 1, 2, 4, 2, 2, 4, 2, 1, 1, 2, 4},
@@ -51,6 +33,26 @@ public class Test : MonoBehaviour
             {2, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 4, 2},
             {0, 1, 4, 2, 2, 4, 2, 2, 2, 4, 1, 1, 0}
         };
+    // Start is called before the first frame update
+    void Start()
+    {
+        //Resourcesフォルダーからタイルを読み込む
+        m_startTile = Resources.LoadAll<Tile>("StartPalette");
+        m_enemyRoadTile = Resources.LoadAll<Tile>("EnemyRoadPalette");
+        m_prayerRoadTile = Resources.LoadAll<Tile>("PlayerRoadPalette");
+        m_hubTile = Resources.LoadAll<Tile>("HubPalette");
+        m_wallTile = Resources.LoadAll<Tile>("WallPalette");
+        Vector3Int m_vector3Int = new Vector3Int(0, 0, 0);
+        TestMap(m_startTile[0], m_enemyRoadTile[0], m_prayerRoadTile[0], m_hubTile[0], m_wallTile[0], m_vector3Int);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    void TestMap(Tile es ,Tile er, Tile pr, Tile hu, Tile ob, Vector3Int position)
+    {
         //mapの配列にTileを配置
         for (int i = 0; i < 13; i++)
         {
@@ -75,8 +77,18 @@ public class Test : MonoBehaviour
                         m_tilemap.SetTile(position, ob);
                         break;
                 }
+                GenerateEnemy(i, j);
             }
         }
-
+    }
+    //敵を生成するための関数
+    void GenerateEnemy(int x, int y)
+    {
+        Vector3Int enePosition = new Vector3Int(x, y, 0);
+        //TileがEnemyStartの時生成する
+        if (map[x,y] == 0)
+        {
+            Instantiate(m_enemy, enePosition, Quaternion.identity);
+        }
     }
 }
