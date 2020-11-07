@@ -14,25 +14,29 @@ public class Test : MonoBehaviour
     Tile[] m_hubTile;
     /// <summary>障害物のタイル</summary>
     Tile[] m_wallTile;
-    /// <summary>敵のオブジェクト </summary>
-    [SerializeField] GameObject m_enemy;
 
     //mapを配列で定義
-    internal int[,] map = new int[13, 13]{
-            {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 0},
-            {1, 1, 1, 2, 4, 2, 4, 2, 2, 2, 1, 2, 2},
-            {2, 2, 1, 2, 4, 2, 2, 4, 2, 1, 1, 2, 4},
-            {2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2},
-            {2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 2, 4, 2},
-            {2, 2, 2, 2, 2, 3, 3, 3, 4, 2, 2, 2, 2},
-            {2, 2, 4, 2, 2, 3, 3, 3, 2, 2, 4, 2, 4},
-            {2, 2, 2, 2, 4, 3, 3, 3, 2, 4, 2, 2, 2},
-            {2, 4, 2, 2, 1, 1, 2, 1, 2, 2, 2, 4, 2},
-            {2, 2, 2, 1, 1, 2, 2, 1, 2, 4, 2, 2, 2},
-            {2, 2, 2, 1, 4, 2, 4, 1, 2, 2, 2, 2, 2},
-            {2, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 4, 2},
-            {0, 1, 4, 2, 2, 4, 2, 2, 2, 4, 1, 1, 0}
-        };
+    public int[,] map = new int[13, 13]{
+        {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 0},
+        {1, 1, 1, 2, 4, 2, 4, 2, 2, 2, 1, 2, 2},
+        {2, 2, 1, 2, 4, 2, 2, 4, 2, 1, 1, 2, 4},
+        {2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2},
+        {2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 2, 4, 2},
+        {2, 2, 2, 2, 2, 3, 3, 3, 4, 2, 2, 2, 2},
+        {2, 2, 4, 2, 2, 3, 3, 3, 2, 2, 4, 2, 4},
+        {2, 2, 2, 2, 4, 3, 3, 3, 2, 4, 2, 2, 2},
+        {2, 4, 2, 2, 1, 1, 2, 1, 2, 2, 2, 4, 2},
+        {2, 2, 2, 1, 1, 2, 2, 1, 2, 4, 2, 2, 2},
+        {2, 2, 2, 1, 4, 2, 4, 1, 2, 2, 2, 2, 2},
+        {2, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 4, 2},
+        {0, 1, 4, 2, 2, 4, 2, 2, 2, 4, 1, 1, 0}
+    };
+    //プロパティ
+    public int[,] Map
+    {
+        get{ return map;}//取得用
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,18 +81,8 @@ public class Test : MonoBehaviour
                         m_tilemap.SetTile(position, ob);
                         break;
                 }
-                GenerateEnemy(i, j);
             }
         }
     }
-    //敵を生成するための関数
-    void GenerateEnemy(int x, int y)
-    {
-        Vector3Int enePosition = new Vector3Int(x, y, 0);
-        //TileがEnemyStartの時生成する
-        if (map[x,y] == 0)
-        {
-            Instantiate(m_enemy, enePosition, Quaternion.identity);
-        }
-    }
 }
+
