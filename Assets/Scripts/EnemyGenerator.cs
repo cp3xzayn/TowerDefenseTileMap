@@ -7,6 +7,12 @@ public class EnemyGenerator : MonoBehaviour
     /// <summary>敵のオブジェクト </summary>
     [SerializeField] GameObject m_enemy;
     GameObject mapGene;
+    /// <summary>敵の生成ポジション </summary>
+    Vector3Int enePosition;
+    public Vector3Int EnePosition
+    {
+        get { return EnePosition; }
+    }
 
     void Start()
     {
@@ -19,6 +25,7 @@ public class EnemyGenerator : MonoBehaviour
                 EneGene(i, j);
             }
         }
+        //敵を生成する時間を決める
     }
 
     void Update()
@@ -31,7 +38,7 @@ public class EnemyGenerator : MonoBehaviour
         //Mapの情報を取得する
         Test t = mapGene.GetComponent<Test>();
         int[,] m = t.Map;
-        Vector3Int enePosition = new Vector3Int(x, y, 0);
+        enePosition = new Vector3Int(x, y, 0);
         //TileがEnemyStartの時生成する
         if (m[x, y] == 0)
         {
