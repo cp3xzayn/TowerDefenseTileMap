@@ -6,13 +6,14 @@ public class EnemyController : MonoBehaviour
 {
     GameObject m_mapGene;
     GameObject m_eneGene;
-    float m_move = 0.1f;
+    //敵の進むスピード
+    [SerializeField] float m_move;
     /// <summary>移動速度</summary>
     [SerializeField] float m_walkSpeed = 1f;
     SpriteRenderer m_sprite;
     Animator m_anim;
     Rigidbody2D m_rb;
-
+    //敵のポジション
     Vector3 m_enePos;
 
 
@@ -29,8 +30,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HowToMove(0, 0, m_enePos);
         m_enePos = this.transform.position;
+        HowToMove(0, 0, m_enePos);
     }
 
     public void HowToMove(int x, int y, Vector3 enePos)
@@ -40,8 +41,6 @@ public class EnemyController : MonoBehaviour
         int[,] m = t.Map;
         int nextX;
         int nextY;
-        //今の位置情報
-        Vector3 firstPos = new Vector3(x, y, 0);
         //動きたい場所の位置情報
         Vector3 nextPosX = new Vector3Int(x + 1, y, 0);
         Vector3 nextPosY = new Vector3Int(x, y + 1, 0);
@@ -51,31 +50,19 @@ public class EnemyController : MonoBehaviour
         {
             nextX = m[x + 1, y];
             nextY = m[x, y + 1];
+            //x方向に道があるとき、移動する
             if (nextX == 1)
             {
+                m_move = 0.1f;
                 m_rb.velocity = new Vector3(m_move, 0, 0);
             }
+            //次のタイルに進み終わったら移動を終了する
+            if (m_enePos.x >= nextPosX.x)
+            {
+                m_rb.velocity = new Vector3(0, 0, 0);
+                x++;//配列を次のタイルに進ませる
+            }
         }
-
-        //敵生成ポジション、道にいるとき
-        /*if (m[x, y] == 0 || m[x, y] == 1)
-        {
-            nextX = m[x + 1, y];
-            nextY = m[x, y + 1];
-            if (nextX == 1)
-            {
-                nextPos = new Vector3Int(x + 1, y, 0);
-                Debug.Log("x:1, y:0 移動");
-                this.transform.position = nextPos;
-                x++;
-            }
-            if (nextY == 1)
-            {
-                nextPos = new Vector3Int(x, y + 1, 0);
-                Debug.Log("x:0, y:1 移動");
-                this.transform.position = nextPos;
-                y++;
-            }
-        }*/
     }
+    
 }
