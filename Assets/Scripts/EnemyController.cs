@@ -8,8 +8,6 @@ public class EnemyController : MonoBehaviour
     GameObject m_eneGene;
     //敵の進むスピード
     [SerializeField] float m_move;
-    /// <summary>移動速度</summary>
-    [SerializeField] float m_walkSpeed = 1f;
     SpriteRenderer m_sprite;
     Animator m_anim;
     Rigidbody2D m_rb;
@@ -59,8 +57,39 @@ public class EnemyController : MonoBehaviour
             //次のタイルに進み終わったら移動を終了する
             if (m_enePos.x >= nextPosX.x)
             {
-                m_rb.velocity = new Vector3(0, 0, 0);
-                x++;//配列を次のタイルに進ませる
+                m_move = 0;
+                x = x + 1;//配列を次のタイルに進ませる
+            }
+        }
+        //敵が道にいるとき
+        if (m[x, y] == 1)
+        {
+            nextX = m[x + 1, y];
+            nextY = m[x, y + 1];
+            //x方向に道があるとき、移動する
+            if (nextX == 1)
+            {
+                m_move = 0.1f;
+                m_rb.velocity = new Vector3(m_move, 0, 0);
+            }
+            //次のタイルに進み終わったら移動を終了する
+            if (m_enePos.x >= nextPosX.x)
+            {
+                m_move = 0f;
+                x = x + 1;//配列を次のタイルに進ませる
+            }
+            
+            //y方向に道があるとき、移動する
+            if (nextY == 1)
+            {
+                m_move = 0.1f;
+                m_rb.velocity = new Vector3(0, m_move, 0);
+            }
+            //次のタイルに進み終わったら移動を終了する
+            if (m_enePos.y >= nextPosX.y)
+            {
+                m_move = 0;
+                y = y + 1;//配列を次のタイルに進ませる
             }
         }
     }
