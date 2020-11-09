@@ -9,9 +9,10 @@ public class EnemyGenerator : MonoBehaviour
     GameObject mapGene;
     /// <summary>敵の生成ポジション </summary>
     Vector3Int enePosition;
+    //プロパティ
     public Vector3Int EnePosition
     {
-        get { return EnePosition; }
+        get { return EnePosition; }//取得用
     }
 
     void Start()
