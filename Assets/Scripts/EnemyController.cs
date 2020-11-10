@@ -28,11 +28,13 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         m_enePos = this.transform.position;
-        HowToMove(0, 0, m_enePos);
+        HowToMove(m_enePos.x, m_enePos.y, m_enePos);
     }
 
-    public void HowToMove(int x, int y, Vector3 enePos)
+    public void HowToMove(float fx, float fy, Vector3 enePos)
     {
+        int x = (int)Mathf.Floor(fx);
+        int y = (int)Mathf.Floor(fy);
         //Mapの情報を取得する
         Test t = m_mapGene.GetComponent<Test>();
         int[,] m = t.Map;
@@ -62,7 +64,6 @@ public class EnemyController : MonoBehaviour
                 }
             }
         }
-
         //敵が道にいるとき
         if (m[x, y] == 1)
         {
@@ -82,7 +83,7 @@ public class EnemyController : MonoBehaviour
                     Debug.Log("x:" + x + "y:" + y);
                 }
             }
-            
+
             //y方向に道があるとき、移動する
             if (nextY == 1)
             {
@@ -97,8 +98,6 @@ public class EnemyController : MonoBehaviour
                     Debug.Log("x:" + x + "y:" + y);
                 }
             }
-            
         }
     }
-    
 }
