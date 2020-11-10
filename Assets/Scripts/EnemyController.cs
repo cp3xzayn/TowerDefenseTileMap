@@ -33,58 +33,81 @@ public class EnemyController : MonoBehaviour
 
     public void HowToMove(float fx, float fy, Vector3 enePos)
     {
+        //取得した座標を整数に戻す(配列のインデックスに合わせるため)
         int x = (int)Mathf.Floor(fx);
         int y = (int)Mathf.Floor(fy);
         //Mapの情報を取得する
         Test t = m_mapGene.GetComponent<Test>();
         int[,] m = t.Map;
+        //進んだ先の配列の情報を取得するための変数
         int nextX;
         int nextY;
-        //動きたい場所の位置情報
-        Vector3 nextPosX = new Vector3Int(x + 1, y, 0);
-        Vector3 nextPosY = new Vector3Int(x, y + 1, 0);
-
-        //敵が生成ポジにいるとき
-        if (m[x, y] == 0)
+        //敵が左下から沸いたとき
+        if (x < 6 && y < 6)
         {
-            nextX = m[x + 1, y];
-            nextY = m[x, y + 1];
-            //x方向に道があるとき、移動する
-            if (nextX == 1)
+            //敵がいる場所に応じて処理を変える
+            switch (m[x, y])
             {
-                m_rb.velocity = new Vector3(m_move, 0, 0);
+                //敵が生成場所にいるとき
+                case 0:
+                    nextX = m[x + 1, y];
+                    nextY = m[x, y + 1];
+                    //x方向に道があるとき、移動する
+                    if (nextX == 1)
+                    {
+                        m_rb.velocity = new Vector3(m_move, 0, 0);
+                    }
+                    //y方向に道があるとき、移動する
+                    if (nextY == 1)
+                    {
+                        m_rb.velocity = new Vector3(0, m_move, 0);
+                    }
+                    break;
+                //敵が道にいるとき
+                case 1:
+                    nextX = m[x + 1, y];
+                    nextY = m[x, y + 1];
+                    //x方向に道があるとき、移動する
+                    if (nextX == 1)
+                    {
+                        m_rb.velocity = new Vector3(m_move, 0, 0);
+                    }
+                    //y方向に道があるとき、移動する
+                    if (nextY == 1)
+                    {
+                        m_rb.velocity = new Vector3(0, m_move, 0);
+                    }
+                    //x方向に拠点があるとき、移動する
+                    if (nextX == 3)
+                    {
+                        m_rb.velocity = new Vector3(m_move, 0, 0);
+                    }
+                    //y方向に拠点があるとき、移動する
+                    if (nextY == 3)
+                    {
+                        m_rb.velocity = new Vector3(0, m_move, 0);
+                    }
+                    break;
+                //敵が拠点にいるとき
+                case 3:
+                    m_rb.velocity = new Vector3(0, 0, 0);
+                    break;
             }
         }
-        //敵が道にいるとき
-        if (m[x, y] == 1)
+        //敵が左上から沸いたとき
+        if (x < 6 && y > 6)
         {
-            nextX = m[x + 1, y];
-            nextY = m[x, y + 1];
-            //x方向に道があるとき、移動する
-            if (nextX == 1)
-            {
-                m_rb.velocity = new Vector3(m_move, 0, 0);
-            }
-            //y方向に道があるとき、移動する
-            if (nextY == 1)
-            {
-                m_rb.velocity = new Vector3(0, m_move, 0);
-            }
-            //x方向に拠点があるとき、移動する
-            if (nextX == 3)
-            {
-                m_rb.velocity = new Vector3(m_move, 0, 0);
-            }
-            //y方向に拠点があるとき、移動する
-            if (nextY == 3)
-            {
-                m_rb.velocity = new Vector3(0, m_move, 0);
-            }
+            Debug.Log("左上");
         }
-        //敵が拠点にたどり着いたら行動を止める
-        if (m[x, y] == 3)
+        //敵が右下から沸いたとき
+        if (x > 6 && y < 6)
         {
-            m_rb.velocity = new Vector3(0, 0, 0);
+            Debug.Log("右下");
+        }
+        //敵が右上から沸いたとき
+        if (x > 6 && y > 6)
+        {
+            Debug.Log("右上");
         }
     }
 }

@@ -15,24 +15,8 @@ public class Test : MonoBehaviour
     /// <summary>障害物のタイル</summary>
     Tile[] m_wallTile;
 
-    //敵生成のテスト用マップ
-    int[,] map = new int[13, 13]{
-        {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2},
-        {1, 1, 1, 2, 4, 2, 4, 2, 2, 2, 1, 2, 2},
-        {2, 2, 1, 2, 4, 2, 2, 4, 2, 1, 1, 2, 4},
-        {2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2},
-        {2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 2, 4, 2},
-        {2, 2, 2, 2, 2, 3, 3, 3, 4, 2, 2, 2, 2},
-        {2, 2, 4, 2, 2, 3, 3, 3, 2, 2, 4, 2, 4},
-        {2, 2, 2, 2, 4, 3, 3, 3, 2, 4, 2, 2, 2},
-        {2, 4, 2, 2, 1, 1, 2, 1, 2, 2, 2, 4, 2},
-        {2, 2, 2, 1, 1, 2, 2, 1, 2, 4, 2, 2, 2},
-        {2, 2, 2, 1, 4, 2, 4, 1, 2, 2, 2, 2, 2},
-        {2, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 4, 2},
-        {2, 2, 4, 2, 2, 4, 2, 2, 2, 4, 2, 2, 2}
-    };
     //mapを配列で定義
-    /*int[,] map = new int[13, 13]{
+    int[,] map = new int[13, 13]{
         {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 0},
         {1, 1, 1, 2, 4, 2, 4, 2, 2, 2, 1, 2, 2},
         {2, 2, 1, 2, 4, 2, 2, 4, 2, 1, 1, 2, 4},
@@ -46,7 +30,7 @@ public class Test : MonoBehaviour
         {2, 2, 2, 1, 4, 2, 4, 1, 2, 2, 2, 2, 2},
         {2, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 4, 2},
         {0, 1, 4, 2, 2, 4, 2, 2, 2, 4, 1, 1, 0}
-    };*/
+    };
     //プロパティ
     public int[,] Map
     {
@@ -66,11 +50,6 @@ public class Test : MonoBehaviour
         TestMap(m_startTile[0], m_enemyRoadTile[0], m_prayerRoadTile[0], m_hubTile[0], m_wallTile[0], m_vector3Int);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     void TestMap(Tile es ,Tile er, Tile pr, Tile hu, Tile ob, Vector3Int position)
     {
         //mapの配列にTileを配置

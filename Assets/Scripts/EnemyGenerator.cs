@@ -9,7 +9,6 @@ public class EnemyGenerator : MonoBehaviour
     GameObject mapGene;
     /// <summary>敵の生成ポジション </summary>
     Vector3Int enePosition;
-    
 
     void Start()
     {
@@ -23,11 +22,6 @@ public class EnemyGenerator : MonoBehaviour
             }
         }
         //敵を生成する時間を決める
-    }
-
-    void Update()
-    {
-        
     }
 
     void EneGene(int x, int y)
