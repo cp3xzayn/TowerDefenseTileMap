@@ -16,6 +16,8 @@ public class MapGenerator : MonoBehaviour
     Tile[] m_hubTile;
     /// <summary>障害物のタイル</summary>
     Tile[] m_wallTile;
+    /// <summary> Playerが歩ける拠点のタイル</summary>
+    Tile[] m_hubRoadTile;
 
     //mapを配列で定義
     int[,] map = new int[13, 13]{
@@ -24,9 +26,9 @@ public class MapGenerator : MonoBehaviour
         {2, 2, 1, 2, 4, 2, 2, 4, 2, 1, 1, 2, 4},
         {2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2},
         {2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 2, 4, 2},
-        {2, 2, 2, 2, 2, 3, 3, 3, 4, 2, 2, 2, 2},
-        {2, 2, 4, 2, 2, 3, 3, 3, 2, 2, 4, 2, 4},
-        {2, 2, 2, 2, 4, 3, 3, 3, 2, 4, 2, 2, 2},
+        {2, 2, 2, 2, 2, 3, 5, 3, 4, 2, 2, 2, 2},
+        {2, 2, 4, 2, 2, 5, 6, 5, 2, 2, 4, 2, 4},
+        {2, 2, 2, 2, 4, 3, 5, 3, 2, 4, 2, 2, 2},
         {2, 4, 2, 2, 1, 1, 2, 1, 2, 2, 2, 4, 2},
         {2, 2, 2, 1, 1, 2, 2, 1, 2, 4, 2, 2, 2},
         {2, 2, 2, 1, 4, 2, 4, 1, 2, 2, 2, 2, 2},
@@ -48,11 +50,12 @@ public class MapGenerator : MonoBehaviour
         m_prayerRoadTile = Resources.LoadAll<Tile>("PlayerRoadPalette");
         m_hubTile = Resources.LoadAll<Tile>("HubPalette");
         m_wallTile = Resources.LoadAll<Tile>("WallPalette");
+        m_hubRoadTile = Resources.LoadAll<Tile>("HubRoadPalette");
         Vector3Int m_vector3Int = new Vector3Int(0, 0, 0);
-        TestMap(m_startTile[0], m_enemyRoadTile[0], m_prayerRoadTile[0], m_hubTile[0], m_wallTile[0], m_vector3Int);
+        TestMap(m_startTile[0], m_enemyRoadTile[0], m_prayerRoadTile[0], m_hubTile[0], m_wallTile[0], m_hubRoadTile[0], m_vector3Int);
     }
 
-    void TestMap(Tile es, Tile er, Tile pr, Tile hu, Tile ob, Vector3Int position)
+    void TestMap(Tile es, Tile er, Tile pr, Tile hu, Tile ob, Tile hr, Vector3Int position)
     {
         //mapの配列にTileを配置
         for (int i = 0; i < 13; i++)
@@ -76,6 +79,12 @@ public class MapGenerator : MonoBehaviour
                         break;
                     case 4:
                         m_tilemap.SetTile(position, ob);
+                        break;
+                    case 5:
+                        m_tilemap.SetTile(position, hr);
+                        break;
+                    case 6:
+                        m_tilemap.SetTile(position, hr);
                         break;
                 }
             }
