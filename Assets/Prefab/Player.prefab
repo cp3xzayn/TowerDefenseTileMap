@@ -137,6 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94eb51cb73469804682b9184b012dd31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_weapon: {fileID: 5685796748864981260, guid: 48c383e572049b44c828ab1c1225b5d4,
+    type: 3}
   m_walkSpeed: 3
 --- !u!58 &4189833007633390247
 CircleCollider2D:
