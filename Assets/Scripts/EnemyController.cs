@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-
-    [SerializeField] float up = 1.0f;
-    /// <summary>移動速度</summary>
-    [SerializeField] float m_walkSpeed = 1f;
-    /// <summary>直前に移動した方向</summary>
-    Vector2 m_lastMovedDirection;
+    GameObject m_mapGene;
+    GameObject m_eneGene;
+    //敵の進むスピード
+    [SerializeField] float m_move = 0.2f;
     SpriteRenderer m_sprite;
     Animator m_anim;
     Rigidbody2D m_rb;
+    //敵のポジション
+    Vector3 m_enePos;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +20,238 @@ public class EnemyController : MonoBehaviour
         m_sprite = GetComponent<SpriteRenderer>();
         m_rb = GetComponent<Rigidbody2D>();
         m_anim = GetComponent<Animator>();
-
-    // Start is called before the first frame update
-    void Start()
-    {
-     
+        m_mapGene = GameObject.Find("MapGenerator");
+        m_eneGene = GameObject.Find("EnemyGenerator");
     }
 
     // Update is called once per frame
     void Update()
     {
-        //敵を移動させる
-        m_rb.velocity = new Vector3(0, up, 0);
+        m_enePos = this.transform.position;
+        HowToMove(m_enePos.x, m_enePos.y, m_enePos);
+    }
+
+    public void HowToMove(float fx, float fy, Vector3 enePos)
+    {
+        //取得した座標を整数に戻す(切り下げ)
+        int x = (int)Mathf.Floor(fx);
+        int y = (int)Mathf.Floor(fy);
+        //取得した座標を整数に戻す(切り上げ)
+        int x2 = (int)Mathf.Ceil(fx);
+        int y2 = (int)Mathf.Ceil(fy);
+        //Mapの情報を取得する
+        Test t = m_mapGene.GetComponent<Test>();
+        int[,] m = t.Map;
+        //進んだ先の配列の情報を取得するための変数
+        int nextX;
+        int nextY;
+        //敵が左下から沸いたとき
+        if (x < 6 && y < 6)
+        {
+            //敵がいる場所に応じて処理を変える
+            switch (m[x, y])
+            {
+                //敵が生成場所にいるとき
+                case 0:
+                    nextX = m[x + 1, y];
+                    nextY = m[x, y + 1];
+                    //x方向に道があるとき、移動する
+                    if (nextX == 1)
+                    {
+                        m_rb.velocity = new Vector3(m_move, 0, 0);
+                    }
+                    //y方向に道があるとき、移動する
+                    if (nextY == 1)
+                    {
+                        m_rb.velocity = new Vector3(0, m_move, 0);
+                    }
+                    break;
+                //敵が道にいるとき
+                case 1:
+                    nextX = m[x + 1, y];
+                    nextY = m[x, y + 1];
+                    //x方向に道があるとき、移動する
+                    if (nextX == 1)
+                    {
+                        m_rb.velocity = new Vector3(m_move, 0, 0);
+                    }
+                    //y方向に道があるとき、移動する
+                    if (nextY == 1)
+                    {
+                        m_rb.velocity = new Vector3(0, m_move, 0);
+                    }
+                    //x方向に拠点があるとき、移動する
+                    if (nextX == 3)
+                    {
+                        m_rb.velocity = new Vector3(m_move, 0, 0);
+                    }
+                    //y方向に拠点があるとき、移動する
+                    if (nextY == 3)
+                    {
+                        m_rb.velocity = new Vector3(0, m_move, 0);
+                    }
+                    break;
+                //敵が拠点にいるとき
+                case 3:
+                    m_rb.velocity = new Vector3(0, 0, 0);
+                    break;
+            }
+        }
+        //敵が左上から沸いたとき
+        if (x < 6 && y2 > 6)
+        {
+            //敵がいる場所に応じて処理を変える
+            switch (m[x, y2])
+            {
+                //敵が生成場所にいるとき
+                case 0:
+                    nextX = m[x + 1, y2];
+                    nextY = m[x, y2 - 1];
+                    //x方向に道があるとき、移動する
+                    if (nextX == 1)
+                    {
+                        m_rb.velocity = new Vector3(m_move, 0, 0);
+                    }
+                    //y方向に道があるとき、移動する
+                    if (nextY == 1)
+                    {
+                        m_rb.velocity = new Vector3(0, -m_move, 0);
+                    }
+                    break;
+                //敵が道にいるとき
+                case 1:
+                    nextX = m[x + 1, y2];
+                    nextY = m[x, y2 - 1];
+                    //x方向に道があるとき、移動する
+                    if (nextX == 1)
+                    {
+                        m_rb.velocity = new Vector3(m_move, 0, 0);
+                    }
+                    //y方向に道があるとき、移動する
+                    if (nextY == 1)
+                    {
+                        m_rb.velocity = new Vector3(0, -m_move, 0);
+                    }
+                    //x方向に拠点があるとき、移動する
+                    if (nextX == 3)
+                    {
+                        m_rb.velocity = new Vector3(m_move, 0, 0);
+                    }
+                    //y方向に拠点があるとき、移動する
+                    if (nextY == 3)
+                    {
+                        m_rb.velocity = new Vector3(0, -m_move, 0);
+                    }
+                    break;
+                //敵が拠点にいるとき
+                case 3:
+                    m_rb.velocity = new Vector3(0, 0, 0);
+                    break;
+            }
+        }
+        //敵が右下から沸いたとき
+        if (x2 > 6 && y < 6)
+        {
+            //敵がいる場所に応じて処理を変える
+            switch (m[x2, y])
+            {
+                //敵が生成場所にいるとき
+                case 0:
+                    nextX = m[x2 - 1, y];
+                    nextY = m[x2, y + 1];
+                    //x方向に道があるとき、移動する
+                    if (nextX == 1)
+                    {
+                        m_rb.velocity = new Vector3(-m_move, 0, 0);
+                    }
+                    //y方向に道があるとき、移動する
+                    if (nextY == 1)
+                    {
+                        m_rb.velocity = new Vector3(0, m_move, 0);
+                    }
+                    break;
+                //敵が道にいるとき
+                case 1:
+                    nextX = m[x2 - 1, y];
+                    nextY = m[x2, y + 1];
+                    //x方向に道があるとき、移動する
+                    if (nextX == 1)
+                    {
+                        m_rb.velocity = new Vector3(-m_move, 0, 0);
+                    }
+                    //y方向に道があるとき、移動する
+                    if (nextY == 1)
+                    {
+                        m_rb.velocity = new Vector3(0, m_move, 0);
+                    }
+                    //x方向に拠点があるとき、移動する
+                    if (nextX == 3)
+                    {
+                        m_rb.velocity = new Vector3(-m_move, 0, 0);
+                    }
+                    //y方向に拠点があるとき、移動する
+                    if (nextY == 3)
+                    {
+                        m_rb.velocity = new Vector3(0, m_move, 0);
+                    }
+                    break;
+                //敵が拠点にいるとき
+                case 3:
+                    m_rb.velocity = new Vector3(0, 0, 0);
+                    break;
+            }
+        }
+        //敵が右上から沸いたとき
+        if (x2 > 6 && y2 > 6)
+        {
+            //敵がいる場所に応じて処理を変える
+            switch (m[x2, y2])
+            {
+                //敵が生成場所にいるとき
+                case 0:
+                    nextX = m[x2 - 1, y2];
+                    nextY = m[x2, y2 - 1];
+                    //x方向に道があるとき、移動する
+                    if (nextX == 1)
+                    {
+                        m_rb.velocity = new Vector3(-m_move, 0, 0);
+                    }
+                    //y方向に道があるとき、移動する
+                    if (nextY == 1)
+                    {
+                        m_rb.velocity = new Vector3(0, -m_move, 0);
+                    }
+                    break;
+                //敵が道にいるとき
+                case 1:
+                    nextX = m[x2 - 1, y2];
+                    nextY = m[x2, y2 - 1];
+                    //x方向に道があるとき、移動する
+                    if (nextX == 1)
+                    {
+                        m_rb.velocity = new Vector3(-m_move, 0, 0);
+                    }
+                    //y方向に道があるとき、移動する
+                    if (nextY == 1)
+                    {
+                        m_rb.velocity = new Vector3(0, -m_move, 0);
+                    }
+                    //x方向に拠点があるとき、移動する
+                    if (nextX == 3)
+                    {
+                        m_rb.velocity = new Vector3(-m_move, 0, 0);
+                    }
+                    //y方向に拠点があるとき、移動する
+                    if (nextY == 3)
+                    {
+                        m_rb.velocity = new Vector3(0, -m_move, 0);
+                    }
+                    break;
+                //敵が拠点にいるとき
+                case 3:
+                    m_rb.velocity = new Vector3(0, 0, 0);
+                    break;
+            }
+        }
     }
 }
