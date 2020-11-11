@@ -13,7 +13,10 @@ public class EnemyGenerator : MonoBehaviour
     void Start()
     {
         mapGene = GameObject.Find("MapGenerator");
-        //Mapを検索し、敵を生成する
+    }
+    //ボタンが押されたら敵を生成する
+    public void OnClickEneGene()
+    {
         for (int i = 0; i < 13; i++)
         {
             for (int j = 0; j < 13; j++)
@@ -21,7 +24,6 @@ public class EnemyGenerator : MonoBehaviour
                 EneGene(i, j);
             }
         }
-        //敵を生成する時間を決める
     }
 
     void EneGene(int x, int y)

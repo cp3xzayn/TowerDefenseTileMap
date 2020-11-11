@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D))]
 public class TopdownPlayerController2D : MonoBehaviour
 {
+    GameObject m_mapGene;
+    /// <summary>兵器のオブジェクト</summary>
+    [SerializeField] GameObject m_weapon;
     /// <summary>移動速度</summary>
     [SerializeField] float m_walkSpeed = 1f;
     /// <summary>直前に移動した方向</summary>
@@ -13,24 +16,28 @@ public class TopdownPlayerController2D : MonoBehaviour
     Animator m_anim;
     Rigidbody2D m_rb;
     bool m_isWalking;
+    /// <summary> プレイヤーのポジション </summary>
+    Vector3 plaPos;
+    /// <summary>兵器を置くポジション</summary>
+    Vector3Int weaPos;
 
     void Start()
     {
         m_sprite = GetComponent<SpriteRenderer>();
         m_rb = GetComponent<Rigidbody2D>();
         m_anim = GetComponent<Animator>();
+        m_mapGene = GameObject.Find("MapGenerator");
     }
 
     void Update()
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
-
+        plaPos = this.transform.position;
         Vector2 dir = AdjustInputDirection(h, v);   // 入力方向を４方向に変換（制限）する
         // オブジェクトを動かす
         //transform.Translate(m_walkSpeed * dir * Time.deltaTime);    // このやり方でもできるが、コライダーにめり込む
         m_rb.velocity = dir * m_walkSpeed;
-
         // 入力方向によって左右の向きを変える
         if (dir.x != 0)
         {
@@ -46,17 +53,36 @@ public class TopdownPlayerController2D : MonoBehaviour
         {
             m_isWalking = true;
         }
-        
         m_anim.SetBool("IsWalking", m_isWalking);
-
         m_anim.SetFloat("InputX", Mathf.Abs(dir.x));
         m_anim.SetFloat("InputY", dir.y);
         m_lastMovedDirection = dir;
+
+        //Mapの情報を取得する
+        MapGenerator t = m_mapGene.GetComponent<MapGenerator>();
+        int[,] m = t.Map;
+        //playerのポジションを四捨五入して兵器のポジションを決める
+        weaPos.x = Mathf.RoundToInt(plaPos.x);
+        weaPos.y = Mathf.RoundToInt(plaPos.y);
+        //拠点以外のタイルの場合に
+        if (m[weaPos.x, weaPos.y] != 5 && m[weaPos.x, weaPos.y] != 6)
+        {
+            //Keyを押されたとき兵器を置く
+            if (Input.GetKeyDown("space"))
+            {
+                Instantiate(m_weapon, weaPos, Quaternion.identity);
+                StartCoroutine("SetWeapon");
+            }
+        }
     }
 
-    private void LateUpdate()
+    IEnumerator SetWeapon()
     {
-        
+        //レイヤーをWeaponSetに変更
+        gameObject.layer = LayerMask.NameToLayer("WeaponSet");
+        yield return new WaitForSeconds(1f);
+        //レイヤーをPlayerに戻す
+        gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
     /// <summary>
