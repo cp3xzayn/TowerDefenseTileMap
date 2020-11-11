@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
         int x2 = (int)Mathf.Ceil(fx);
         int y2 = (int)Mathf.Ceil(fy);
         //Mapの情報を取得する
-        Test t = m_mapGene.GetComponent<Test>();
+        MapGenerator t = m_mapGene.GetComponent<MapGenerator>();
         int[,] m = t.Map;
         //進んだ先の配列の情報を取得するための変数
         int nextX;

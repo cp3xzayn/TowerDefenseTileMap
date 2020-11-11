@@ -27,7 +27,7 @@ public class EnemyGenerator : MonoBehaviour
     void EneGene(int x, int y)
     {
         //Mapの情報を取得する
-        Test t = mapGene.GetComponent<Test>();
+        MapGenerator t = mapGene.GetComponent<MapGenerator>();
         int[,] m = t.Map;
         enePosition = new Vector3Int(x, y, 0);
         //TileがEnemyStartの時生成する
