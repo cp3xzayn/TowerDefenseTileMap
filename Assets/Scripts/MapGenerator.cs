@@ -18,6 +18,8 @@ public class MapGenerator : MonoBehaviour
     Tile[] m_wallTile;
     /// <summary> Playerが歩ける拠点のタイル</summary>
     Tile[] m_hubRoadTile;
+    /// <summary>mapの幅</summary>
+    [SerializeField] int m_mapWidth = 13;
 
     //mapを配列で定義
     int[,] map = new int[13, 13]{
@@ -36,10 +38,7 @@ public class MapGenerator : MonoBehaviour
         {0, 1, 4, 2, 2, 4, 2, 2, 2, 4, 1, 1, 0}
     };
     //プロパティ
-    public int[,] Map
-    {
-        get { return map; }//取得用
-    }
+    public int[,] Map { get { return map; } }
 
     // Start is called before the first frame update
     void Start()
@@ -58,9 +57,9 @@ public class MapGenerator : MonoBehaviour
     void TestMap(Tile es, Tile er, Tile pr, Tile hu, Tile ob, Tile hr, Vector3Int position)
     {
         //mapの配列にTileを配置
-        for (int i = 0; i < 13; i++)
+        for (int i = 0; i < m_mapWidth; i++)
         {
-            for (int j = 0; j < 13; j++)
+            for (int j = 0; j < m_mapWidth; j++)
             {
                 position = new Vector3Int(i, j, 0);
                 switch (map[i, j])
