@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_player;
     /// <summary>プレイヤーの生成ポジション </summary>
     Vector3Int plaPosition;
+
     // Start is called before the first frame update
     void Start()
     {
