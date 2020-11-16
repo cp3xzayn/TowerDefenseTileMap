@@ -6,70 +6,87 @@ using UnityEngine.Tilemaps;
 public class MapGenerator : MonoBehaviour
 {
     [SerializeField] Tilemap m_tilemap;
-    /// <summary>部屋のxの長さ</summary>
-    [SerializeField] int m_roomX = 5;
-    /// <summary>部屋のyの長さ</summary>
-    [SerializeField] int m_roomY = 5;
-    /// <summary>壁のタイル</summary>
-    Tile[] m_wallTile;
-    /// <summary>道のタイル</summary>
-    Tile[] m_roadTile;
-    /// <summary>スタートのタイル/ </summary>
+    /// <summary>敵のスタート位置のタイル/ </summary>
     Tile[] m_startTile;
-    /// <summary>スタートのタイル/ </summary>
-    Tile[] m_goalTile;
+    /// <summary>敵の歩く道のタイル</summary>
+    Tile[] m_enemyRoadTile;
+    /// <summary>Playerの歩く道のタイル </summary>
+    Tile[] m_prayerRoadTile;
+    /// <summary>拠点のタイル </summary>
+    Tile[] m_hubTile;
+    /// <summary>障害物のタイル</summary>
+    Tile[] m_wallTile;
+    /// <summary> Playerが歩ける拠点のタイル</summary>
+    Tile[] m_hubRoadTile;
+    /// <summary>mapの幅</summary>
+    [SerializeField] int m_mapWidth = 13;
+
+    //mapを配列で定義
+    int[,] map = new int[13, 13]{
+        {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 0},
+        {1, 1, 1, 2, 4, 2, 4, 2, 2, 2, 1, 2, 2},
+        {2, 2, 1, 2, 4, 2, 2, 4, 2, 1, 1, 2, 4},
+        {2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2},
+        {2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 2, 4, 2},
+        {2, 2, 2, 2, 2, 3, 5, 3, 4, 2, 2, 2, 2},
+        {2, 2, 4, 2, 2, 5, 6, 5, 2, 2, 4, 2, 4},
+        {2, 2, 2, 2, 4, 3, 5, 3, 2, 4, 2, 2, 2},
+        {2, 4, 2, 2, 1, 1, 2, 1, 2, 2, 2, 4, 2},
+        {2, 2, 2, 1, 1, 2, 2, 1, 2, 4, 2, 2, 2},
+        {2, 2, 2, 1, 4, 2, 4, 1, 2, 2, 2, 2, 2},
+        {2, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 4, 2},
+        {0, 1, 4, 2, 2, 4, 2, 2, 2, 4, 1, 1, 0}
+    };
+    //プロパティ
+    public int[,] Map { get { return map; } }
+
     // Start is called before the first frame update
     void Start()
     {
         //Resourcesフォルダーからタイルを読み込む
-        m_roadTile = Resources.LoadAll<Tile>("RoadPalette");
-        m_wallTile = Resources.LoadAll<Tile>("WallPalette");
         m_startTile = Resources.LoadAll<Tile>("StartPalette");
-        m_goalTile = Resources.LoadAll<Tile>("GoalPalette");
+        m_enemyRoadTile = Resources.LoadAll<Tile>("EnemyRoadPalette");
+        m_prayerRoadTile = Resources.LoadAll<Tile>("PlayerRoadPalette");
+        m_hubTile = Resources.LoadAll<Tile>("HubPalette");
+        m_wallTile = Resources.LoadAll<Tile>("WallPalette");
+        m_hubRoadTile = Resources.LoadAll<Tile>("HubRoadPalette");
         Vector3Int m_vector3Int = new Vector3Int(0, 0, 0);
-        AutoMaping(m_wallTile[0], m_roadTile[0], m_startTile[0], m_goalTile[0], m_vector3Int, m_roomX, m_roomY);
+        TestMap(m_startTile[0], m_enemyRoadTile[0], m_prayerRoadTile[0], m_hubTile[0], m_wallTile[0], m_hubRoadTile[0], m_vector3Int);
     }
 
-    // Update is called once per frame
-    void Update()
+    void TestMap(Tile es, Tile er, Tile pr, Tile hu, Tile ob, Tile hr, Vector3Int position)
     {
-
-    }
-    void AutoMaping(Tile wallTile, Tile roadTile, Tile startTile, Tile goalTile, Vector3Int position, int roomX, int roomY)
-    {
-        //roomX×roomYの部屋を想定(xの横並びで考える)
-        Tile[,] tile = new Tile[roomX, roomY];
-        //置くtileを配列に収納
-        for (int i = 0; i < roomX; i++)
+        //mapの配列にTileを配置
+        for (int i = 0; i < m_mapWidth; i++)
         {
-            for (int j = 0; j < roomY; j++)
+            for (int j = 0; j < m_mapWidth; j++)
             {
-                tile[i, j] = roadTile;
                 position = new Vector3Int(i, j, 0);
-                m_tilemap.SetTile(position, tile[i, j]);
+                switch (map[i, j])
+                {
+                    case 0:
+                        m_tilemap.SetTile(position, es);
+                        break;
+                    case 1:
+                        m_tilemap.SetTile(position, er);
+                        break;
+                    case 2:
+                        m_tilemap.SetTile(position, pr);
+                        break;
+                    case 3:
+                        m_tilemap.SetTile(position, hu);
+                        break;
+                    case 4:
+                        m_tilemap.SetTile(position, ob);
+                        break;
+                    case 5:
+                        m_tilemap.SetTile(position, hr);
+                        break;
+                    case 6:
+                        m_tilemap.SetTile(position, hr);
+                        break;
+                }
             }
         }
-        //スタートゴール、障害物を配列に格納する
-        tile[0, 0] = startTile;
-        tile[3, 0] = wallTile;
-        tile[4, 0] = wallTile;
-        tile[4, 1] = wallTile;
-        tile[1, 2] = wallTile;
-        tile[3, 2] = wallTile;
-        tile[2, 3] = wallTile;
-        tile[0, 4] = wallTile;
-        tile[4, 4] = goalTile;
-
-        //スタート、ゴール、障害物をマップに配置
-        m_tilemap.SetTile(new Vector3Int(0, 0, 0), tile[0, 0]);
-        m_tilemap.SetTile(new Vector3Int(3, 0, 0), tile[3, 0]);
-        m_tilemap.SetTile(new Vector3Int(4, 0, 0), tile[4, 0]);
-        m_tilemap.SetTile(new Vector3Int(4, 1, 0), tile[4, 1]);
-        m_tilemap.SetTile(new Vector3Int(1, 2, 0), tile[1, 2]);
-        m_tilemap.SetTile(new Vector3Int(3, 2, 0), tile[3, 2]);
-        m_tilemap.SetTile(new Vector3Int(2, 3, 0), tile[2, 3]);
-        m_tilemap.SetTile(new Vector3Int(0, 4, 0), tile[0, 4]);
-        m_tilemap.SetTile(new Vector3Int(4, 4, 0), tile[4, 4]);
-
     }
 }
