@@ -204,6 +204,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
 --- !u!1001 &2450994060290908512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211,6 +212,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+
     - target: {fileID: 2450994060733675586, guid: 5a7fb2a04c3f04f4389ef3dd7eb5a3b5,
         type: 3}
       propertyPath: m_Name
@@ -226,26 +228,31 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+
     - target: {fileID: 2450994060733675589, guid: 5a7fb2a04c3f04f4389ef3dd7eb5a3b5,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+
     - target: {fileID: 2450994060733675589, guid: 5a7fb2a04c3f04f4389ef3dd7eb5a3b5,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+
     - target: {fileID: 2450994060733675589, guid: 5a7fb2a04c3f04f4389ef3dd7eb5a3b5,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
+
     - target: {fileID: 2450994060733675589, guid: 5a7fb2a04c3f04f4389ef3dd7eb5a3b5,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
+
     - target: {fileID: 2450994060733675589, guid: 5a7fb2a04c3f04f4389ef3dd7eb5a3b5,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -256,6 +263,7 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8564459207103592987, guid: 5115bab0d455c30438425c4f81fb8d31,
     - target: {fileID: 2450994060733675589, guid: 5a7fb2a04c3f04f4389ef3dd7eb5a3b5,
         type: 3}
       propertyPath: m_RootOrder
@@ -276,6 +284,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+
     - target: {fileID: 2450994060733675590, guid: 5a7fb2a04c3f04f4389ef3dd7eb5a3b5,
         type: 3}
       propertyPath: m_weapon
