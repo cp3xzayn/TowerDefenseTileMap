@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6223268539372935611}
   - component: {fileID: 3010330325437171750}
   - component: {fileID: 3971251192486797388}
+  - component: {fileID: -1967504684178449667}
   m_Layer: 10
   m_Name: Weapon
   m_TagString: Untagged
@@ -98,3 +99,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.08
+--- !u!114 &-1967504684178449667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5685796748864981260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e415da9ee8aaf0347b7927e5617022cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_bullet: {fileID: 6055790965858718003, guid: 5115bab0d455c30438425c4f81fb8d31,
+    type: 3}
