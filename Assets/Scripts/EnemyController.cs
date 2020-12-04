@@ -254,4 +254,13 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+
+    //弾が当たったとき敵を破壊する
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
