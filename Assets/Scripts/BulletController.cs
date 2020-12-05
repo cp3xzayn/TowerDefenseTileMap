@@ -23,6 +23,7 @@ public class BulletController : MonoBehaviour
         m_goalPosition = m_enemy.transform.position;
         //二点間の距離を代入
         m_distance = Vector2.Distance(m_startPosition, m_goalPosition);
+        
     }
 
     // Update is called once per frame

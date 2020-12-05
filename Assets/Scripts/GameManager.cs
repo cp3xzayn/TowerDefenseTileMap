@@ -9,10 +9,18 @@ public class GameManager : MonoBehaviour
     /// <summary>プレイヤーの生成ポジション </summary>
     Vector3Int plaPosition;
 
+    enum GameState
+    {
+        Preparation,
+        Battle,
+        Finish
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         m_mapGene = GameObject.Find("MapGenerator");
+        //playerを生成する
         for (int i = 0; i < 13; i++)
         {
             for (int j = 0; j < 13; j++)
@@ -28,6 +36,7 @@ public class GameManager : MonoBehaviour
         
     }
 
+    //playerを生成する関数
     void PlayerInstance(int x, int y)
     {
         //Mapの情報を取得する
