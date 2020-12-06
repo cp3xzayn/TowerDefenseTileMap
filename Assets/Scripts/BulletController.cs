@@ -24,7 +24,7 @@ public class BulletController : MonoBehaviour
         m_weapon = GameObject.FindGameObjectWithTag("Weapon");
         m_goalPosition = m_weapon.GetComponent<WeaponManager>().EnemyPos;
         //二点間の距離を代入
-        m_distance = Vector2.Distance(m_startPosition, m_goalPosition);
+        //m_distance = Vector2.Distance(m_startPosition, m_goalPosition);
         
     }
 
@@ -32,11 +32,12 @@ public class BulletController : MonoBehaviour
     void Update()
     {
         // 現在の位置
-        float nowLocation = (Time.time * m_speed) / m_distance;
+        //float nowLocation = (Time.time * m_speed) / m_distance;
         //オブジェクトの移動
-        this.transform.position = Vector2.Lerp(m_startPosition, m_goalPosition, nowLocation);
+        //this.transform.position = Vector2.Lerp(m_startPosition, m_goalPosition, nowLocation);
+        this.transform.position = m_goalPosition;
         m_time += Time.deltaTime;
-        if (m_time > 2.0f)
+        if (m_time > 3.0f)
         {
             Destroy(this.gameObject);
         }
