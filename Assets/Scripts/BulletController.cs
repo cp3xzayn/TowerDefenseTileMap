@@ -6,7 +6,7 @@ public class BulletController : MonoBehaviour
 {
     // スピード
     [SerializeField]float m_speed = 1.0f;
-    private GameObject m_enemy;
+    private GameObject m_weapon;
     /// <summary>弾の生成ポジション</summary>
     private Vector3 m_startPosition;
     /// <summary>敵のポジション</summary>
@@ -14,13 +14,15 @@ public class BulletController : MonoBehaviour
     /// <summary>二点間の距離/summary>
     private float m_distance;
 
+    private float m_time;
+
     // Start is called before the first frame update
     void Start()
     {
         //弾と敵のポジションを取得する
         m_startPosition = this.transform.position;
-        m_enemy = GameObject.FindGameObjectWithTag("Enemy");
-        m_goalPosition = m_enemy.transform.position;
+        m_weapon = GameObject.FindGameObjectWithTag("Weapon");
+        m_goalPosition = m_weapon.GetComponent<WeaponManager>().EnemyPos;
         //二点間の距離を代入
         m_distance = Vector2.Distance(m_startPosition, m_goalPosition);
         
@@ -33,6 +35,11 @@ public class BulletController : MonoBehaviour
         float nowLocation = (Time.time * m_speed) / m_distance;
         //オブジェクトの移動
         this.transform.position = Vector2.Lerp(m_startPosition, m_goalPosition, nowLocation);
+        m_time += Time.deltaTime;
+        if (m_time > 2.0f)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     //敵と当たったら弾を破壊する
@@ -41,7 +48,7 @@ public class BulletController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(this.gameObject);
-            Debug.Log("弾破壊");
+            Debug.Log("敵に当たった、弾破壊");
         }
     }
 }
