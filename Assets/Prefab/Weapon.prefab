@@ -113,5 +113,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bullet: {fileID: 6055790965858718003, guid: 5115bab0d455c30438425c4f81fb8d31,
     type: 3}
-  m_limitRange: 3
-  m_shootTime: 2
+  m_shootTime: 1

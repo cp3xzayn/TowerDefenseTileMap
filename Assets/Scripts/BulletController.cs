@@ -7,25 +7,24 @@ public class BulletController : MonoBehaviour
     // スピード
     [SerializeField]float m_speed = 1.0f;
     private GameObject m_weapon;
+    private GameObject[] m_enemy;
     /// <summary>弾の生成ポジション</summary>
     private Vector3 m_startPosition;
     /// <summary>敵のポジション</summary>
-    private Vector3 m_goalPosition;
+    private Vector3[] m_goalPosition;
     /// <summary>二点間の距離/summary>
     private float m_distance;
+    /// <summary>射程範囲</summary>
+    [SerializeField] float m_limitRange = 3.0f;
 
-    private float m_time;
+    private float m_destroyTime = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        //弾と敵のポジションを取得する
-        m_startPosition = this.transform.position;
-        m_weapon = GameObject.FindGameObjectWithTag("Weapon");
-        m_goalPosition = m_weapon.GetComponent<WeaponManager>().EnemyPos;
         //二点間の距離を代入
         //m_distance = Vector2.Distance(m_startPosition, m_goalPosition);
-        
+        OnShot();
     }
 
     // Update is called once per frame
@@ -35,11 +34,41 @@ public class BulletController : MonoBehaviour
         //float nowLocation = (Time.time * m_speed) / m_distance;
         //オブジェクトの移動
         //this.transform.position = Vector2.Lerp(m_startPosition, m_goalPosition, nowLocation);
-        this.transform.position = m_goalPosition;
-        m_time += Time.deltaTime;
-        if (m_time > 3.0f)
+        //弾を時間で破壊する
+        m_destroyTime -= Time.deltaTime;
+        if (m_destroyTime < 0)
         {
             Destroy(this.gameObject);
+        }
+    }
+
+    public void OnShot()
+    {
+        //弾と敵のポジションを取得する
+        m_startPosition = this.transform.position;
+        m_enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        m_goalPosition = new Vector3[m_enemy.Length];
+        //フィールド上にいる敵を配列に格納
+        for (int i = 0; i < m_enemy.Length; i++)
+        {
+            m_goalPosition[i] = m_enemy[i].transform.position;
+            // 二点間の距離を代入
+            m_distance = Vector3.Distance(m_startPosition, m_goalPosition[i]);
+
+            Debug.Log(m_distance);
+            Debug.Log(m_limitRange);
+            //敵と兵器の距離が範囲内だったら
+            if (m_distance < m_limitRange)
+            {
+                Debug.Log("敵検知、弾発射");
+                this.transform.position = m_goalPosition[i];
+            }
+            //else if (m_distance >= m_limitRange)
+            //{
+                //敵が範囲にいない場合破壊
+                //Debug.Log("敵検知なし");
+                //Destroy(this.gameObject);
+            //}
         }
     }
 
