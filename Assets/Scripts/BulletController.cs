@@ -24,6 +24,10 @@ public class BulletController : MonoBehaviour
     {
         //二点間の距離を代入
         //m_distance = Vector2.Distance(m_startPosition, m_goalPosition);
+        //弾と敵のポジションを取得する
+        m_startPosition = this.transform.position;
+        m_enemy = GameObject.FindGameObjectsWithTag("Enemy");
+        m_goalPosition = new Vector3[m_enemy.Length];
         OnShot();
     }
 
@@ -44,19 +48,12 @@ public class BulletController : MonoBehaviour
 
     public void OnShot()
     {
-        //弾と敵のポジションを取得する
-        m_startPosition = this.transform.position;
-        m_enemy = GameObject.FindGameObjectsWithTag("Enemy");
-        m_goalPosition = new Vector3[m_enemy.Length];
         //フィールド上にいる敵を配列に格納
         for (int i = 0; i < m_enemy.Length; i++)
         {
             m_goalPosition[i] = m_enemy[i].transform.position;
             // 二点間の距離を代入
             m_distance = Vector3.Distance(m_startPosition, m_goalPosition[i]);
-
-            Debug.Log(m_distance);
-            Debug.Log(m_limitRange);
             //敵と兵器の距離が範囲内だったら
             if (m_distance < m_limitRange)
             {
