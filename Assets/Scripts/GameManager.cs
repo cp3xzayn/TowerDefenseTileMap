@@ -2,22 +2,86 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GameState
+{
+    Start,
+    Preparation,
+    Battle,
+    Result,
+    Finish,
+    GameOver
+}
+
 public class GameManager : MonoBehaviour
 {
     GameObject m_mapGene;
+    GameObject m_wepMana;
     [SerializeField] GameObject m_player;
     /// <summary>プレイヤーの生成ポジション </summary>
     Vector3Int plaPosition;
 
-    enum GameState
+    public static GameManager Instance;
+    //現在の状態
+    private GameState nowState;
+
+
+    void Awake()
     {
-        Preparation,
-        Battle,
-        Finish
+        Instance = this;
+        SetNowState(GameState.Start);
     }
 
     // Start is called before the first frame update
     void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    //外からこのメソッドを使って状態を変更
+    public void SetNowState(GameState state)
+    {
+        nowState = state;
+        OnStateChange(nowState);
+    }
+
+    //状態が変わったら何をするか
+    void OnStateChange(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.Start:
+                Debug.Log("GameState.Start");
+                StartAction();
+                break;
+            case GameState.Preparation:
+                Debug.Log("GameState.Preparation");
+                break;
+            case GameState.Battle:
+                Debug.Log("GameState.Battle");
+                //BattleAction();
+                break;
+            case GameState.Result:
+                break;
+            case GameState.Finish:
+                break;
+            case GameState.GameOver:
+                break;
+        }
+    }
+    
+    public void OnClick()
+    {
+        SetNowState(GameState.Battle);
+    }
+
+    //GameStateがStartになったときの処理
+    void StartAction()
     {
         m_mapGene = GameObject.Find("MapGenerator");
         //playerを生成する
@@ -28,12 +92,22 @@ public class GameManager : MonoBehaviour
                 PlayerInstance(i, j);
             }
         }
+        //GameStateを準備期間に変更する
+        SetNowState(GameState.Preparation);
     }
 
-    // Update is called once per frame
-    void Update()
+    //GameStateがPreparationになったときの処理
+    void PreparationAction()
     {
         
+    }
+
+    //GameStateがBattleになったときの処理
+    void BattleAction()
+    {
+        //m_wepMana = GameObject.Find("Weapon");
+        //WeaponManager w = m_wepMana.GetComponent<WeaponManager>();
+        //w.OnShot();
     }
 
     //playerを生成する関数
