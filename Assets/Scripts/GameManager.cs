@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Battle:
                 Debug.Log("GameState.Battle");
-                //BattleAction();
+                BattleAction();
                 break;
             case GameState.Result:
                 break;
@@ -105,9 +105,11 @@ public class GameManager : MonoBehaviour
     //GameStateがBattleになったときの処理
     void BattleAction()
     {
-        //m_wepMana = GameObject.Find("Weapon");
-        //WeaponManager w = m_wepMana.GetComponent<WeaponManager>();
-        //w.OnShot();
+        m_wepMana = GameObject.Find("Weapon(Clone)");
+        WeaponManager w = m_wepMana.GetComponent<WeaponManager>();
+        //FindObjectsOfType<WeaponManager>();
+        //弾生成の関数
+        w.OnShot();
     }
 
     //playerを生成する関数
