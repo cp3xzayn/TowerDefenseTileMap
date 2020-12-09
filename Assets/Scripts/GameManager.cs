@@ -15,10 +15,18 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
     GameObject m_mapGene;
-    GameObject m_wepMana;
+    //GameObject m_wepMana;
+    WeaponManager[] m_wepMana;
+    //WeaponManager[] m_wepMana;
     [SerializeField] GameObject m_player;
     /// <summary>プレイヤーの生成ポジション </summary>
     Vector3Int plaPosition;
+
+    bool isShot;
+    //準備期間の時間
+    [SerializeField] float m_preparationTime = 5f;
+    //弾生成の間隔
+    [SerializeField] float m_shootTime = 2.0f;
 
     public static GameManager Instance;
     //現在の状態
@@ -61,10 +69,11 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Preparation:
                 Debug.Log("GameState.Preparation");
+                //時間が経ったらBattleに変更する
                 break;
             case GameState.Battle:
                 Debug.Log("GameState.Battle");
-                //BattleAction();
+                BattleAction();
                 break;
             case GameState.Result:
                 break;
@@ -99,15 +108,19 @@ public class GameManager : MonoBehaviour
     //GameStateがPreparationになったときの処理
     void PreparationAction()
     {
-        
+        SetNowState(GameState.Battle);
     }
 
     //GameStateがBattleになったときの処理
     void BattleAction()
     {
-        //m_wepMana = GameObject.Find("Weapon");
-        //WeaponManager w = m_wepMana.GetComponent<WeaponManager>();
-        //w.OnShot();
+        //WeaponManagerを探して配列に格納する
+        m_wepMana = FindObjectsOfType<WeaponManager>();
+        foreach (var item in m_wepMana)
+        {
+            //弾生成の関数
+            item.OnShot();
+        }
     }
 
     //playerを生成する関数
