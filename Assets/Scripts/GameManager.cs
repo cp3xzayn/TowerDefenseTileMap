@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
             //敵の生成が終わったら
             if (m_eneWave == -1)
             {
-                SetNowState(GameState.Result);
+                BattleAction();
             }
         }
     }
@@ -142,11 +142,6 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public void OnClick()
-    {
-        SetNowState(GameState.Battle);
-    }
-
     //GameStateがStartになったときの処理
     void StartAction()
     {
@@ -172,14 +167,14 @@ public class GameManager : MonoBehaviour
     //GameStateがBattleになったときの処理
     void BattleAction()
     {
-        
+        SetNowState(GameState.Result);
     }
+
     //GameStateがResultになったときの処理
     void ResultAction()
     {
 
     }
-
 
     //playerを生成する関数
     void PlayerInstance(int x, int y)
@@ -193,4 +188,5 @@ public class GameManager : MonoBehaviour
             Instantiate(m_player, plaPosition, Quaternion.identity);
         }
     }
+    //Playerを初期ポジに戻す
 }

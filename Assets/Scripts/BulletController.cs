@@ -54,21 +54,12 @@ public class BulletController : MonoBehaviour
             m_goalPosition[i] = m_enemy[i].transform.position;
             // 二点間の距離を代入
             m_distance = Vector3.Distance(m_startPosition, m_goalPosition[i]);
-
-            Debug.Log(m_distance);
-            Debug.Log(m_limitRange);
             //敵と兵器の距離が範囲内だったら
             if (m_distance < m_limitRange)
             {
                 Debug.Log("敵検知、弾発射");
                 this.transform.position = m_goalPosition[i];
             }
-            //else if (m_distance >= m_limitRange)
-            //{
-                //敵が範囲にいない場合破壊
-                //Debug.Log("敵検知なし");
-                //Destroy(this.gameObject);
-            //}
         }
     }
 

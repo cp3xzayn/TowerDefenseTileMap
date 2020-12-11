@@ -13,12 +13,7 @@ public class WeaponManager : MonoBehaviour
 
     void Update()
     {
-        //m_time += Time.deltaTime;
-        /*if (m_time > m_shootTime)
-        {
-            OnShot();
-            m_time = 0f;
-        }*/
+        
     }
 
     public void OnShot()
