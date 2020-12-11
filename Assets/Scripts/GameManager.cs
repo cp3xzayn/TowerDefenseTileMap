@@ -22,9 +22,8 @@ public class GameManager : MonoBehaviour
     /// <summary>プレイヤーの生成ポジション </summary>
     Vector3Int plaPosition;
 
-    bool isShot;
     //準備期間の時間
-    [SerializeField] float m_preparationTime = 5f;
+    [SerializeField] float m_preparationTime = 10f;
     //弾生成の間隔
     [SerializeField] float m_shootTime = 2.0f;
 
@@ -48,7 +47,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //GameStateがPreparationの時
+        if (nowState == GameState.Preparation)
+        {
+            //準備時間が終わったら
+            m_preparationTime -= Time.deltaTime;
+            if (m_preparationTime < 0)
+            {
+                //Battleに変更する
+                PreparationAction();
+            }
+        }
     }
 
     //外からこのメソッドを使って状態を変更
@@ -69,7 +78,6 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Preparation:
                 Debug.Log("GameState.Preparation");
-                //時間が経ったらBattleに変更する
                 break;
             case GameState.Battle:
                 Debug.Log("GameState.Battle");
