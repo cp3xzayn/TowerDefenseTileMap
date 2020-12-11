@@ -60,12 +60,6 @@ public class BulletController : MonoBehaviour
                 Debug.Log("敵検知、弾発射");
                 this.transform.position = m_goalPosition[i];
             }
-            //else if (m_distance >= m_limitRange)
-            //{
-                //敵が範囲にいない場合破壊
-                //Debug.Log("敵検知なし");
-                //Destroy(this.gameObject);
-            //}
         }
     }
 
