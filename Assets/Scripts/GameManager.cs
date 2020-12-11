@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     GameObject m_mapGene;
     /// <summary>兵器</summary>
     WeaponManager[] m_wepMana;
+    /// <summary>敵生成のオブジェクト</summary>
+    GameObject m_eneGene;
+    /// <summary>Playerのオブジェクト</summary>
     [SerializeField] GameObject m_player;
     /// <summary>準備時間のTextオブジェクト</summary>
     [SerializeField] GameObject m_preTimeObject;
@@ -26,11 +29,14 @@ public class GameManager : MonoBehaviour
     /// <summary>プレイヤーの生成ポジション </summary>
     Vector3Int plaPosition;
 
-    //準備期間の時間
+    /// <summary>準備期間の時間</summary>
     [SerializeField] float m_preparationTime = 10f;
-    //弾生成の間隔
+    /// <summary>敵生成の間隔 </summary>
+    [SerializeField] float m_eneTime = 3.0f;
+    /// <summary>敵の生成上限 </summary>
+    [SerializeField] int m_eneWave = 3;
+    /// <summary>弾生成の間隔</summary>
     [SerializeField] float m_shootTime = 2.0f;
-
     public static GameManager Instance;
     //現在の状態
     private GameState nowState;
@@ -46,11 +52,16 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         m_preTimeText = m_preTimeObject.GetComponent<Text>();
+        m_eneGene = GameObject.Find("EnemyGenerator");
     }
 
     // Update is called once per frame
     void Update()
     {
+        EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
+        //WeaponManagerを探して配列に格納する
+        m_wepMana = FindObjectsOfType<WeaponManager>();
+
         //GameStateがPreparationの時
         if (nowState == GameState.Preparation)
         {
@@ -62,6 +73,38 @@ public class GameManager : MonoBehaviour
                 m_preTimeText.text = "制限時間 : 0.0";
                 //Battleに変更する
                 PreparationAction();
+            }
+        }
+        //GameStateがBattleの時
+        if (nowState == GameState.Battle)
+        {
+            //生成のクールタイムが終わったら
+            m_eneTime -= Time.deltaTime;
+            if (m_eneTime < 0)
+            {
+                if (m_eneWave > 0)
+                {
+                    //敵を生成
+                    e.OnEneGene();
+                }
+                m_eneWave -= 1;
+                m_eneTime = 10.0f;
+            }
+            //弾のクールタイムが終わったら
+            m_shootTime -= Time.deltaTime;
+            if (m_shootTime < 0)
+            {
+                foreach (var item in m_wepMana)
+                {
+                    //弾生成
+                    item.OnShot();
+                    m_shootTime = 2.0f;
+                }
+            }
+            //敵の生成が終わったら
+            if (m_eneWave == -1)
+            {
+                SetNowState(GameState.Result);
             }
         }
     }
@@ -90,6 +133,7 @@ public class GameManager : MonoBehaviour
                 BattleAction();
                 break;
             case GameState.Result:
+                Debug.Log("GameState.Result");
                 break;
             case GameState.Finish:
                 break;
@@ -128,14 +172,14 @@ public class GameManager : MonoBehaviour
     //GameStateがBattleになったときの処理
     void BattleAction()
     {
-        //WeaponManagerを探して配列に格納する
-        m_wepMana = FindObjectsOfType<WeaponManager>();
-        foreach (var item in m_wepMana)
-        {
-            //弾生成の関数
-            item.OnShot();
-        }
+        
     }
+    //GameStateがResultになったときの処理
+    void ResultAction()
+    {
+
+    }
+
 
     //playerを生成する関数
     void PlayerInstance(int x, int y)
