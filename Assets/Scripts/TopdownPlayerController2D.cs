@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D))]
 public class TopdownPlayerController2D : MonoBehaviour
@@ -20,6 +21,10 @@ public class TopdownPlayerController2D : MonoBehaviour
     Vector3 plaPos;
     /// <summary>兵器を置くポジション</summary>
     Vector3Int weaPos;
+    /// <summary>置くことができる兵器の制限 </summary>
+    [SerializeField] int m_limitWepon = 4;
+    /// <summary>兵器のコスト </summary>
+    int m_weaponCost = 1;
 
     void Start()
     {
@@ -67,11 +72,18 @@ public class TopdownPlayerController2D : MonoBehaviour
         //拠点以外のタイルの場合に
         if (m[weaPos.x, weaPos.y] != 5 && m[weaPos.x, weaPos.y] != 6)
         {
-            //Keyを押されたとき兵器を置く
-            if (Input.GetKeyDown("space"))
+            //兵器コストがあるときに
+            if (m_limitWepon > 0)
             {
-                Instantiate(m_weapon, weaPos, Quaternion.identity);
-                StartCoroutine("SetWeapon");
+                //SpaceKeyを押されたとき兵器を置く
+                if (Input.GetKeyDown("space"))
+                {
+                    Instantiate(m_weapon, weaPos, Quaternion.identity);
+                    StartCoroutine("SetWeapon");
+                    //コストを減らす
+                    m_limitWepon -= m_weaponCost;
+                    Debug.Log("残りコスト" + m_limitWepon);
+                }
             }
         }
     }

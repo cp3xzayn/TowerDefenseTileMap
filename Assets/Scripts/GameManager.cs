@@ -32,11 +32,12 @@ public class GameManager : MonoBehaviour
     /// <summary>準備期間の時間</summary>
     [SerializeField] float m_preparationTime = 10f;
     /// <summary>敵生成の間隔 </summary>
-    [SerializeField] float m_eneTime = 3.0f;
+    [SerializeField] float m_eneGeneTime = 3.0f;
     /// <summary>敵の生成上限 </summary>
     [SerializeField] int m_eneWave = 3;
     /// <summary>弾生成の間隔</summary>
     [SerializeField] float m_shootTime = 2.0f;
+
     public static GameManager Instance;
     //現在の状態
     private GameState nowState;
@@ -61,7 +62,6 @@ public class GameManager : MonoBehaviour
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
         //WeaponManagerを探して配列に格納する
         m_wepMana = FindObjectsOfType<WeaponManager>();
-
         //GameStateがPreparationの時
         if (nowState == GameState.Preparation)
         {
@@ -79,16 +79,17 @@ public class GameManager : MonoBehaviour
         if (nowState == GameState.Battle)
         {
             //生成のクールタイムが終わったら
-            m_eneTime -= Time.deltaTime;
-            if (m_eneTime < 0)
+            m_eneGeneTime -= Time.deltaTime;
+            if (m_eneGeneTime < 0)
             {
                 if (m_eneWave > 0)
                 {
                     //敵を生成
                     e.OnEneGene();
+                    Debug.Log("敵生成");
                 }
                 m_eneWave -= 1;
-                m_eneTime = 10.0f;
+                m_eneGeneTime = 5.0f;
             }
             //弾のクールタイムが終わったら
             m_shootTime -= Time.deltaTime;
@@ -130,7 +131,6 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Battle:
                 Debug.Log("GameState.Battle");
-                BattleAction();
                 break;
             case GameState.Result:
                 Debug.Log("GameState.Result");
