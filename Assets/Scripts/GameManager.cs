@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum GameState
 {
@@ -15,16 +16,18 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
     GameObject m_mapGene;
-    //GameObject m_wepMana;
+    /// <summary>兵器</summary>
     WeaponManager[] m_wepMana;
-    //WeaponManager[] m_wepMana;
     [SerializeField] GameObject m_player;
+    /// <summary>準備時間のTextオブジェクト</summary>
+    [SerializeField] GameObject m_preTimeObject;
+    /// <summary>準備時間を表示するテキスト</summary>
+    Text m_preTimeText;
     /// <summary>プレイヤーの生成ポジション </summary>
     Vector3Int plaPosition;
 
-    bool isShot;
     //準備期間の時間
-    [SerializeField] float m_preparationTime = 5f;
+    [SerializeField] float m_preparationTime = 10f;
     //弾生成の間隔
     [SerializeField] float m_shootTime = 2.0f;
 
@@ -42,13 +45,25 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_preTimeText = m_preTimeObject.GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //GameStateがPreparationの時
+        if (nowState == GameState.Preparation)
+        {
+            //準備時間が終わったら
+            m_preparationTime -= Time.deltaTime;
+            m_preTimeText.text = "制限時間 : " + m_preparationTime.ToString("f1");
+            if (m_preparationTime < 0)
+            {
+                m_preTimeText.text = "制限時間 : 0.0";
+                //Battleに変更する
+                PreparationAction();
+            }
+        }
     }
 
     //外からこのメソッドを使って状態を変更
@@ -69,7 +84,6 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Preparation:
                 Debug.Log("GameState.Preparation");
-                //時間が経ったらBattleに変更する
                 break;
             case GameState.Battle:
                 Debug.Log("GameState.Battle");
