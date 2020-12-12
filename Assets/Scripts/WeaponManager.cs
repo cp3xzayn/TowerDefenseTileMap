@@ -3,9 +3,6 @@
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField] GameObject m_bullet;
-    /// <summary>弾の発射間隔</summary>
-    [SerializeField] float m_shootTime = 2.0f;
-    private float m_time = 0f;
 
     void Start()
     {
@@ -13,7 +10,6 @@ public class WeaponManager : MonoBehaviour
 
     void Update()
     {
-        
     }
 
     public void OnShot()
