@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2450994060733675586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.36461616, y: 1.4402806, z: 0}
+  m_LocalPosition: {x: 12, y: 12, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -141,8 +141,6 @@ MonoBehaviour:
     type: 3}
   m_walkSpeed: 3
   m_limitWepon: 4
-  m_wepCostObject: {fileID: 3221564374027560974, guid: fad667c0663aff2419be9c488473ca30,
-    type: 3}
 --- !u!58 &4189833007633390247
 CircleCollider2D:
   m_ObjectHideFlags: 0
