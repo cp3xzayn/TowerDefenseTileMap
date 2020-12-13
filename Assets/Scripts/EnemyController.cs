@@ -6,13 +6,19 @@ public class EnemyController : MonoBehaviour
 {
     GameObject m_mapGene;
     GameObject m_eneGene;
-    //敵の進むスピード
-    [SerializeField] float m_move = 0.2f;
+    /// <summary>敵の進むスピード </summary>
+    [SerializeField] float m_move = 1.0f;
+    /// <summary>敵が攻撃する間隔</summary>
+    [SerializeField] float m_eneAttackTime = 5.0f;
+    float m_time = 0f;
+    /// <summary>敵の攻撃力 </summary>
+    int m_eneAttack = 1;
     SpriteRenderer m_sprite;
     Animator m_anim;
     Rigidbody2D m_rb;
     //敵のポジション
     Vector3 m_enePos;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +36,7 @@ public class EnemyController : MonoBehaviour
         m_enePos = this.transform.position;
         HowToMove(m_enePos.x, m_enePos.y, m_enePos);
     }
-
+    //敵が移動する関数
     public void HowToMove(float fx, float fy, Vector3 enePos)
     {
         //取得した座標を整数に戻す(切り下げ)
@@ -94,6 +100,7 @@ public class EnemyController : MonoBehaviour
                 //敵が拠点にいるとき
                 case 3:
                     m_rb.velocity = new Vector3(0, 0, 0);
+                    EneAttack();
                     break;
             }
         }
@@ -146,6 +153,7 @@ public class EnemyController : MonoBehaviour
                 //敵が拠点にいるとき
                 case 3:
                     m_rb.velocity = new Vector3(0, 0, 0);
+                    EneAttack();
                     break;
             }
         }
@@ -198,6 +206,7 @@ public class EnemyController : MonoBehaviour
                 //敵が拠点にいるとき
                 case 3:
                     m_rb.velocity = new Vector3(0, 0, 0);
+                    EneAttack();
                     break;
             }
         }
@@ -250,8 +259,20 @@ public class EnemyController : MonoBehaviour
                 //敵が拠点にいるとき
                 case 3:
                     m_rb.velocity = new Vector3(0, 0, 0);
+                    EneAttack();
                     break;
             }
+        }
+    }
+
+    //敵の攻撃に関する関数
+    public void EneAttack()
+    {
+        m_time += Time.deltaTime;
+        if (m_time > m_eneAttackTime)
+        {
+            Debug.Log("攻撃");
+            m_time = 0f;
         }
     }
 
