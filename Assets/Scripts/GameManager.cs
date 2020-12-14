@@ -44,9 +44,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] int m_eneWave = 3;
     /// <summary>弾生成の間隔</summary>
     [SerializeField] float m_shootTime = 2.0f;
-    /// <summary>拠点の耐久値 </summary>
-    [SerializeField] int m_baseHp = 30;
-
     //獲得コスト
     int m_getCost = 3;
 
@@ -111,7 +108,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Result:
                 Debug.Log("GameState.Result");
-                ResultAction();
+                //ResultAction();
                 break;
             case GameState.Finish:
                 break;

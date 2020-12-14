@@ -134,3 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_move: 1
+  m_eneAttackTime: 4
+  m_eneAttack: 1
+  isAttack: 0
