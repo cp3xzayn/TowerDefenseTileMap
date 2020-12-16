@@ -5,13 +5,14 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
     /// <summary>敵のオブジェクト </summary>
-    [SerializeField] GameObject m_enemy;
+    GameObject m_enemy;
     GameObject mapGene;
     /// <summary>敵の生成ポジション </summary>
     Vector3Int enePosition;
 
     void Start()
     {
+        m_enemy = Resources.Load<GameObject>("Enemy");
         mapGene = GameObject.Find("MapGenerator");
     }
     //敵を生成する
@@ -25,7 +26,11 @@ public class EnemyGenerator : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// 敵を生成する関数（ボスを作ったときに変更する）
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
     void EneGene(int x, int y)
     {
         //Mapの情報を取得する
