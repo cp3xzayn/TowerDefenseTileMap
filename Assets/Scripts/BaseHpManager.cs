@@ -24,15 +24,6 @@ public class BaseHpManager : MonoBehaviour
         m_enemy = FindObjectsOfType<EnemyController>();
         foreach (var item in m_enemy)
         {
-            Debug.Log(item.isAttack);
-            m_eAttack = item.m_eneAttack;
-            //敵が攻撃したら
-            if (item.isAttack == 1)
-            {
-                //拠点の耐久値を減らす
-                m_baseHP -= m_eAttack;
-                Debug.Log("拠点の耐久値" + m_baseHP);
-            }
         }
     }
 

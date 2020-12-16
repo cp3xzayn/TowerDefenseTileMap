@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 363852423459435427}
   - component: {fileID: 8706026773054521661}
   - component: {fileID: 2388732370936206101}
+  - component: {fileID: -7389118544897606490}
+  - component: {fileID: 1014684972781480182}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -134,6 +136,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_move: 1
-  m_eneAttackTime: 4
-  m_eneAttack: 1
-  isAttack: 0
+--- !u!114 &-7389118544897606490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257899197452331219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581659644e4222b428c022a658c5f05f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1014684972781480182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257899197452331219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14895b89751e7ff46a159bbaf43aabff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
