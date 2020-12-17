@@ -155,11 +155,17 @@ public class GameManager : MonoBehaviour
         m_eneGeneTime -= Time.deltaTime;
         if (m_eneGeneTime < 0)
         {
-            if (m_eneWave > 0)
+            if (m_eneWave >= 1)
             {
                 //敵を生成
                 e.OnEneGene();
                 Debug.Log("敵生成");
+            }
+            else if (m_eneWave == 0)
+            {
+                //Bossを生成
+                e.OnBossGene();
+                Debug.Log("Boss生成");
             }
             m_eneWave -= 1;
             m_eneGeneTime = 5.0f;
@@ -176,7 +182,7 @@ public class GameManager : MonoBehaviour
             }
         }
         //敵の生成が終わったら
-        if (m_eneWave == -1)
+        if (m_eneWave == -2)
         {
             //Resultに変更する
             SetNowState(GameState.Result);
