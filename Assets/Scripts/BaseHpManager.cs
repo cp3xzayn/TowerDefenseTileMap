@@ -6,21 +6,10 @@ public class BaseHpManager : MonoBehaviour
 {
     /// <summary> 拠点の耐久値 </summary>
     int m_baseHP = 20;
-
-    // Start is called before the first frame update
-    void Start()
+ 
+    public void DecreaseHP(int eneAttack)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void DecreaseHP()
-    {
-        
+        m_baseHP -= eneAttack;
+        Debug.Log("拠点の耐久値" + m_baseHP);
     }
 }

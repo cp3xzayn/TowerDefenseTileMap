@@ -138,10 +138,10 @@ public class GameManager : MonoBehaviour
     {
         //準備時間が終わったら
         m_preparationTime -= Time.deltaTime;
-        m_preTimeText.text = "制限時間 : " + m_preparationTime.ToString("f1");
+        m_preTimeText.text = "準備時間 : " + m_preparationTime.ToString("f1");
         if (m_preparationTime < 0)
         {
-            m_preTimeText.text = "制限時間 : 0.0";
+            m_preTimeText.text = "準備時間 : 0.0";
             //Battleに変更する
             SetNowState(GameState.Battle);
         }
