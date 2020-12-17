@@ -5,30 +5,11 @@ using UnityEngine;
 public class BaseHpManager : MonoBehaviour
 {
     /// <summary> 拠点の耐久値 </summary>
-    [SerializeField] int m_baseHP = 20;
-    /// <summary>敵 </summary>
-    EnemyController[] m_enemy;
-    /// <summary> 敵の攻撃力 </summary>
-    int m_eAttack;
-
-    // Start is called before the first frame update
-    void Start()
+    int m_baseHP = 20;
+ 
+    public void DecreaseHP(int eneAttack)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //WeaponManagerを探して配列に格納する
-        m_enemy = FindObjectsOfType<EnemyController>();
-        foreach (var item in m_enemy)
-        {
-        }
-    }
-
-    void DecreaseHP()
-    {
-        
+        m_baseHP -= eneAttack;
+        Debug.Log("拠点の耐久値" + m_baseHP);
     }
 }

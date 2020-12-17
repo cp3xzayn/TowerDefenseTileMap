@@ -11,8 +11,12 @@ public class EnemyController : MonoBehaviour
     SpriteRenderer m_sprite;
     Animator m_anim;
     Rigidbody2D m_rb;
-    //敵のポジション
+    /// <summary>敵のポジション</summary>
     Vector3 m_enePos;
+    /// <summary>敵が攻撃したか判定する</summary>
+    bool isEneAttack;
+    int m_attackTime;
+    Enemy enemy;
     
     void Start()
     {
@@ -21,6 +25,7 @@ public class EnemyController : MonoBehaviour
         m_anim = GetComponent<Animator>();
         m_mapGene = GameObject.Find("MapGenerator");
         m_eneGene = GameObject.Find("EnemyGenerator");
+        enemy = GetComponent<Enemy>();
     }
 
     // Update is called once per frame
@@ -93,6 +98,7 @@ public class EnemyController : MonoBehaviour
                 //敵が拠点にいるとき
                 case 3:
                     m_rb.velocity = new Vector3(0, 0, 0);
+                    enemy.Attack();
                     break;
             }
         }
@@ -145,6 +151,7 @@ public class EnemyController : MonoBehaviour
                 //敵が拠点にいるとき
                 case 3:
                     m_rb.velocity = new Vector3(0, 0, 0);
+                    enemy.Attack();
                     break;
             }
         }
@@ -197,6 +204,7 @@ public class EnemyController : MonoBehaviour
                 //敵が拠点にいるとき
                 case 3:
                     m_rb.velocity = new Vector3(0, 0, 0);
+                    enemy.Attack();
                     break;
             }
         }
@@ -249,10 +257,12 @@ public class EnemyController : MonoBehaviour
                 //敵が拠点にいるとき
                 case 3:
                     m_rb.velocity = new Vector3(0, 0, 0);
+                    enemy.Attack();
                     break;
             }
         }
     }
+
 
     //弾が当たったとき敵を破壊する
     private void OnTriggerEnter2D(Collider2D collision)
