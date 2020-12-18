@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     Vector3Int plaPosition;
     /// <summary>プレイヤーのポジションを生成ポジに戻すための関数 </summary>
     Vector3Int plaRestPosition;
+    /// <summary>拠点の耐久値のSlider </summary>
+    [SerializeField]GameObject m_baseHPSlider;
 
     /// <summary>準備期間の時間</summary>
     [SerializeField] float m_preparationTime = 10f;
@@ -130,6 +132,7 @@ public class GameManager : MonoBehaviour
                 PlayerInstance(i, j);
             }
         }
+        m_baseHPSlider.SetActive(true);
         //GameStateを準備期間に変更する
         SetNowState(GameState.Preparation);
     }
@@ -199,7 +202,8 @@ public class GameManager : MonoBehaviour
     //GameState.GameOverになったときに一回だけ呼ばれる処理
     void GameOverAction()
     {
-
+        //Resultを表示
+        //リトライ、ホーム画面に戻るを選択できるようにする
     }
 
     //playerを生成する関数

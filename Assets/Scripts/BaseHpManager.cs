@@ -7,12 +7,14 @@ public class BaseHpManager : MonoBehaviour
 {
     /// <summary> 拠点の耐久値 </summary>
     int m_baseHP = 20;
-    [SerializeField] GameObject m_slider;
+    /// <summary>最初の拠点の耐久値 </summary>
+    int m_decidedHP;
+    [SerializeField] Slider m_slider;
 
     void Start()
     {
-        m_slider.GetComponent<Slider>();
-        m_slider.SetActive(true);
+        m_slider.value = 1;
+        m_decidedHP = m_baseHP;
     }
     void Update()
     {
@@ -29,6 +31,7 @@ public class BaseHpManager : MonoBehaviour
     public void DecreaseHP(int eneAttack)
     {
         m_baseHP -= eneAttack;
+        m_slider.value = (float)m_baseHP / (float)m_decidedHP;
         Debug.Log("拠点の耐久値" + m_baseHP);
     }
     /// <summary>
