@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
             case GameState.Finish:
                 break;
             case GameState.GameOver:
+                Debug.Log("GameState.GameOver");
                 break;
         }
     }
@@ -194,6 +195,11 @@ public class GameManager : MonoBehaviour
     {
         m_resultPanel.SetActive(true);
         m_resultText.text = "獲得兵器コスト:" + m_getCost;
+    }
+    //GameState.GameOverになったときに一回だけ呼ばれる処理
+    void GameOverAction()
+    {
+
     }
 
     //playerを生成する関数
