@@ -2,10 +2,13 @@
 
 public class WeaponManager : MonoBehaviour
 {
-    [SerializeField] GameObject m_bullet;
+    GameObject m_bullet;
+    GameObject m_bullet1;
 
     void Start()
     {
+        m_bullet = Resources.Load<GameObject>("Bullet");
+        m_bullet1 = Resources.Load<GameObject>("Bullet1");
     }
 
     void Update()
