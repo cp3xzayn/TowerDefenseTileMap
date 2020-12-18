@@ -8,6 +8,8 @@ public class BulletController : MonoBehaviour
     [SerializeField]float m_speed = 1.0f;
     private GameObject m_weapon;
     private GameObject[] m_enemy;
+    /// <summary>弾のダメージ </summary>
+    int m_bulDamage = 1;
     /// <summary>弾の生成ポジション</summary>
     private Vector3 m_startPosition;
     /// <summary>敵のポジション</summary>
