@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon1Bullet : MonoBehaviour
+public class BulletData : MonoBehaviour
 {
     /// <summary>弾のダメージ </summary>
-    int m_bulDamage = 1;
+    [SerializeField]int m_bulDamage = 1;
     /// <summary>射程範囲</summary>
-    float m_limitRange = 5.0f;
+    [SerializeField]float m_limitRange = 5f;
 
     Bullet bullet;
 
@@ -17,5 +17,4 @@ public class Weapon1Bullet : MonoBehaviour
         //弾のステータスをセットする
         bullet.SetBullet(m_bulDamage, m_limitRange);
     }
-
 }
