@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     GameObject m_weapon;
     GameObject m_weapon1;
 
-    bool isWeapon = false;
+    bool isWeapon = true;
     bool isWeapon1 = false;
 
     //Weaponのボタンが押されたとき

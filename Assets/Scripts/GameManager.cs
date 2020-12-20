@@ -48,8 +48,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] float m_eneGeneTime = 3.0f;
     /// <summary>敵の生成上限 </summary>
     [SerializeField] int m_eneWave = 3;
-    /// <summary>弾生成の間隔</summary>
-    [SerializeField] float m_shootTime = 2.0f;
     //獲得コスト
     int m_getCost = 3;
 
@@ -57,7 +55,7 @@ public class GameManager : MonoBehaviour
     //現在の状態
     private GameState nowState;
 
-
+    
     void Awake()
     {
         Instance = this;
@@ -180,17 +178,13 @@ public class GameManager : MonoBehaviour
             m_eneWave -= 1;
             m_eneGeneTime = 5.0f;
         }
-        //弾のクールタイムが終わったら
-        m_shootTime -= Time.deltaTime;
-        if (m_shootTime < 0)
+
+        //弾生成
+        foreach (var item in m_wepMana)
         {
-            foreach (var item in m_wepMana)
-            {
-                //弾生成
-                item.OnShot();
-                m_shootTime = 2.0f;
-            }
+            item.OnShot();
         }
+
         //敵の生成が終わったら
         if (m_eneWave == -2)
         {
