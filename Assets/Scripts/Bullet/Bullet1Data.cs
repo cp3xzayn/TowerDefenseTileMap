@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletData : MonoBehaviour
+public class Bullet1Data : MonoBehaviour
 {
     /// <summary>弾のダメージ </summary>
-    int m_bulDamage = 1;
+    int m_bulDamage = 3;
     /// <summary>射程範囲</summary>
-    float m_limitRange = 5f;
+    float m_limitRange = 3f;
 
     Bullet bullet;
 
