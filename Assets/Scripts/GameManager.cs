@@ -37,6 +37,10 @@ public class GameManager : MonoBehaviour
     Vector3Int plaRestPosition;
     /// <summary>拠点の耐久値のSlider </summary>
     [SerializeField]GameObject m_baseHPSlider;
+    /// <summary>兵器選択ボタン</summary>
+    [SerializeField] GameObject m_weapon;
+    /// <summary>兵器1選択ボタン </summary>
+    [SerializeField] GameObject m_weapon1;
 
     /// <summary>準備期間の時間</summary>
     [SerializeField] float m_preparationTime = 10f;
@@ -133,6 +137,8 @@ public class GameManager : MonoBehaviour
             }
         }
         m_baseHPSlider.SetActive(true);
+        m_weapon.SetActive(true);
+        m_weapon1.SetActive(true);
         //GameStateを準備期間に変更する
         SetNowState(GameState.Preparation);
     }

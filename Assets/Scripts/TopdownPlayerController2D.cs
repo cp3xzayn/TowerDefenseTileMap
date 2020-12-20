@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class TopdownPlayerController2D : MonoBehaviour
 {
     GameObject m_mapGene;
-    /// <summary>兵器のオブジェクト</summary>
-    [SerializeField] GameObject m_weapon;
+    GameObject m_wepMana;
     /// <summary>移動速度</summary>
     [SerializeField] float m_walkSpeed = 1f;
     /// <summary>直前に移動した方向</summary>
@@ -26,12 +25,16 @@ public class TopdownPlayerController2D : MonoBehaviour
     /// <summary>兵器のコスト </summary>
     int m_weaponCost = 1;
 
+    Weapon weapon;
+
     void Start()
     {
         m_sprite = GetComponent<SpriteRenderer>();
         m_rb = GetComponent<Rigidbody2D>();
         m_anim = GetComponent<Animator>();
         m_mapGene = GameObject.Find("MapGenerator");
+        m_wepMana = GameObject.Find("WeaponManager");
+        weapon = m_wepMana.GetComponent<Weapon>();
     }
 
     void Update()
@@ -78,7 +81,7 @@ public class TopdownPlayerController2D : MonoBehaviour
                 //SpaceKeyを押されたとき兵器を置く
                 if (Input.GetKeyDown("space"))
                 {
-                    Instantiate(m_weapon, weaPos, Quaternion.identity);
+                    weapon.WeaponInstance(weaPos);
                     StartCoroutine("SetWeapon");
                     //コストを減らす
                     m_limitWepon -= m_weaponCost;
