@@ -5,9 +5,9 @@ using UnityEngine;
 public class BulletData : MonoBehaviour
 {
     /// <summary>弾のダメージ </summary>
-    int m_bulDamage = 1;
+    [SerializeField]int m_bulDamage = 1;
     /// <summary>射程範囲</summary>
-    float m_limitRange = 5f;
+    [SerializeField]float m_limitRange = 5f;
 
     Bullet bullet;
 
