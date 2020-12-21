@@ -30,6 +30,7 @@ public class Bullet : MonoBehaviour
     /// <summary>弾を破壊するまでの時間 </summary>
     private float m_destroyTime = 0.1f;
 
+
     void Start()
     {
         //二点間の距離を代入
@@ -72,14 +73,6 @@ public class Bullet : MonoBehaviour
                 Debug.Log("敵検知、弾発射");
                 this.transform.position = m_goalPosition[i];
             }
-        }
-    }
-    //敵と当たったら弾を破壊する
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Destroy(this.gameObject);
         }
     }
 }

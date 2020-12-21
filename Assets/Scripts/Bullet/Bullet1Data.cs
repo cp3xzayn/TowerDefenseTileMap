@@ -10,6 +10,7 @@ public class Bullet1Data : MonoBehaviour
     [SerializeField]float m_limitRange = 5f;
 
     Bullet bullet;
+    Enemy[] enemy;
 
     void Start()
     {
@@ -17,5 +18,18 @@ public class Bullet1Data : MonoBehaviour
         //弾のステータスをセットする
         bullet.SetBullet(m_bulDamage);
         bullet.OnshotToEnemy(m_limitRange);
+    }
+    //敵と当たったら弾を破壊する
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        enemy = FindObjectsOfType<Enemy>();
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(this.gameObject);
+            foreach (var item in enemy)
+            {
+                item.SetBulletDamage(m_bulDamage);
+            }
+        }
     }
 }
