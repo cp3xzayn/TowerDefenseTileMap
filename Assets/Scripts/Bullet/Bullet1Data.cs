@@ -19,17 +19,16 @@ public class Bullet1Data : MonoBehaviour
         bullet.SetBullet(m_bulDamage);
         bullet.OnshotToEnemy(m_limitRange);
     }
+
     //敵と当たったら弾を破壊する
     void OnTriggerEnter2D(Collider2D collision)
     {
-        enemy = FindObjectsOfType<Enemy>();
-        if (collision.gameObject.tag == "Enemy")
+        GameObject ob = collision.gameObject;
+        //オブジェクトがEnemyだった場合
+        if (ob.tag == ("Enemy"))
         {
-            Destroy(this.gameObject);
-            foreach (var item in enemy)
-            {
-                item.SetBulletDamage(m_bulDamage);
-            }
+            Enemy enemy = ob.GetComponent<Enemy>();
+            enemy.SetBulletDamage(m_bulDamage);
         }
     }
 }
