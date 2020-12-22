@@ -15,14 +15,12 @@ public class Weapon : MonoBehaviour
     {
         isWeapon = true;
         isWeapon1 = false;
-        Debug.Log(isWeapon1);
     }
     //Weapon1のボタンが押されたとき
     public void OnClickWep1()
     {
         isWeapon = false;
         isWeapon1 = true;
-        Debug.Log(isWeapon1);
     }
 
     /// <summary>

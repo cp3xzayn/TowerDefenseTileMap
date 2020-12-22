@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     /// <summary>拠点を攻撃する頻度 </summary>
     private float coolTime;
     float m_time = 0;
+    /// <summary>弾のダメージ </summary>
+    int bulletDamage;
     GameObject m_baseHPObj;
     BaseHpManager m_base;
 
@@ -26,12 +28,13 @@ public class Enemy : MonoBehaviour
     /// <param name="attack"></param>
     /// <param name="hp"></param>
     /// <param name="coolTime"></param>
-    public void SetEnemyData(int attack, int hp, float coolTime)
+    public void SetEnemyData(int attack, ref int eHP, float coolTime)
     {
         this.attack = attack;
-        this.hp = hp;
         this.coolTime = coolTime;
+        hp = eHP;
     }
+
 
     /// <summary> 拠点を攻撃する </summary>
     public void Attack()
@@ -45,8 +48,22 @@ public class Enemy : MonoBehaviour
             m_time = 0f;
         }
     }
-    public void HP()
-    {
 
+    /// <summary>
+    /// 弾のダメージをセットし、敵のHPを減らす関数
+    /// </summary>
+    /// <param name="bDamage"></param>
+    public void SetBulletDamage(int bDamage)
+    {
+        bulletDamage = bDamage;
+        Debug.Log("敵のHP" + hp);
+        hp -= bulletDamage;
+        //敵のHPが0以下になったら
+        if (hp <= 0)
+        {
+            //敵を破壊する
+            Destroy(this.gameObject);
+            //弾が当たったときフィールドにいる敵全員のHPが減る問題が発生
+        }
     }
 }

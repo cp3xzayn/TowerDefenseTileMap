@@ -90,7 +90,7 @@ public class TopdownPlayerController2D : MonoBehaviour
             }
         }
     }
-
+    //兵器を置いたときにLayerを変更してぶつかることを阻止する
     IEnumerator SetWeapon()
     {
         //レイヤーをWeaponSetに変更

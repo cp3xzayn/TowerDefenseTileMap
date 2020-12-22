@@ -160,3 +160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14895b89751e7ff46a159bbaf43aabff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_eneCoolTime: 5
+  m_eneAttack: 1
+  m_eneHP: 3
