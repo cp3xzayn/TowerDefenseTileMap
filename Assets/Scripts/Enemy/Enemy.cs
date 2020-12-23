@@ -56,7 +56,6 @@ public class Enemy : MonoBehaviour
     public void SetBulletDamage(int bDamage)
     {
         bulletDamage = bDamage;
-        Debug.Log("敵のHP" + hp);
         hp -= bulletDamage;
         //敵のHPが0以下になったら
         if (hp <= 0)

@@ -1,16 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BulletData : MonoBehaviour
 {
     /// <summary>弾のダメージ </summary>
-    [SerializeField]int m_bulDamage = 1;
+    [SerializeField] int m_bulDamage = 1;
     /// <summary>射程範囲</summary>
-    [SerializeField]float m_limitRange = 5f;
+    [SerializeField] float m_limitRange = 5f;
 
     Bullet bullet;
-    Enemy[] enemy;
 
     void Start()
     {
@@ -23,15 +20,12 @@ public class BulletData : MonoBehaviour
     //敵と当たったら弾を破壊する
     void OnTriggerEnter2D(Collider2D collision)
     {
-        enemy = FindObjectsOfType<Enemy>();
-        if (collision.gameObject.tag == "Enemy")
+        GameObject ob = collision.gameObject;
+        //オブジェクトがEnemyだった場合
+        if (ob.tag == ("Enemy"))
         {
-            Destroy(this.gameObject);
-            foreach (var item in enemy)
-            {
-                //弾のダメージをセットする関数
-                item.SetBulletDamage(m_bulDamage);
-            }
+            Enemy enemy = ob.GetComponent<Enemy>();
+            enemy.SetBulletDamage(m_bulDamage);
         }
     }
 }
