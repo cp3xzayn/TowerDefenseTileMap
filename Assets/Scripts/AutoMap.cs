@@ -51,11 +51,29 @@ public class AutoMap : MonoBehaviour
                 map[i, j] = 2;
             }
         }
+
         //敵生成ポジションを決める
         map[0, 0] = 0;
         map[0, m_mapWidth - 1] = 0;
         map[m_mapWidth - 1, 0] = 0;
         map[m_mapWidth - 1, m_mapWidth - 1] = 0;
+
+        //Playerの沸きポジを決定する
+        int baseX = Random.Range(3, m_mapWidth - 4);
+        int baseY = Random.Range(3, m_mapWidth - 4);
+        map[baseX, baseY] = 6;
+
+        //拠点のPlayerRoadを決定する
+        map[baseX - 1, baseY] = 5;
+        map[baseX, baseY - 1] = 5;
+        map[baseX + 1, baseY] = 5;
+        map[baseX, baseY + 1] = 5;
+
+        //敵の到達地点を決定する
+        map[baseX - 1, baseY - 1] = 3;
+        map[baseX - 1, baseY + 1] = 3;
+        map[baseX + 1, baseY - 1] = 3;
+        map[baseX + 1, baseY + 1] = 3;
     }
 
     /// <summary>
