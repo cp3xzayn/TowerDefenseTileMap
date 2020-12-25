@@ -69,11 +69,151 @@ public class AutoMap : MonoBehaviour
         map[baseX + 1, baseY] = 5;
         map[baseX, baseY + 1] = 5;
 
-        //敵の到達地点を決定する
+        //敵の歩く道を生成する
+        LeftDownPath(baseX, baseY);
+        LeftUpPath(baseX, baseY);
+        RightDownPath(baseX, baseY);
+        RightUpPath(baseX, baseY);
+
+        //敵の到達地点を決定する(道生成の後に置く)
         map[baseX - 1, baseY - 1] = 3;
         map[baseX - 1, baseY + 1] = 3;
         map[baseX + 1, baseY - 1] = 3;
         map[baseX + 1, baseY + 1] = 3;
+
+    }
+
+    /// <summary>
+    /// 左下の生成ポジから道を伸ばす関数
+    /// </summary>
+    /// <param name="basex"></param>
+    /// <param name="basey"></param>
+    void LeftDownPath(int basex, int basey)
+    {
+        int lDX = 0;
+        int lDY = 0;
+        //xかy方向どちらに伸ばすかを判定する
+        int XorY;
+        //左下からの道を生成する
+        while (lDX < basex - 1 || lDY < basey - 1)
+        {
+            XorY = Random.Range(0, 2);
+            switch (XorY)
+            {
+                case 0:
+                    if (lDX < basex - 1)
+                    {
+                        lDX += 1;
+                    }
+                    break;
+                case 1:
+                    if (lDY < basey - 1)
+                    {
+                        lDY += 1;
+                    }
+                    break;
+            }
+            map[lDX, lDY] = 1;
+        }
+    }
+    /// <summary>
+    /// 左上の生成ポジから道を伸ばす関数
+    /// </summary>
+    /// <param name="basex"></param>
+    /// <param name="basey"></param>
+    void LeftUpPath(int basex, int basey)
+    {
+        int lDX = 0;
+        int lUY = m_mapWidth - 1;
+        //xかy方向どちらに伸ばすかを判定する
+        int XorY;
+        //左下からの道を生成する
+        while (lDX < basex - 1 || lUY > basey + 1)
+        {
+            XorY = Random.Range(0, 2);
+            switch (XorY)
+            {
+                case 0:
+                    if (lDX < basex - 1)
+                    {
+                        lDX += 1;
+                    }
+                    break;
+                case 1:
+                    if (lUY > basey + 1)
+                    {
+                        lUY -= 1;
+                    }
+                    break;
+            }
+            map[lDX, lUY] = 1;
+        }
+    }
+    /// <summary>
+    /// 右下の生成ポジから道を伸ばす関数
+    /// </summary>
+    /// <param name="basex"></param>
+    /// <param name="basey"></param>
+    void RightDownPath(int basex, int basey)
+    {
+        int lUX = m_mapWidth - 1;
+        int lDY = 0;
+        //xかy方向どちらに伸ばすかを判定する
+        int XorY;
+        //左下からの道を生成する
+        while (lUX > basex + 1 || lDY < basey - 1)
+        {
+            XorY = Random.Range(0, 2);
+            switch (XorY)
+            {
+                case 0:
+                    if (lUX > basex + 1)
+                    {
+                        lUX -= 1;
+                    }
+                    break;
+                case 1:
+                    if (lDY < basey - 1)
+                    {
+                        lDY += 1;
+                    }
+                    break;
+            }
+            map[lUX, lDY] = 1;
+        }
+    }
+    /// <summary>
+    /// 右上の生成ポジから道を伸ばす関数
+    /// </summary>
+    /// <param name="basex"></param>
+    /// <param name="basey"></param>
+    void RightUpPath(int basex, int basey)
+    {
+        int lUX = m_mapWidth - 1;
+        int lUY = m_mapWidth - 1;
+        //xかy方向どちらに伸ばすかを判定する
+        int XorY;
+        //左下からの道を生成する
+        while (lUX > basex + 1 || lUY > basey + 1)
+        {
+            XorY = Random.Range(0, 2);
+            switch (XorY)
+            {
+                case 0:
+                    if (lUX > basex + 1)
+                    {
+                        lUX -= 1;
+                    }
+                    break;
+                case 1:
+                    if (lUY > basey + 1)
+                    {
+                        lUY -= 1;
+                    }
+                    break;
+            }
+            map[lUX, lUY] = 1;
+        }
     }
 
     /// <summary>
