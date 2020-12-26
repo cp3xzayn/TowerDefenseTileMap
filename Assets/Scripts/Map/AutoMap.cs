@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class AutoMap : MonoBehaviour
@@ -22,6 +20,8 @@ public class AutoMap : MonoBehaviour
     [SerializeField] int m_mapWidth = 13;
     /// <summary>mapの配列</summary>
     int[,] map;
+
+    [SerializeField] bool a = true;
 
     void Start()
     {
@@ -51,36 +51,78 @@ public class AutoMap : MonoBehaviour
                 map[i, j] = 2;
             }
         }
-
         //敵生成ポジションを決める
         map[0, 0] = 0;
         map[0, m_mapWidth - 1] = 0;
         map[m_mapWidth - 1, 0] = 0;
         map[m_mapWidth - 1, m_mapWidth - 1] = 0;
 
-        //Playerの沸きポジを決定する
-        int baseX = Random.Range(3, m_mapWidth - 4);
-        int baseY = Random.Range(3, m_mapWidth - 4);
-        map[baseX, baseY] = 6;
+        //Mapの幅が15以下の時
+        if (a == true)
+        {
+            //Playerの沸きポジを決定する
+            int baseX = Random.Range(3, m_mapWidth - 4);
+            int baseY = Random.Range(3, m_mapWidth - 4);
+            map[baseX, baseY] = 6;
 
-        //拠点のPlayerRoadを決定する
-        map[baseX - 1, baseY] = 5;
-        map[baseX, baseY - 1] = 5;
-        map[baseX + 1, baseY] = 5;
-        map[baseX, baseY + 1] = 5;
+            //拠点のPlayerRoadを決定する
+            map[baseX - 1, baseY] = 5;
+            map[baseX, baseY - 1] = 5;
+            map[baseX + 1, baseY] = 5;
+            map[baseX, baseY + 1] = 5;
 
-        //敵の歩く道を生成する
-        LeftDownPath(baseX, baseY);
-        LeftUpPath(baseX, baseY);
-        RightDownPath(baseX, baseY);
-        RightUpPath(baseX, baseY);
+            //敵の歩く道を生成する
+            LeftDownPath(baseX, baseY);
+            LeftUpPath(baseX, baseY);
+            RightDownPath(baseX, baseY);
+            RightUpPath(baseX, baseY);
 
-        //敵の到達地点を決定する(道生成の後に置く)
-        map[baseX - 1, baseY - 1] = 3;
-        map[baseX - 1, baseY + 1] = 3;
-        map[baseX + 1, baseY - 1] = 3;
-        map[baseX + 1, baseY + 1] = 3;
+            //敵の到達地点を決定する(道生成の後に置く)
+            map[baseX - 1, baseY - 1] = 3;
+            map[baseX - 1, baseY + 1] = 3;
+            map[baseX + 1, baseY - 1] = 3;
+            map[baseX + 1, baseY + 1] = 3;
+        }
+        else
+        {
+            //Playerの沸きポジを決定する
+            //左の沸きポジ
+            int baseX = Random.Range(3, m_mapWidth / 2 - 3);
+            int baseY = Random.Range(3, m_mapWidth - 3);
+            //右の沸きポジ
+            int baseX2 = Random.Range(m_mapWidth / 2 + 3, m_mapWidth - 3);
+            int baseY2 = Random.Range(3, m_mapWidth - 3);
+            map[baseX, baseY] = 6;
+            map[baseX2, baseY2] = 6;
 
+            //拠点のPlayerRoadを決定する(左)
+            map[baseX - 1, baseY] = 5;
+            map[baseX, baseY - 1] = 5;
+            map[baseX + 1, baseY] = 5;
+            map[baseX, baseY + 1] = 5;
+            //拠点のPlayerRoadを決定する(右)
+            map[baseX2 - 1, baseY2] = 5;
+            map[baseX2, baseY2 - 1] = 5;
+            map[baseX2 + 1, baseY2] = 5;
+            map[baseX2, baseY2 + 1] = 5;
+
+            //敵の到達地点を決定する(左)
+            map[baseX - 1, baseY - 1] = 3;
+            map[baseX - 1, baseY + 1] = 3;
+            map[baseX + 1, baseY - 1] = 3;
+            map[baseX + 1, baseY + 1] = 3;
+            //敵の到達地点を決定する(右)
+            map[baseX2 - 1, baseY2 - 1] = 3;
+            map[baseX2 - 1, baseY2 + 1] = 3;
+            map[baseX2 + 1, baseY2 - 1] = 3;
+            map[baseX2 + 1, baseY2 + 1] = 3;
+
+            //敵生成ポジから道を生成する関数
+            LeftDownPath(baseX, baseY);
+            LeftUpPath(baseX, baseY);
+            RightDownPath(baseX2, baseY2);
+            RightUpPath(baseX2, baseY2);
+        }
     }
 
     /// <summary>
