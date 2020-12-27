@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     /// <summary>Resultを表示するText </summary>
     Text m_resultText;
     [SerializeField] GameObject m_resultPanel;
+    /// <summary>ゲームオーバー時に表示するオブジェクト</summary>
+    [SerializeField] GameObject m_gameoverText;
     /// <summary>プレイヤーの生成ポジション </summary>
     Vector3Int plaPosition;
     /// <summary>プレイヤーのポジションを生成ポジに戻すための関数 </summary>
@@ -118,6 +120,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.GameOver:
                 Debug.Log("GameState.GameOver");
+                GameOverAction();
                 break;
         }
     }
@@ -203,7 +206,8 @@ public class GameManager : MonoBehaviour
     void GameOverAction()
     {
         //Resultを表示
-        //リトライ、ホーム画面に戻るを選択できるようにする
+        m_gameoverText.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     //playerを生成する関数
