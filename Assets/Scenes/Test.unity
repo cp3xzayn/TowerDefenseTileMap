@@ -351,7 +351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_tilemap: {fileID: 892052753}
-  m_mapWidth: 13
+  m_mapWidth: 20
+  a: 1
 --- !u!4 &1561516556
 Transform:
   m_ObjectHideFlags: 0
