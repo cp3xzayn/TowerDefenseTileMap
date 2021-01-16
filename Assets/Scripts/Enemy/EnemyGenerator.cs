@@ -1,6 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
+[Serializable]
+public class InputJson
+{
+    public int[] m_enemy;
+}
+
 
 public class EnemyGenerator : MonoBehaviour
 {
@@ -14,13 +22,44 @@ public class EnemyGenerator : MonoBehaviour
     /// <summary>Bossの生成ポジション </summary>
     Vector3Int bossPosition;
 
+    int m_index;
+    int m_eneIndex;
+    int m_loadEneLength;
 
     void Start()
     {
         m_enemy = Resources.Load<GameObject>("Enemy");
         m_boss = Resources.Load<GameObject>("Boss");
         mapGene = GameObject.Find("MapGenerator");
+        GetLength();
     }
+    /// <summary>
+    /// Jsonファイルから敵生成の配列を取得する
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public int LoadEneGene(int index)
+    {
+        //敵を生成したらIndexを一つ進める処理を書く
+        m_index = index;
+        string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
+        InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
+        m_eneIndex = inputJson.m_enemy[m_index];
+        return m_eneIndex;
+    }
+
+    /// <summary>
+    /// 取得したJsonファイルの配列の長さを取得する
+    /// </summary>
+    /// <returns></returns>
+    public int GetLength()
+    {
+        string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
+        InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
+        m_loadEneLength = inputJson.m_enemy.Length;
+        return m_loadEneLength;
+    }
+
     //敵を生成する
     public void OnEneGene()
     {
@@ -29,17 +68,6 @@ public class EnemyGenerator : MonoBehaviour
             for (int j = 0; j < 13; j++)
             {
                 EneGene(i, j);
-            }
-        }
-    }
-    //Bossを生成する
-    public void OnBossGene()
-    {
-        for (int i = 0; i < 13; i++)
-        {
-            for (int j = 0; j < 13; j++)
-            {
-                BossGene(i, j);
             }
         }
     }
@@ -56,26 +84,20 @@ public class EnemyGenerator : MonoBehaviour
         int[,] m = t.Map;
         enePosition = new Vector3Int(x, y, 0);
         //TileがEnemyStartの時生成する
-        if (m[x, y] == 0)
+        switch (m_eneIndex)
         {
-            Instantiate(m_enemy, enePosition, Quaternion.identity);
-        }
-    }
-    /// <summary>
-    /// Bossを生成する関数
-    /// </summary>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    void BossGene(int x, int y)
-    {
-        //Mapの情報を取得する
-        MapGenerator t = mapGene.GetComponent<MapGenerator>();
-        int[,] m = t.Map;
-        bossPosition = new Vector3Int(x, y, 0);
-        //TileがEnemyStartの時生成する
-        if (m[x, y] == 0)
-        {
-            Instantiate(m_boss, bossPosition, Quaternion.identity);
+            case 0:
+                if (m[x, y] == 0)
+                {
+                    Instantiate(m_enemy, enePosition, Quaternion.identity);
+                }
+                break;
+            case 1:
+                if (m[x, y] == 0)
+                {
+                    Instantiate(m_boss, bossPosition, Quaternion.identity);
+                }
+                break;
         }
     }
 }

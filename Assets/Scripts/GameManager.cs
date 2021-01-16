@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
     //獲得コスト
     int m_getCost = 3;
 
+    int m_eneGeneIndex;
+
     public static GameManager Instance;
     //現在の状態
     private GameState nowState;
@@ -70,6 +72,8 @@ public class GameManager : MonoBehaviour
         m_preTimeText = m_preTimeObject.GetComponent<Text>();
         m_resultText = m_resultObject.GetComponent<Text>();
         m_eneGene = GameObject.Find("EnemyGenerator");
+        EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
+        m_eneGeneIndex = e.GetLength();
     }
 
     // Update is called once per frame
@@ -166,19 +170,14 @@ public class GameManager : MonoBehaviour
         m_eneGeneTime -= Time.deltaTime;
         if (m_eneGeneTime < 0)
         {
-            if (m_eneWave >= 1)
+            //敵生成の配列の長さ分だけループさせる
+            if (m_eneGeneIndex > 0)
             {
                 //敵を生成
                 e.OnEneGene();
                 Debug.Log("敵生成");
             }
-            else if (m_eneWave == 0)
-            {
-                //Bossを生成
-                e.OnBossGene();
-                Debug.Log("Boss生成");
-            }
-            m_eneWave -= 1;
+            m_eneGeneIndex -= 1;
             m_eneGeneTime = 5.0f;
         }
 
