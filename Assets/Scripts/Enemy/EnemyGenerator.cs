@@ -17,13 +17,16 @@ public class EnemyGenerator : MonoBehaviour
     /// <summary>ボスのオブジェクト</summary>
     GameObject m_boss;
     GameObject mapGene;
+    GameObject gamMana;
     /// <summary>敵の生成ポジション </summary>
     Vector3Int enePosition;
     /// <summary>Bossの生成ポジション </summary>
     Vector3Int bossPosition;
-
+    /// <summary> 配列の要素番号 </summary>
     int m_index;
+    /// <summary> 取得した配列の数値 </summary>
     int m_eneIndex;
+    /// <summary> 取得した配列の長さ </summary>
     int m_loadEneLength;
 
     void Start()
@@ -31,17 +34,16 @@ public class EnemyGenerator : MonoBehaviour
         m_enemy = Resources.Load<GameObject>("Enemy");
         m_boss = Resources.Load<GameObject>("Boss");
         mapGene = GameObject.Find("MapGenerator");
-        GetLength();
+        gamMana = GameObject.Find("GameManager");
     }
+
     /// <summary>
     /// Jsonファイルから敵生成の配列を取得する
     /// </summary>
-    /// <param name="index"></param>
-    /// <returns></returns>
     public int LoadEneGene(int index)
     {
-        //敵を生成したらIndexを一つ進める処理を書く
         m_index = index;
+        //敵を生成したらIndexを一つ進める処理を書く
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
         InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
         m_eneIndex = inputJson.m_enemy[m_index];
@@ -60,31 +62,20 @@ public class EnemyGenerator : MonoBehaviour
         return m_loadEneLength;
     }
 
-    //敵を生成する
-    public void OnEneGene()
-    {
-        for (int i = 0; i < 13; i++)
-        {
-            for (int j = 0; j < 13; j++)
-            {
-                EneGene(i, j);
-            }
-        }
-    }
 
     /// <summary>
     /// 敵を生成する関数
     /// </summary>
     /// <param name="x"></param>
     /// <param name="y"></param>
-    void EneGene(int x, int y)
+    public void EneGene(int x, int y, int index)
     {
         //Mapの情報を取得する
         MapGenerator t = mapGene.GetComponent<MapGenerator>();
         int[,] m = t.Map;
         enePosition = new Vector3Int(x, y, 0);
         //TileがEnemyStartの時生成する
-        switch (m_eneIndex)
+        switch (LoadEneGene(index))
         {
             case 0:
                 if (m[x, y] == 0)
