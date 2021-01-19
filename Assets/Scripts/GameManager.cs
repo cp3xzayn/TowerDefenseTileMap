@@ -53,7 +53,10 @@ public class GameManager : MonoBehaviour
     //獲得コスト
     int m_getCost = 3;
 
+    bool isIndexPulse;
+    /// <summary> 取得した配列の長さ </summary>
     int m_eneGeneIndex;
+    int m_index = 0;
 
     public static GameManager Instance;
     //現在の状態
@@ -173,9 +176,22 @@ public class GameManager : MonoBehaviour
             //敵生成の配列の長さ分だけループさせる
             if (m_eneGeneIndex > 0)
             {
+                //ここでJsonファイルのインデックスを一度だけ増やす（true,false用いる）必要がある
                 //敵を生成
-                e.OnEneGene();
+                for (int i = 0; i < 13; i++)
+                {
+                    for (int j = 0; j < 13; j++)
+                    {
+                        e.EneGene(i, j, m_index);
+                    }
+                }
                 Debug.Log("敵生成");
+                isIndexPulse = true;
+                if (isIndexPulse)
+                {
+                    m_index++;
+                    isIndexPulse = false;
+                }
             }
             m_eneGeneIndex -= 1;
             m_eneGeneTime = 5.0f;
