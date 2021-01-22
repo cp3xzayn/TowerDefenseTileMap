@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     float m_time = 0;
     /// <summary>弾のダメージ </summary>
     int bulletDamage;
+    /// <summary>　敵死亡時のエフェクト </summary>
+    GameObject m_effect;
+
     GameObject m_baseHPObj;
     BaseHpManager m_base;
 
@@ -20,6 +23,7 @@ public class Enemy : MonoBehaviour
     {
         m_baseHPObj = GameObject.Find("BaseHPManager");
         m_base = m_baseHPObj.GetComponent<BaseHpManager>();
+        //m_effect = Resources.Load<GameObject>("Explosion");
     }
 
     /// <summary>
@@ -62,7 +66,8 @@ public class Enemy : MonoBehaviour
         {
             //敵を破壊する
             Destroy(this.gameObject);
-            //弾が当たったときフィールドにいる敵全員のHPが減る問題が発生
+            //敵が倒されたときにエフェクトを発生させる
+            //Instantiate(m_effect, this.transform.position, Quaternion.identity);
         }
     }
 }
