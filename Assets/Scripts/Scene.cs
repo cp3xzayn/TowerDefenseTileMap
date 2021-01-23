@@ -9,4 +9,13 @@ public class Scene : MonoBehaviour
     {
         SceneManager.LoadScene("Title");
     }
+
+    /// <summary>
+    /// RetryButtonが押されたとき
+    /// </summary>
+    public void OnClickRetry()
+    {
+        SceneManager.LoadScene("Stage");
+        //Phaseを戻す必要がある
+    }
 }

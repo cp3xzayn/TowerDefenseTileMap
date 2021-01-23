@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_weapon;
     /// <summary>兵器1選択ボタン </summary>
     [SerializeField] GameObject m_weapon1;
+    /// <summary>背景のTileSet</summary>
+    [SerializeField] GameObject m_backGroundTileSet;
 
     /// <summary>準備期間の時間</summary>
     [SerializeField] float m_preparationTime = 10f;
@@ -147,6 +149,7 @@ public class GameManager : MonoBehaviour
         m_baseHPSlider.SetActive(true);
         m_weapon.SetActive(true);
         m_weapon1.SetActive(true);
+        m_backGroundTileSet.SetActive(true);
         //GameStateを準備期間に変更する
         SetNowState(GameState.Preparation);
     }

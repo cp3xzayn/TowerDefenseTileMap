@@ -86,6 +86,7 @@ public class EnemyGenerator : MonoBehaviour
             case 1:
                 if (m[x, y] == 0)
                 {
+                    //Bossがm[0,0]から4体生成されてしまう。
                     Instantiate(m_boss, bossPosition, Quaternion.identity);
                 }
                 break;
