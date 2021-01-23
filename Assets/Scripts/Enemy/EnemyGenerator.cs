@@ -7,6 +7,7 @@ using System;
 public class InputJson
 {
     public int[] m_enemy;
+    public int[] m_enemy1;
 }
 
 
@@ -17,7 +18,6 @@ public class EnemyGenerator : MonoBehaviour
     /// <summary>ボスのオブジェクト</summary>
     GameObject m_boss;
     GameObject mapGene;
-    GameObject gamMana;
     /// <summary>敵の生成ポジション </summary>
     Vector3Int enePosition;
     /// <summary> 配列の要素番号 </summary>
@@ -32,13 +32,14 @@ public class EnemyGenerator : MonoBehaviour
         m_enemy = Resources.Load<GameObject>("Enemy");
         m_boss = Resources.Load<GameObject>("Boss");
         mapGene = GameObject.Find("MapGenerator");
-        gamMana = GameObject.Find("GameManager");
     }
 
     /// <summary>
-    /// Jsonファイルから敵生成の配列を取得する
+    /// Jsonファイルから敵生成の配列(Wave1)を取得する
     /// </summary>
-    public int LoadEneGene(int index)
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public int LoadEneGeneWave1(int index)
     {
         m_index = index;
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
@@ -48,14 +49,40 @@ public class EnemyGenerator : MonoBehaviour
     }
 
     /// <summary>
-    /// 取得したJsonファイルの配列の長さを取得する
+    /// Jsonファイルから敵生成の配列(Wave2)を取得する
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public int LoadEneGeneWave2(int index)
+    {
+        m_index = index;
+        string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
+        InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
+        m_eneIndex = inputJson.m_enemy1[m_index];
+        return m_eneIndex;
+    }
+
+    /// <summary>
+    /// 取得したJsonファイルの配列の長さ(Wave1)を取得する
     /// </summary>
     /// <returns></returns>
-    public int GetLength()
+    public int GetLengthWave1()
     {
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
         InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
         m_loadEneLength = inputJson.m_enemy.Length;
+        return m_loadEneLength;
+    }
+
+    /// <summary>
+    /// 取得したJsonファイルの配列の長さ(Wave2)を取得する
+    /// </summary>
+    /// <returns></returns>
+    public int GetLengthWave2()
+    {
+        string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
+        InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
+        m_loadEneLength = inputJson.m_enemy1.Length;
         return m_loadEneLength;
     }
 
@@ -73,7 +100,7 @@ public class EnemyGenerator : MonoBehaviour
         int[,] m = t.Map;
         enePosition = new Vector3Int(x, y, 0);
         //TileがEnemyStartの時生成する
-        switch (LoadEneGene(index))
+        switch (LoadEneGeneWave1(index))
         {
             case 0:
                 if (m[x, y] == 0)

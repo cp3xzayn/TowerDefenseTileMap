@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         m_resultText = m_resultObject.GetComponent<Text>();
         m_eneGene = GameObject.Find("EnemyGenerator");
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
-        m_eneGeneIndex = e.GetLength();
+        m_eneGeneIndex = e.GetLengthWave1();
     }
 
     // Update is called once per frame
