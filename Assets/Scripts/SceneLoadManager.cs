@@ -10,4 +10,15 @@ public class SceneLoadManager : MonoBehaviour
         SceneManager.LoadScene("Stage");
     }
 
+    [SerializeField] GameObject m_howToPlay;
+
+    public void OnClickHowToPlay()
+    {
+        m_howToPlay.SetActive(true);
+    }
+
+    public void OnClickHowToPlayBack()
+    {
+        m_howToPlay.SetActive(false);
+    }
 }

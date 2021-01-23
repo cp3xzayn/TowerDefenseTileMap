@@ -20,8 +20,6 @@ public class EnemyGenerator : MonoBehaviour
     GameObject gamMana;
     /// <summary>敵の生成ポジション </summary>
     Vector3Int enePosition;
-    /// <summary>Bossの生成ポジション </summary>
-    Vector3Int bossPosition;
     /// <summary> 配列の要素番号 </summary>
     int m_index;
     /// <summary> 取得した配列の数値 </summary>
@@ -43,7 +41,6 @@ public class EnemyGenerator : MonoBehaviour
     public int LoadEneGene(int index)
     {
         m_index = index;
-        //敵を生成したらIndexを一つ進める処理を書く
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
         InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
         m_eneIndex = inputJson.m_enemy[m_index];
@@ -68,6 +65,7 @@ public class EnemyGenerator : MonoBehaviour
     /// </summary>
     /// <param name="x"></param>
     /// <param name="y"></param>
+    /// <param name="index"></param>
     public void EneGene(int x, int y, int index)
     {
         //Mapの情報を取得する
@@ -87,7 +85,7 @@ public class EnemyGenerator : MonoBehaviour
                 if (m[x, y] == 0)
                 {
                     //Bossがm[0,0]から4体生成されてしまう。
-                    Instantiate(m_boss, bossPosition, Quaternion.identity);
+                    Instantiate(m_boss,　enePosition, Quaternion.identity);
                 }
                 break;
         }
