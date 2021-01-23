@@ -9,4 +9,5 @@ public class SceneLoadManager : MonoBehaviour
     {
         SceneManager.LoadScene("Stage");
     }
+
 }
