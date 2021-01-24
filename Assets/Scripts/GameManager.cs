@@ -45,23 +45,28 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_weapon1;
     /// <summary>背景のTileSet</summary>
     [SerializeField] GameObject m_backGroundTileSet;
+    /// <summary> 所持しているコストのテキスト </summary>
+    [SerializeField] GameObject m_costObject;
 
     /// <summary>準備期間の時間</summary>
     [SerializeField] float m_preparationTime = 10f;
     /// <summary>敵生成の間隔 </summary>
     [SerializeField] float m_eneGeneTime = 3.0f;
+    float m_eTime = 0;
     /// <summary>敵の生成上限 </summary>
     [SerializeField] int m_eneWave = 3;
     //獲得コスト
     int m_getCost = 3;
-
+    /// <summary> 敵生成の配列のIndexを進めるか判定する </summary>
     bool isIndexPulse;
     /// <summary> 取得した配列の長さ </summary>
     int m_eneGeneIndex;
     int m_index = 0;
+    /// <summary>現在のWave </summary>
+    int m_nowWave = 1;
 
     public static GameManager Instance;
-    //現在の状態
+    /// <summary>現在の状態 </summary>
     private GameState nowState;
 
     
@@ -78,7 +83,7 @@ public class GameManager : MonoBehaviour
         m_resultText = m_resultObject.GetComponent<Text>();
         m_eneGene = GameObject.Find("EnemyGenerator");
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
-        m_eneGeneIndex = e.GetLength();
+        m_eneGeneIndex = e.GetLengthWave1();
     }
 
     // Update is called once per frame
@@ -123,7 +128,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Result:
                 Debug.Log("GameState.Result");
-                //ResultAction();
+                ResultAction();
                 break;
             case GameState.Finish:
                 break;
@@ -150,6 +155,7 @@ public class GameManager : MonoBehaviour
         m_weapon.SetActive(true);
         m_weapon1.SetActive(true);
         m_backGroundTileSet.SetActive(true);
+        m_costObject.SetActive(true);
         //GameStateを準備期間に変更する
         SetNowState(GameState.Preparation);
     }
@@ -171,46 +177,50 @@ public class GameManager : MonoBehaviour
     //GameStateがBattleになったときの処理
     void BattleUpdate()
     {
-        EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
-        //生成のクールタイムが終わったら
-        m_eneGeneTime -= Time.deltaTime;
-        if (m_eneGeneTime < 0)
+        //現在のWaveに応じて敵の生成を変える
+        switch (m_nowWave)
         {
-            //敵生成の配列の長さ分だけループさせる
-            if (m_eneGeneIndex > 0)
-            {
-                //ここでJsonファイルのインデックスを一度だけ増やす（true,false用いる）必要がある
-                //敵を生成
-                for (int i = 0; i < 13; i++)
+            case 1:
+                EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
+                //生成のクールタイムが終わったら
+                m_eTime += Time.deltaTime;
+                if (m_eTime > m_eneGeneTime)
                 {
-                    for (int j = 0; j < 13; j++)
+                    //敵生成の配列の長さ分だけループさせる
+                    if (m_eneGeneIndex > 0)
                     {
-                        e.EneGene(i, j, m_index);
+                        //敵を生成
+                        for (int i = 0; i < 13; i++)
+                        {
+                            for (int j = 0; j < 13; j++)
+                            {
+                                e.EneGene(i, j, m_index);
+                            }
+                        }
+                        Debug.Log("敵生成");
+                        isIndexPulse = true;
+                        if (isIndexPulse)
+                        {
+                            m_index++;
+                            isIndexPulse = false;
+                        }
                     }
+                    m_eneGeneIndex--;
+                    m_eTime = 0;
                 }
-                Debug.Log("敵生成");
-                isIndexPulse = true;
-                if (isIndexPulse)
+                else
                 {
-                    m_index++;
-                    isIndexPulse = false;
-                }
-            }
-            m_eneGeneIndex -= 1;
-            m_eneGeneTime = 5.0f;
-        }
 
+                }
+                break;
+            case 2:
+                Debug.Log("Wave2");
+                break;
+        }
         //弾生成
         foreach (var item in m_wepMana)
         {
             item.OnShot();
-        }
-
-        //敵の生成が終わったら
-        if (m_eneWave == -2)
-        {
-            //Resultに変更する
-            SetNowState(GameState.Result);
         }
     }
 
@@ -220,6 +230,15 @@ public class GameManager : MonoBehaviour
         m_resultPanel.SetActive(true);
         m_resultText.text = "獲得兵器コスト:" + m_getCost;
     }
+    //次へボタンが押されたときの処理
+    public void OnClickNextWave()
+    {
+        m_nowWave++;
+        Debug.Log("Wave" + m_nowWave);
+        m_resultObject.SetActive(false);
+        SetNowState(GameState.Preparation);
+    }
+
     //GameState.GameOverになったときに一回だけ呼ばれる処理
     void GameOverAction()
     {

@@ -7,6 +7,7 @@ using System;
 public class InputJson
 {
     public int[] m_enemy;
+    public int[] m_enemy1;
 }
 
 
@@ -17,11 +18,8 @@ public class EnemyGenerator : MonoBehaviour
     /// <summary>ボスのオブジェクト</summary>
     GameObject m_boss;
     GameObject mapGene;
-    GameObject gamMana;
     /// <summary>敵の生成ポジション </summary>
     Vector3Int enePosition;
-    /// <summary>Bossの生成ポジション </summary>
-    Vector3Int bossPosition;
     /// <summary> 配列の要素番号 </summary>
     int m_index;
     /// <summary> 取得した配列の数値 </summary>
@@ -34,16 +32,16 @@ public class EnemyGenerator : MonoBehaviour
         m_enemy = Resources.Load<GameObject>("Enemy");
         m_boss = Resources.Load<GameObject>("Boss");
         mapGene = GameObject.Find("MapGenerator");
-        gamMana = GameObject.Find("GameManager");
     }
 
     /// <summary>
-    /// Jsonファイルから敵生成の配列を取得する
+    /// Jsonファイルから敵生成の配列(Wave1)を取得する
     /// </summary>
-    public int LoadEneGene(int index)
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public int LoadEneGeneWave1(int index)
     {
         m_index = index;
-        //敵を生成したらIndexを一つ進める処理を書く
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
         InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
         m_eneIndex = inputJson.m_enemy[m_index];
@@ -51,14 +49,40 @@ public class EnemyGenerator : MonoBehaviour
     }
 
     /// <summary>
-    /// 取得したJsonファイルの配列の長さを取得する
+    /// Jsonファイルから敵生成の配列(Wave2)を取得する
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public int LoadEneGeneWave2(int index)
+    {
+        m_index = index;
+        string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
+        InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
+        m_eneIndex = inputJson.m_enemy1[m_index];
+        return m_eneIndex;
+    }
+
+    /// <summary>
+    /// 取得したJsonファイルの配列の長さ(Wave1)を取得する
     /// </summary>
     /// <returns></returns>
-    public int GetLength()
+    public int GetLengthWave1()
     {
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
         InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
         m_loadEneLength = inputJson.m_enemy.Length;
+        return m_loadEneLength;
+    }
+
+    /// <summary>
+    /// 取得したJsonファイルの配列の長さ(Wave2)を取得する
+    /// </summary>
+    /// <returns></returns>
+    public int GetLengthWave2()
+    {
+        string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
+        InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
+        m_loadEneLength = inputJson.m_enemy1.Length;
         return m_loadEneLength;
     }
 
@@ -68,6 +92,7 @@ public class EnemyGenerator : MonoBehaviour
     /// </summary>
     /// <param name="x"></param>
     /// <param name="y"></param>
+    /// <param name="index"></param>
     public void EneGene(int x, int y, int index)
     {
         //Mapの情報を取得する
@@ -75,7 +100,24 @@ public class EnemyGenerator : MonoBehaviour
         int[,] m = t.Map;
         enePosition = new Vector3Int(x, y, 0);
         //TileがEnemyStartの時生成する
-        switch (LoadEneGene(index))
+        switch (LoadEneGeneWave1(index))
+        {
+            case 0:
+                if (m[x, y] == 0)
+                {
+                    Instantiate(m_enemy, enePosition, Quaternion.identity);
+                }
+                break;
+            case 1:
+                if (m[x, y] == 0)
+                {
+                    Instantiate(m_boss,　enePosition, Quaternion.identity);
+                }
+                break;
+        }
+
+        //敵の配列2の時のスイッチ分
+        /*switch (LoadEneGeneWave2(index))
         {
             case 0:
                 if (m[x, y] == 0)
@@ -87,9 +129,9 @@ public class EnemyGenerator : MonoBehaviour
                 if (m[x, y] == 0)
                 {
                     //Bossがm[0,0]から4体生成されてしまう。
-                    Instantiate(m_boss, bossPosition, Quaternion.identity);
+                    Instantiate(m_boss, enePosition, Quaternion.identity);
                 }
                 break;
-        }
+        }*/
     }
 }
