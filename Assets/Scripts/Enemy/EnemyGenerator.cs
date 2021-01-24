@@ -111,10 +111,27 @@ public class EnemyGenerator : MonoBehaviour
             case 1:
                 if (m[x, y] == 0)
                 {
-                    //Bossがm[0,0]から4体生成されてしまう。
                     Instantiate(m_boss,　enePosition, Quaternion.identity);
                 }
                 break;
         }
+
+        //敵の配列2の時のスイッチ分
+        /*switch (LoadEneGeneWave2(index))
+        {
+            case 0:
+                if (m[x, y] == 0)
+                {
+                    Instantiate(m_enemy, enePosition, Quaternion.identity);
+                }
+                break;
+            case 1:
+                if (m[x, y] == 0)
+                {
+                    //Bossがm[0,0]から4体生成されてしまう。
+                    Instantiate(m_boss, enePosition, Quaternion.identity);
+                }
+                break;
+        }*/
     }
 }
