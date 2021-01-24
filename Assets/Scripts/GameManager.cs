@@ -16,20 +16,20 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
     GameObject m_mapGene;
-    /// <summary>兵器</summary>
+    /// <summary>兵器を格納する配列</summary>
     WeaponManager[] m_wepMana;
+    /// <summary>敵を格納する配列 </summary>
+    EnemyController[] m_enemy;
     /// <summary>敵生成のオブジェクト</summary>
     GameObject m_eneGene;
     /// <summary>Playerのオブジェクト</summary>
-    [SerializeField] GameObject m_player;
+    GameObject m_player;
     /// <summary>準備時間のTextオブジェクト</summary>
     [SerializeField] GameObject m_preTimeObject;
     /// <summary>準備時間を表示するテキスト</summary>
     Text m_preTimeText;
     /// <summary>ResultのTextオブジェクト </summary>
     [SerializeField] GameObject m_resultObject;
-    /// <summary>Resultを表示するText </summary>
-    Text m_resultText;
     [SerializeField] GameObject m_resultPanel;
     /// <summary>ゲームオーバー時に表示するオブジェクト</summary>
     [SerializeField] GameObject m_gameoverText;
@@ -57,6 +57,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int m_eneWave = 3;
     //獲得コスト
     int m_getCost = 3;
+    /// <summary>Waveが終わったか判断する </summary>
+    bool isWave = false;
     /// <summary> 敵生成の配列のIndexを進めるか判定する </summary>
     bool isIndexPulse;
     /// <summary> 取得した配列の長さ </summary>
@@ -80,7 +82,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         m_preTimeText = m_preTimeObject.GetComponent<Text>();
-        m_resultText = m_resultObject.GetComponent<Text>();
         m_eneGene = GameObject.Find("EnemyGenerator");
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
         m_eneGeneIndex = e.GetLengthWave1();
@@ -128,7 +129,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Result:
                 Debug.Log("GameState.Result");
-                ResultAction();
+                //ResultAction();
                 break;
             case GameState.Finish:
                 break;
@@ -198,6 +199,7 @@ public class GameManager : MonoBehaviour
                             }
                         }
                         Debug.Log("敵生成");
+                        //m_indexを一度だけ１進める
                         isIndexPulse = true;
                         if (isIndexPulse)
                         {
@@ -208,10 +210,16 @@ public class GameManager : MonoBehaviour
                     m_eneGeneIndex--;
                     m_eTime = 0;
                 }
-                else
+                /*if (m_eneGeneIndex == 0)
                 {
-
+                    Debug.Log("a");
+                    isWave = true;
                 }
+                if (isWave == true)
+                {
+                    SetNowState(GameState.Result);
+                    isWave = false;
+                }*/
                 break;
             case 2:
                 Debug.Log("Wave2");
@@ -227,15 +235,14 @@ public class GameManager : MonoBehaviour
     //GameState.Resultになったときに一回だけ呼ばれる処理
     void ResultAction()
     {
-        m_resultPanel.SetActive(true);
-        m_resultText.text = "獲得兵器コスト:" + m_getCost;
+        Time.timeScale = 0f;
+        //Panelのprefabを生成する
     }
     //次へボタンが押されたときの処理
     public void OnClickNextWave()
     {
         m_nowWave++;
         Debug.Log("Wave" + m_nowWave);
-        m_resultObject.SetActive(false);
         SetNowState(GameState.Preparation);
     }
 
@@ -250,6 +257,7 @@ public class GameManager : MonoBehaviour
     //playerを生成する関数
     void PlayerInstance(int x, int y)
     {
+        m_player = Resources.Load<GameObject>("Player");
         //Mapの情報を取得する
         MapGenerator t = m_mapGene.GetComponent<MapGenerator>();
         int[,] m = t.Map;
