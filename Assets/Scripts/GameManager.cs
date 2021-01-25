@@ -24,13 +24,14 @@ public class GameManager : MonoBehaviour
     GameObject m_eneGene;
     /// <summary>Playerのオブジェクト</summary>
     GameObject m_player;
+    /// <summary> Canvasのオブジェクト </summary>
+    [SerializeField] GameObject m_canvas;
     /// <summary>準備時間のTextオブジェクト</summary>
     [SerializeField] GameObject m_preTimeObject;
     /// <summary>準備時間を表示するテキスト</summary>
     Text m_preTimeText;
     /// <summary>ResultのTextオブジェクト </summary>
     [SerializeField] GameObject m_resultObject;
-    [SerializeField] GameObject m_resultPanel;
     /// <summary>ゲームオーバー時に表示するオブジェクト</summary>
     [SerializeField] GameObject m_gameoverText;
     /// <summary>プレイヤーの生成ポジション </summary>
@@ -95,7 +96,7 @@ public class GameManager : MonoBehaviour
         switch (nowState)
         {
             case GameState.Preparation:
-                PreparationUpdate();
+                //PreparationUpdate();
                 break;
             case GameState.Battle:
                 BattleUpdate();
@@ -123,6 +124,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Preparation:
                 Debug.Log("GameState.Preparation");
+                ResultAction();
                 break;
             case GameState.Battle:
                 Debug.Log("GameState.Battle");
@@ -237,6 +239,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         //Panelのprefabを生成する
+        GameObject resultPrefab = (GameObject)Instantiate(m_resultObject);
+        resultPrefab.transform.SetParent(m_canvas.transform, false);
     }
     //次へボタンが押されたときの処理
     public void OnClickNextWave()
