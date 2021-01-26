@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     /// <summary>　敵死亡時のエフェクト </summary>
     GameObject m_effect;
 
+
+
     GameObject m_baseHPObj;
     BaseHpManager m_base;
 
@@ -68,6 +70,8 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
             //敵が倒されたときにエフェクトを発生させる
             //Instantiate(m_effect, this.transform.position, Quaternion.identity);
+            //敵が倒されたらコストを獲得できるようにする
+
         }
     }
 }

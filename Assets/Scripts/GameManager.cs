@@ -56,8 +56,6 @@ public class GameManager : MonoBehaviour
     float m_eTime = 0;
     /// <summary>敵の生成上限 </summary>
     [SerializeField] int m_eneWave = 3;
-    //獲得コスト
-    int m_getCost = 3;
     /// <summary>Waveが終わったか判断する </summary>
     bool isWave = false;
     /// <summary> 敵生成の配列のIndexを進めるか判定する </summary>
@@ -67,6 +65,7 @@ public class GameManager : MonoBehaviour
     int m_index = 0;
     /// <summary>現在のWave </summary>
     int m_nowWave = 1;
+
 
     bool isTimeSet = false;
 
