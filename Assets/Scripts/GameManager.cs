@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     /// <summary>敵生成のオブジェクト</summary>
     GameObject m_eneGene;
     /// <summary>Playerのオブジェクト</summary>
-    GameObject m_player;
+    [SerializeField] GameObject m_player;
     /// <summary> Canvasのオブジェクト </summary>
     [SerializeField] GameObject m_canvas;
     /// <summary>準備時間のTextオブジェクト</summary>
@@ -56,8 +56,6 @@ public class GameManager : MonoBehaviour
     float m_eTime = 0;
     /// <summary>敵の生成上限 </summary>
     [SerializeField] int m_eneWave = 3;
-    //獲得コスト
-    int m_getCost = 3;
     /// <summary>Waveが終わったか判断する </summary>
     bool isWave = false;
     /// <summary> 敵生成の配列のIndexを進めるか判定する </summary>
@@ -67,6 +65,9 @@ public class GameManager : MonoBehaviour
     int m_index = 0;
     /// <summary>現在のWave </summary>
     int m_nowWave = 1;
+
+
+    bool isTimeSet = false;
 
     public static GameManager Instance;
     /// <summary>現在の状態 </summary>
@@ -96,7 +97,7 @@ public class GameManager : MonoBehaviour
         switch (nowState)
         {
             case GameState.Preparation:
-                //PreparationUpdate();
+                PreparationUpdate();
                 break;
             case GameState.Battle:
                 BattleUpdate();
@@ -124,14 +125,13 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Preparation:
                 Debug.Log("GameState.Preparation");
-                ResultAction();
                 break;
             case GameState.Battle:
                 Debug.Log("GameState.Battle");
                 break;
             case GameState.Result:
                 Debug.Log("GameState.Result");
-                //ResultAction();
+                ResultAction();
                 break;
             case GameState.Finish:
                 break;
@@ -154,6 +154,8 @@ public class GameManager : MonoBehaviour
                 PlayerInstance(i, j);
             }
         }
+        //準備時間をセットする
+        isTimeSet = true;
         m_baseHPSlider.SetActive(true);
         m_weapon.SetActive(true);
         m_weapon1.SetActive(true);
@@ -238,7 +240,7 @@ public class GameManager : MonoBehaviour
     void ResultAction()
     {
         Time.timeScale = 0f;
-        //Panelのprefabを生成する
+        //ResultPanelのprefabを生成する
         GameObject resultPrefab = (GameObject)Instantiate(m_resultObject);
         resultPrefab.transform.SetParent(m_canvas.transform, false);
     }
@@ -258,10 +260,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    //playerを生成する関数
+    /// <summary>
+    /// playerを生成する関数
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
     void PlayerInstance(int x, int y)
     {
-        m_player = Resources.Load<GameObject>("Player");
         //Mapの情報を取得する
         MapGenerator t = m_mapGene.GetComponent<MapGenerator>();
         int[,] m = t.Map;
@@ -270,5 +275,14 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(m_player, plaPosition, Quaternion.identity);
         }
+    }
+    /// <summary>
+    /// Playerのポジションを拠点に戻すための変数
+    /// </summary>
+    public void PlayerPosReset()
+    {
+        //まだ未実装
+        Debug.Log("PlyaerPosReset");
+        m_player.transform.position = new Vector3Int(6, 6, 0);
     }
 }
