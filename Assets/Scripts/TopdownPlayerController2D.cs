@@ -21,9 +21,11 @@ public class TopdownPlayerController2D : MonoBehaviour
     /// <summary>兵器を置くポジション</summary>
     Vector3Int weaPos;
     /// <summary>置くことができる兵器の制限 </summary>
-    [SerializeField] int m_limitWepon = 4;
+    int m_limitWepon;
     /// <summary>兵器のコスト </summary>
     int m_weaponCost = 1;
+
+    GameObject m_costMana;
 
     Weapon weapon;
 
@@ -34,7 +36,11 @@ public class TopdownPlayerController2D : MonoBehaviour
         m_anim = GetComponent<Animator>();
         m_mapGene = GameObject.Find("MapGenerator");
         m_wepMana = GameObject.Find("WeaponManager");
+        m_costMana = GameObject.Find("CostManager");
         weapon = m_wepMana.GetComponent<Weapon>();
+        //コストを初期化する
+        CostManager c = m_costMana.GetComponent<CostManager>();
+        m_limitWepon = c.Cost;
     }
 
     void Update()
@@ -85,6 +91,8 @@ public class TopdownPlayerController2D : MonoBehaviour
                     StartCoroutine("SetWeapon");
                     //コストを減らす
                     m_limitWepon -= m_weaponCost;
+                    CostManager c = m_costMana.GetComponent<CostManager>();
+                    c.DecreaseCost();
                     Debug.Log("残りコスト" + m_limitWepon);
                 }
             }
