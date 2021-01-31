@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     int bulletDamage;
     /// <summary>　敵死亡時のエフェクト </summary>
     GameObject m_effect;
-
+    GameObject m_costMana;
 
 
     GameObject m_baseHPObj;
@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
         m_baseHPObj = GameObject.Find("BaseHPManager");
         m_base = m_baseHPObj.GetComponent<BaseHpManager>();
         //m_effect = Resources.Load<GameObject>("Explosion");
+        m_costMana = GameObject.Find("CostManager");
     }
 
     /// <summary>
@@ -70,8 +71,9 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
             //敵が倒されたときにエフェクトを発生させる
             //Instantiate(m_effect, this.transform.position, Quaternion.identity);
-            //敵が倒されたらコストを獲得できるようにする
-
+            //Costを増やす
+            CostManager c = m_costMana.GetComponent<CostManager>();
+            c.UpCost();
         }
     }
 }
