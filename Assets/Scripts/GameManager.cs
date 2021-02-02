@@ -49,15 +49,14 @@ public class GameManager : MonoBehaviour
     /// <summary> 所持しているコストのテキスト </summary>
     [SerializeField] GameObject m_costObject;
 
-    /// <summary>準備期間の時間</summary>
-    [SerializeField] float m_preparationTime = 10f;
+    /// <summary> 準備期間の時間 /// </summary>
+    [SerializeField] float m_preparationTimeSet = 10f;
+    float m_preparationTime;
     /// <summary>敵生成の間隔 </summary>
     [SerializeField] float m_eneGeneTime = 3.0f;
     float m_eTime = 0;
     /// <summary>敵の生成上限 </summary>
     [SerializeField] int m_eneWave = 3;
-    /// <summary>Waveが終わったか判断する </summary>
-    bool isWave = false;
     /// <summary> 敵生成の配列のIndexを進めるか判定する </summary>
     bool isIndexPulse;
     /// <summary> 取得した配列の長さ </summary>
@@ -68,6 +67,10 @@ public class GameManager : MonoBehaviour
 
 
     bool isTimeSet = false;
+
+    //仮にタイマーをセットしている
+    float m_nextTime = 3;
+    float m_time = 0;
 
     public static GameManager Instance;
     /// <summary>現在の状態 </summary>
@@ -169,6 +172,7 @@ public class GameManager : MonoBehaviour
     void PreparationUpdate()
     {
         //準備時間が終わったら
+        m_preparationTime = m_preparationTimeSet;
         m_preparationTime -= Time.deltaTime;
         m_preTimeText.text = "準備時間 : " + m_preparationTime.ToString("f1");
         if (m_preparationTime < 0)
@@ -214,16 +218,20 @@ public class GameManager : MonoBehaviour
                     m_eneGeneIndex--;
                     m_eTime = 0;
                 }
-                /*if (m_eneGeneIndex == 0)
+                if (m_eneGeneIndex <= 0)
                 {
-                    Debug.Log("a");
-                    isWave = true;
+                    /*m_enemy = FindObjectsOfType<EnemyController>();
+                    if (m_enemy == null)
+                    {
+                        Debug.Log("Wave終了");
+                        SetNowState(GameState.Result);
+                    }*/
+                    m_time += Time.deltaTime;
+                    if (m_time > m_nextTime)
+                    {
+                        SetNowState(GameState.Result);
+                    }
                 }
-                if (isWave == true)
-                {
-                    SetNowState(GameState.Result);
-                    isWave = false;
-                }*/
                 break;
             case 2:
                 Debug.Log("Wave2");
@@ -241,8 +249,9 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         //ResultPanelのprefabを生成する
-        GameObject resultPrefab = (GameObject)Instantiate(m_resultObject);
-        resultPrefab.transform.SetParent(m_canvas.transform, false);
+        //GameObject resultPrefab = (GameObject)Instantiate(m_resultObject);
+        //resultPrefab.transform.SetParent(m_canvas.transform, false);
+        m_resultObject.SetActive(true);
     }
     //次へボタンが押されたときの処理
     public void OnClickNextWave()
