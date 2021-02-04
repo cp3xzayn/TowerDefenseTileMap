@@ -65,11 +65,10 @@ public class GameManager : MonoBehaviour
     /// <summary>現在のWave </summary>
     int m_nowWave = 1;
 
-
-    bool isTimeSet = false;
+    bool isPreTimeSet = true;
 
     //仮にタイマーをセットしている
-    float m_nextTime = 3;
+    float m_nextTime = 7;
     float m_time = 0;
 
     public static GameManager Instance;
@@ -83,7 +82,7 @@ public class GameManager : MonoBehaviour
         SetNowState(GameState.Start);
     }
 
-    // Start is called before the first frame update
+
     void Start()
     {
         m_preTimeText = m_preTimeObject.GetComponent<Text>();
@@ -92,7 +91,6 @@ public class GameManager : MonoBehaviour
         m_eneGeneIndex = e.GetLengthWave1();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //WeaponManagerを探して配列に格納する
@@ -157,8 +155,6 @@ public class GameManager : MonoBehaviour
                 PlayerInstance(i, j);
             }
         }
-        //準備時間をセットする
-        isTimeSet = true;
         m_baseHPSlider.SetActive(true);
         m_weapon.SetActive(true);
         m_weapon1.SetActive(true);
@@ -172,7 +168,11 @@ public class GameManager : MonoBehaviour
     void PreparationUpdate()
     {
         //準備時間が終わったら
-        m_preparationTime = m_preparationTimeSet;
+        if (isPreTimeSet)
+        {
+            m_preparationTime = m_preparationTimeSet;
+            isPreTimeSet = false;
+        }
         m_preparationTime -= Time.deltaTime;
         m_preTimeText.text = "準備時間 : " + m_preparationTime.ToString("f1");
         if (m_preparationTime < 0)
@@ -247,6 +247,7 @@ public class GameManager : MonoBehaviour
     //GameState.Resultになったときに一回だけ呼ばれる処理
     void ResultAction()
     {
+        //時間を止める
         Time.timeScale = 0f;
         //ResultPanelのprefabを生成する
         //GameObject resultPrefab = (GameObject)Instantiate(m_resultObject);
@@ -257,6 +258,11 @@ public class GameManager : MonoBehaviour
     public void OnClickNextWave()
     {
         m_nowWave++;
+        m_resultObject.SetActive(false);
+        //PreparationTimeをセットするため
+        isPreTimeSet = true;
+        //時間の動きを再開する
+        Time.timeScale = 1f;
         Debug.Log("Wave" + m_nowWave);
         SetNowState(GameState.Preparation);
     }
@@ -285,6 +291,7 @@ public class GameManager : MonoBehaviour
             Instantiate(m_player, plaPosition, Quaternion.identity);
         }
     }
+
     /// <summary>
     /// Playerのポジションを拠点に戻すための変数
     /// </summary>
