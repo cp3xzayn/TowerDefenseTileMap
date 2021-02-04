@@ -656,7 +656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &644642624
 RectTransform:
   m_ObjectHideFlags: 0
@@ -670,6 +670,7 @@ RectTransform:
   m_Children:
   - {fileID: 1556453901}
   - {fileID: 1904909932}
+  - {fileID: 1182982592}
   m_Father: {fileID: 1000545610}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5217,7 +5218,6 @@ RectTransform:
   - {fileID: 1776219222}
   - {fileID: 1060476934}
   - {fileID: 644642624}
-  - {fileID: 1182982592}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5468,15 +5468,14 @@ MonoBehaviour:
     type: 3}
   m_canvas: {fileID: 1000545606}
   m_preTimeObject: {fileID: 688604120}
-  m_resultObject: {fileID: 2657325189813288871, guid: f7ba372a45853044ca0b10a786294c0f,
-    type: 3}
+  m_resultObject: {fileID: 644642623}
   m_gameoverText: {fileID: 1776219221}
   m_baseHPSlider: {fileID: 112506571}
   m_weapon: {fileID: 1476525848}
   m_weapon1: {fileID: 1748709967}
   m_backGroundTileSet: {fileID: 839563447}
   m_costObject: {fileID: 1574861988}
-  m_preparationTime: 10
+  m_preparationTimeSet: 10
   m_eneGeneTime: 5
   m_eneWave: 3
 --- !u!4 &1155626783
@@ -5519,13 +5518,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182982591}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 373992549}
-  m_Father: {fileID: 1000545610}
-  m_RootOrder: 8
+  m_Father: {fileID: 644642624}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5574,7 +5573,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1182982594}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1155626782}
+        m_MethodName: OnClickNextWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1182982594
 MonoBehaviour:
   m_ObjectHideFlags: 0
