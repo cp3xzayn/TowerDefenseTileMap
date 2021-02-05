@@ -60,10 +60,11 @@ public class GameManager : MonoBehaviour
     /// <summary> 敵生成の配列のIndexを進めるか判定する </summary>
     bool isIndexPulse;
     /// <summary> 取得した配列の長さ </summary>
-    int m_eneGeneIndex;
+    int m_eneGeneIndex1;
+    int m_eneGeneIndex2;
     int m_index = 0;
     /// <summary>現在のWave </summary>
-    int m_nowWave = 1;
+    public int m_nowWave = 1;
 
     bool isPreTimeSet = true;
 
@@ -88,7 +89,8 @@ public class GameManager : MonoBehaviour
         m_preTimeText = m_preTimeObject.GetComponent<Text>();
         m_eneGene = GameObject.Find("EnemyGenerator");
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
-        m_eneGeneIndex = e.GetLengthWave1();
+        m_eneGeneIndex1 = e.GetLengthWave1();
+        m_eneGeneIndex2 = e.GetLengthWave2();
     }
 
     void Update()
@@ -186,24 +188,24 @@ public class GameManager : MonoBehaviour
     //GameStateがBattleになったときの処理
     void BattleUpdate()
     {
+        EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
         //現在のWaveに応じて敵の生成を変える
         switch (m_nowWave)
         {
             case 1:
-                EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
                 //生成のクールタイムが終わったら
                 m_eTime += Time.deltaTime;
                 if (m_eTime > m_eneGeneTime)
                 {
                     //敵生成の配列の長さ分だけループさせる
-                    if (m_eneGeneIndex > 0)
+                    if (m_eneGeneIndex1 > 0)
                     {
                         //敵を生成
                         for (int i = 0; i < 13; i++)
                         {
                             for (int j = 0; j < 13; j++)
                             {
-                                e.EneGene(i, j, m_index);
+                                e.EneGene1(i, j, m_index);
                             }
                         }
                         Debug.Log("敵生成");
@@ -215,10 +217,10 @@ public class GameManager : MonoBehaviour
                             isIndexPulse = false;
                         }
                     }
-                    m_eneGeneIndex--;
+                    m_eneGeneIndex1--;
                     m_eTime = 0;
                 }
-                if (m_eneGeneIndex <= 0)
+                if (m_eneGeneIndex1 <= 0)
                 {
                     /*m_enemy = FindObjectsOfType<EnemyController>();
                     if (m_enemy == null)
@@ -229,12 +231,57 @@ public class GameManager : MonoBehaviour
                     m_time += Time.deltaTime;
                     if (m_time > m_nextTime)
                     {
+                        //indexを初期化する
+                        m_index = 0;
                         SetNowState(GameState.Result);
                     }
                 }
                 break;
             case 2:
                 Debug.Log("Wave2");
+                //生成のクールタイムが終わったら
+                m_eTime += Time.deltaTime;
+                if (m_eTime > m_eneGeneTime)
+                {
+                    //敵生成の配列の長さ分だけループさせる
+                    if (m_eneGeneIndex2 > 0)
+                    {
+                        //敵を生成
+                        for (int i = 0; i < 13; i++)
+                        {
+                            for (int j = 0; j < 13; j++)
+                            {
+                                e.EneGene2(i, j, m_index);
+                            }
+                        }
+                        Debug.Log("敵生成");
+                        //m_indexを一度だけ１進める
+                        isIndexPulse = true;
+                        if (isIndexPulse)
+                        {
+                            m_index++;
+                            isIndexPulse = false;
+                        }
+                    }
+                    m_eneGeneIndex2--;
+                    m_eTime = 0;
+                }
+                if (m_eneGeneIndex2<= 0)
+                {
+                    /*m_enemy = FindObjectsOfType<EnemyController>();
+                    if (m_enemy == null)
+                    {
+                        Debug.Log("Wave終了");
+                        SetNowState(GameState.Result);
+                    }*/
+                    m_time += Time.deltaTime;
+                    if (m_time > m_nextTime)
+                    {
+                        //indexを初期化する
+                        m_index = 0;
+                        SetNowState(GameState.Result);
+                    }
+                }
                 break;
         }
         //弾生成
@@ -291,6 +338,8 @@ public class GameManager : MonoBehaviour
             Instantiate(m_player, plaPosition, Quaternion.identity);
         }
     }
+
+
 
     /// <summary>
     /// Playerのポジションを拠点に戻すための変数

@@ -27,11 +27,17 @@ public class EnemyGenerator : MonoBehaviour
     /// <summary> 取得した配列の長さ </summary>
     int m_loadEneLength;
 
+    GameObject gameMana;
+
+    int wave;
+    GameManager gameManager;
+
     void Start()
     {
         m_enemy = Resources.Load<GameObject>("Enemy");
         m_boss = Resources.Load<GameObject>("Boss");
         mapGene = GameObject.Find("MapGenerator");
+        gameMana = GameObject.Find("GameManager");
     }
 
     /// <summary>
@@ -88,12 +94,12 @@ public class EnemyGenerator : MonoBehaviour
 
 
     /// <summary>
-    /// 敵を生成する関数
+    /// 敵を生成する関数Wave1
     /// </summary>
     /// <param name="x"></param>
     /// <param name="y"></param>
     /// <param name="index"></param>
-    public void EneGene(int x, int y, int index)
+    public void EneGene1(int x, int y, int index)
     {
         //Mapの情報を取得する
         MapGenerator t = mapGene.GetComponent<MapGenerator>();
@@ -115,9 +121,22 @@ public class EnemyGenerator : MonoBehaviour
                 }
                 break;
         }
+    }
 
+    /// <summary>
+    /// 敵を生成する関数wave2
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <param name="index"></param>
+    public void EneGene2(int x, int y, int index)
+    {
+        //Mapの情報を取得する
+        MapGenerator t = mapGene.GetComponent<MapGenerator>();
+        int[,] m = t.Map;
+        enePosition = new Vector3Int(x, y, 0);
         //敵の配列2の時のスイッチ分
-        /*switch (LoadEneGeneWave2(index))
+        switch (LoadEneGeneWave2(index))
         {
             case 0:
                 if (m[x, y] == 0)
@@ -128,10 +147,9 @@ public class EnemyGenerator : MonoBehaviour
             case 1:
                 if (m[x, y] == 0)
                 {
-                    //Bossがm[0,0]から4体生成されてしまう。
                     Instantiate(m_boss, enePosition, Quaternion.identity);
                 }
                 break;
-        }*/
+        }
     }
 }
