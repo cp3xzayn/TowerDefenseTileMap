@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public enum GameState
 {
     Start,
+    WaveStart,
     Preparation,
     Battle,
     Result,
@@ -48,6 +49,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_backGroundTileSet;
     /// <summary> 所持しているコストのテキスト </summary>
     [SerializeField] GameObject m_costObject;
+    /// <summary> Waveが始まるときに表示するテキスト </summary>
+    [SerializeField] GameObject m_waveObject;
+    Text m_waveText;
 
     /// <summary> 準備期間の時間 /// </summary>
     [SerializeField] float m_preparationTimeSet = 10f;
@@ -62,11 +66,18 @@ public class GameManager : MonoBehaviour
     /// <summary> 取得した配列の長さ </summary>
     int m_eneGeneIndex1;
     int m_eneGeneIndex2;
+    /// <summary> 敵生成時に用いるインデックス </summary>
     int m_index = 0;
     /// <summary>現在のWave </summary>
     public int m_nowWave = 1;
-
+    /// <summary> 準備時間を一度だけセットするための変数 </summary>
     bool isPreTimeSet = true;
+
+    /// <summary> Waveが始まるときに表示するテキストの時間 </summary>
+    float m_waveTextTime = 2f;
+    float m_timer;
+    /// <summary> m_timerを一度だけセットするための変数 </summary>
+    bool isWaveTimeReset = true;
 
     //仮にタイマーをセットしている
     float m_nextTime = 7;
@@ -87,6 +98,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         m_preTimeText = m_preTimeObject.GetComponent<Text>();
+        m_waveText = m_waveObject.GetComponent<Text>();
         m_eneGene = GameObject.Find("EnemyGenerator");
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
         m_eneGeneIndex1 = e.GetLengthWave1();
@@ -99,13 +111,14 @@ public class GameManager : MonoBehaviour
         m_wepMana = FindObjectsOfType<WeaponManager>();
         switch (nowState)
         {
+            case GameState.WaveStart:
+                WaveStartUpdate();
+                break;
             case GameState.Preparation:
                 PreparationUpdate();
                 break;
             case GameState.Battle:
                 BattleUpdate();
-                break;
-            case GameState.Result:
                 break;
         }
     }
@@ -126,6 +139,9 @@ public class GameManager : MonoBehaviour
                 Debug.Log("GameState.Start");
                 StartAction();
                 break;
+            case GameState.WaveStart:
+                Debug.Log("GameState.WaveStart");
+                break;
             case GameState.Preparation:
                 Debug.Log("GameState.Preparation");
                 break;
@@ -144,8 +160,10 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-    
-    //GameState.Startに一回だけ呼ばれる処理
+
+    /// <summary>
+    /// GameState.Startに一回だけ呼ばれる処理
+    /// </summary>
     void StartAction()
     {
         m_mapGene = GameObject.Find("MapGenerator");
@@ -163,13 +181,33 @@ public class GameManager : MonoBehaviour
         m_backGroundTileSet.SetActive(true);
         m_costObject.SetActive(true);
         //GameStateを準備期間に変更する
-        SetNowState(GameState.Preparation);
+        SetNowState(GameState.WaveStart);
+    }
+
+    /// <summary>
+    /// GameState.WaveStartになったときに一度だけ呼ばれる関数
+    /// </summary>
+    void WaveStartUpdate()
+    {
+        if (isWaveTimeReset)
+        {
+            m_timer = 0;
+            isWaveTimeReset = false;
+        }
+        m_waveObject.SetActive(true);
+        m_waveText.text = "Wave " + m_nowWave;
+        m_timer += Time.deltaTime;
+        if (m_timer > m_waveTextTime)
+        {
+            m_waveObject.SetActive(false);
+            SetNowState(GameState.Preparation);
+        }
     }
 
     //GameStateがPreparationになったときの処理
     void PreparationUpdate()
     {
-        //準備時間が終わったら
+        //準備時間を初期化する
         if (isPreTimeSet)
         {
             m_preparationTime = m_preparationTimeSet;
@@ -308,10 +346,11 @@ public class GameManager : MonoBehaviour
         m_resultObject.SetActive(false);
         //PreparationTimeをセットするため
         isPreTimeSet = true;
+        isWaveTimeReset = true;
         //時間の動きを再開する
         Time.timeScale = 1f;
         Debug.Log("Wave" + m_nowWave);
-        SetNowState(GameState.Preparation);
+        SetNowState(GameState.WaveStart);
     }
 
     //GameState.GameOverになったときに一回だけ呼ばれる処理
@@ -347,7 +386,7 @@ public class GameManager : MonoBehaviour
     public void PlayerPosReset()
     {
         //まだ未実装
-        Debug.Log("PlyaerPosReset");
-        m_player.transform.position = new Vector3Int(6, 6, 0);
+        //Debug.Log("PlyaerPosReset");
+        //m_player.transform.position = new Vector3Int(6, 6, 0);
     }
 }

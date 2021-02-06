@@ -6,8 +6,8 @@ using System;
 [Serializable]
 public class InputJson
 {
-    public int[] m_enemy;
-    public int[] m_enemy1;
+    public int[] m_wave1;
+    public int[] m_wave2;
 }
 
 
@@ -27,17 +27,11 @@ public class EnemyGenerator : MonoBehaviour
     /// <summary> 取得した配列の長さ </summary>
     int m_loadEneLength;
 
-    GameObject gameMana;
-
-    int wave;
-    GameManager gameManager;
-
     void Start()
     {
         m_enemy = Resources.Load<GameObject>("Enemy");
         m_boss = Resources.Load<GameObject>("Boss");
         mapGene = GameObject.Find("MapGenerator");
-        gameMana = GameObject.Find("GameManager");
     }
 
     /// <summary>
@@ -50,7 +44,7 @@ public class EnemyGenerator : MonoBehaviour
         m_index = index;
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
         InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
-        m_eneIndex = inputJson.m_enemy[m_index];
+        m_eneIndex = inputJson.m_wave1[m_index];
         return m_eneIndex;
     }
 
@@ -64,7 +58,7 @@ public class EnemyGenerator : MonoBehaviour
         m_index = index;
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
         InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
-        m_eneIndex = inputJson.m_enemy1[m_index];
+        m_eneIndex = inputJson.m_wave2[m_index];
         return m_eneIndex;
     }
 
@@ -76,7 +70,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
         InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
-        m_loadEneLength = inputJson.m_enemy.Length;
+        m_loadEneLength = inputJson.m_wave1.Length;
         return m_loadEneLength;
     }
 
@@ -88,7 +82,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
         InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
-        m_loadEneLength = inputJson.m_enemy1.Length;
+        m_loadEneLength = inputJson.m_wave2.Length;
         return m_loadEneLength;
     }
 
@@ -124,7 +118,7 @@ public class EnemyGenerator : MonoBehaviour
     }
 
     /// <summary>
-    /// 敵を生成する関数wave2
+    /// 敵を生成する関数wave
     /// </summary>
     /// <param name="x"></param>
     /// <param name="y"></param>
