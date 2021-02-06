@@ -34,7 +34,13 @@ public class EnemyController : MonoBehaviour
         m_enePos = this.transform.position;
         HowToMove(m_enePos.x, m_enePos.y, m_enePos);
     }
-    //敵が移動する関数
+
+    /// <summary>
+    /// 敵が移動する関数
+    /// </summary>
+    /// <param name="fx"></param>
+    /// <param name="fy"></param>
+    /// <param name="enePos"></param>
     public void HowToMove(float fx, float fy, Vector3 enePos)
     {
         //取得した座標を整数に戻す(切り下げ)

@@ -160,8 +160,10 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-    
-    //GameState.Startに一回だけ呼ばれる処理
+
+    /// <summary>
+    /// GameState.Startに一回だけ呼ばれる処理
+    /// </summary>
     void StartAction()
     {
         m_mapGene = GameObject.Find("MapGenerator");
@@ -205,7 +207,6 @@ public class GameManager : MonoBehaviour
     //GameStateがPreparationになったときの処理
     void PreparationUpdate()
     {
-
         //準備時間を初期化する
         if (isPreTimeSet)
         {
