@@ -96,7 +96,6 @@ public class TopdownPlayerController2D : MonoBehaviour
                     m_cost -= m_weaponCost;
                     //CostManager c = m_costMana.GetComponent<CostManager>();
                     c.DecreaseCost();
-                    Debug.Log("残りコスト" + m_cost);
                 }
             }
         }
