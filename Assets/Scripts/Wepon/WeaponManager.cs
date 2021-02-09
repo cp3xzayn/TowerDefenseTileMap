@@ -38,7 +38,7 @@ public class WeaponManager : MonoBehaviour
             if (this.name == "Weapon(Clone)")
             {
                 //弾を生成する
-                Debug.Log("弾生成");
+                Debug.Log("弾生成" + coolTime);
                 Instantiate(m_bullet, this.transform.position, Quaternion.identity);
             }
             if (this.name == "Weapon1(Clone)")

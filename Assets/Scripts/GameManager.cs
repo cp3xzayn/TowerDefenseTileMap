@@ -86,14 +86,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     /// <summary>現在の状態 </summary>
     private GameState nowState;
-
-    
+ 
     void Awake()
     {
         Instance = this;
         SetNowState(GameState.Start);
     }
-
 
     void Start()
     {
