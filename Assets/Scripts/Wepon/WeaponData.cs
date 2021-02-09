@@ -1,43 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-
-[Serializable]
-public class InputJsonWeaponData
-{
-    public float[] m_weaponData;
-}
 
 public class WeaponData : MonoBehaviour
 {
-    [SerializeField] float m_shootTime = 2f;
-
-    int m_index;
+    /// <summary> 配列の要素数 </summary>
+    int m_index = 0;
+    /// <summary> 発射間隔 </summary>
     float m_shootingTime;
 
-    public float LoadWeaponData(int index)
-    {
-        m_index = index;
-        string inputString = Resources.Load<TextAsset>("Json/WeaponData").ToString();
-        InputJsonWeaponData inputJsonWeaponData = JsonUtility.FromJson<InputJsonWeaponData>(inputString);
-        m_shootingTime = inputJsonWeaponData.m_weaponData[m_index];
-        return m_shootingTime;
-    }
-
-
-    public float ShootTime { get { return m_shootTime; } }
-
     WeaponManager wMana;
+    WeponStatus wStas;
 
-    void Start()
+    GameObject m_weaponStatus;
+
+    private void Start()
     {
-        wMana = GetComponent<WeaponManager>();
-        wMana.SetWeaponData(m_shootTime);
+        m_weaponStatus = GameObject.Find("WeaponStatusManager");
     }
 
-    void OnClickWeaponStren()
+    void Update()
     {
-
+        // 発射間隔を初期化する
+        wStas = m_weaponStatus.GetComponent<WeponStatus>();
+        m_shootingTime = wStas.LoadWeaponData(m_index);
+        Debug.Log("Weapon ShootTime:" + m_shootingTime);
+        wMana = GetComponent<WeaponManager>();
+        wMana.SetWeaponData(m_shootingTime);
     }
 }
