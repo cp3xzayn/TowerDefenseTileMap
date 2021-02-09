@@ -21,7 +21,8 @@ public class TopdownPlayerController2D : MonoBehaviour
     /// <summary>兵器を置くポジション</summary>
     Vector3Int weaPos;
     /// <summary>置くことができる兵器の制限 </summary>
-    int m_limitWepon;
+    int m_cost;
+
     /// <summary>兵器のコスト </summary>
     int m_weaponCost = 1;
 
@@ -38,13 +39,15 @@ public class TopdownPlayerController2D : MonoBehaviour
         m_wepMana = GameObject.Find("WeaponManager");
         m_costMana = GameObject.Find("CostManager");
         weapon = m_wepMana.GetComponent<Weapon>();
-        //コストを初期化する
-        CostManager c = m_costMana.GetComponent<CostManager>();
-        m_limitWepon = c.Cost;
+        
     }
 
     void Update()
     {
+        //コストを取得する
+        CostManager c = m_costMana.GetComponent<CostManager>();
+        m_cost = c.Cost;
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         plaPos = this.transform.position;
@@ -82,7 +85,7 @@ public class TopdownPlayerController2D : MonoBehaviour
         if (m[weaPos.x, weaPos.y] != 5 && m[weaPos.x, weaPos.y] != 6)
         {
             //兵器コストがあるときに
-            if (m_limitWepon > 0)
+            if (m_cost > 0)
             {
                 //SpaceKeyを押されたとき兵器を置く
                 if (Input.GetKeyDown("space"))
@@ -90,10 +93,10 @@ public class TopdownPlayerController2D : MonoBehaviour
                     weapon.WeaponInstance(weaPos);
                     StartCoroutine("SetWeapon");
                     //コストを減らす
-                    m_limitWepon -= m_weaponCost;
-                    CostManager c = m_costMana.GetComponent<CostManager>();
+                    m_cost -= m_weaponCost;
+                    //CostManager c = m_costMana.GetComponent<CostManager>();
                     c.DecreaseCost();
-                    Debug.Log("残りコスト" + m_limitWepon);
+                    Debug.Log("残りコスト" + m_cost);
                 }
             }
         }
