@@ -7,6 +7,9 @@ public class BulletData : MonoBehaviour
     /// <summary>射程範囲</summary>
     [SerializeField] float m_limitRange = 5f;
 
+    public int BulletDamage { get { return m_bulDamage; } }
+    public float LimitRange { get { return m_limitRange; } }
+
     Bullet bullet;
 
     void Start()

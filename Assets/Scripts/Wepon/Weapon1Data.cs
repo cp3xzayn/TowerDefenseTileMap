@@ -5,6 +5,8 @@ using UnityEngine;
 public class Weapon1Data : MonoBehaviour
 {
     [SerializeField] float m_shootTime = 4f;
+    public float ShootTime { get { return m_shootTime; } }
+
     WeaponManager wMana;
 
     void Start()
@@ -12,5 +14,4 @@ public class Weapon1Data : MonoBehaviour
         wMana = GetComponent<WeaponManager>();
         wMana.SetWeaponData(m_shootTime);
     }
-
 }
