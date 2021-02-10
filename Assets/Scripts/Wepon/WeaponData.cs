@@ -20,10 +20,14 @@ public class WeaponData : MonoBehaviour
     float m_strCoolTime = 5.0f;
     float m_time;
 
+    int m_needCost = 10;
+
     Button m_strWeaponButton;
     GameObject m_weaponStr;
 
     WeaponManager wMana;
+    CostManager c;
+    GameObject cm;
 
     bool isStr = true;
 
@@ -48,6 +52,8 @@ public class WeaponData : MonoBehaviour
         Debug.Log("Weapon ShootTime:" + m_shootingTime);
         wMana = GetComponent<WeaponManager>();
         wMana.SetWeaponData(m_shootingTime);
+        cm = GameObject.Find("CostManager");
+        c = cm.GetComponent<CostManager>();
     }
 
     void Update()
@@ -78,6 +84,8 @@ public class WeaponData : MonoBehaviour
         // indexを一つ進める
         if (isStr)
         {
+            //コストを使用する
+            c.WeaponStronger();
             m_index++;
             isStr = false;
             m_shootingTime = LoadWeaponData(m_index);
