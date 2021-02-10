@@ -26,8 +26,6 @@ public class WeaponData : MonoBehaviour
     GameObject m_weaponStr;
 
     WeaponManager wMana;
-    CostManager c;
-    GameObject cm;
 
     bool isStr = true;
 
@@ -52,8 +50,6 @@ public class WeaponData : MonoBehaviour
         Debug.Log("Weapon ShootTime:" + m_shootingTime);
         wMana = GetComponent<WeaponManager>();
         wMana.SetWeaponData(m_shootingTime);
-        cm = GameObject.Find("CostManager");
-        c = cm.GetComponent<CostManager>();
     }
 
     void Update()
@@ -78,6 +74,7 @@ public class WeaponData : MonoBehaviour
         Debug.Log("Weapon ShootTime:" + m_shootingTime);
     }
 
+
     // 兵器の強化ボタンが押されたとき
     public void OnClickWeaponStren()
     {
@@ -85,7 +82,6 @@ public class WeaponData : MonoBehaviour
         if (isStr)
         {
             //コストを使用する
-            c.WeaponStronger();
             m_index++;
             isStr = false;
             m_shootingTime = LoadWeaponData(m_index);

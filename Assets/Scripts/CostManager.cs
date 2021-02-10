@@ -18,6 +18,8 @@ public class CostManager : MonoBehaviour
     /// <summary> コストを表示するテキスト</summary>
     Text m_costText;
 
+    WeaponData wd;
+
     void Start()
     {
         m_costText = m_costObject.GetComponent<Text>();
