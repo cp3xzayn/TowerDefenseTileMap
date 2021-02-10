@@ -20,6 +20,8 @@ public class WeaponData : MonoBehaviour
     float m_strCoolTime = 5.0f;
     float m_time;
 
+    int m_needCost = 10;
+
     Button m_strWeaponButton;
     GameObject m_weaponStr;
 
@@ -72,12 +74,14 @@ public class WeaponData : MonoBehaviour
         Debug.Log("Weapon ShootTime:" + m_shootingTime);
     }
 
+
     // 兵器の強化ボタンが押されたとき
     public void OnClickWeaponStren()
     {
         // indexを一つ進める
         if (isStr)
         {
+            //コストを使用する
             m_index++;
             isStr = false;
             m_shootingTime = LoadWeaponData(m_index);
