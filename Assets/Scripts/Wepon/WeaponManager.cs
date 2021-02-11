@@ -1,4 +1,11 @@
 ﻿using UnityEngine;
+using System;
+
+[Serializable]
+public class InputJsonWeaponData
+{
+    public float[] m_weaponShootData;
+}
 
 public class WeaponManager : MonoBehaviour
 {
@@ -9,6 +16,25 @@ public class WeaponManager : MonoBehaviour
     /// <summary>兵器の弾生成の間隔</summary>
     float coolTime;
     float m_time = 0;
+
+    /// <summary> 配列の要素数 </summary>
+    int m_shootTimeIndex = 0;
+    /// <summary> 発射間隔 </summary>
+    float m_shootingTime;
+
+    /// <summary>
+    /// Jsonファイルから兵器の発射間隔を取得する
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public float LoadWeaponData(int index)
+    {
+        m_shootTimeIndex = index;
+        string inputString = Resources.Load<TextAsset>("Json/WeaponData").ToString();
+        InputJsonWeaponData inputJsonWeaponData = JsonUtility.FromJson<InputJsonWeaponData>(inputString);
+        m_shootingTime = inputJsonWeaponData.m_weaponShootData[m_shootTimeIndex];
+        return m_shootingTime;
+    }
 
     /// <summary>
     /// 兵器の情報をセットする関数
@@ -23,6 +49,10 @@ public class WeaponManager : MonoBehaviour
     {
         m_bullet = Resources.Load<GameObject>("Bullet");
         m_bullet1 = Resources.Load<GameObject>("Bullet1");
+
+        // 発射間隔を初期化する
+        m_shootingTime = LoadWeaponData(m_shootTimeIndex);
+        SetWeaponData(m_shootingTime);
     }
     
 
@@ -65,11 +95,16 @@ public class WeaponManager : MonoBehaviour
     public void OnClickWeapon()
     {
         Debug.Log("兵器強化");
+        //兵器の強化が最大になるまでの処理を追加で書く
         //Spriteを入れ替える
         m_spriteIndex++;
         m_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         m_spriteRenderer.sprite = m_weaponSprite[m_spriteIndex];
         //Statusを上げる
+        m_shootTimeIndex++;
+        m_shootingTime = LoadWeaponData(m_shootTimeIndex);
+        SetWeaponData(m_shootingTime);
+        Debug.Log("STime" + m_shootingTime);
     }
 
 }
