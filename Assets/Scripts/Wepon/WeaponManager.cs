@@ -5,6 +5,8 @@ using System;
 public class InputJsonWeaponData
 {
     public float[] m_weaponShootData;
+    public int[] m_bulDamage;
+    public float[] m_limitRange;
 }
 
 public class WeaponManager : MonoBehaviour
@@ -44,6 +46,7 @@ public class WeaponManager : MonoBehaviour
     {
         coolTime = cTime;
     }
+
 
     void Start()
     {
@@ -92,6 +95,9 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] Sprite[] m_weaponSprite;
     int m_spriteIndex = 0;
 
+    /// <summary>
+    /// 兵器が強化されたときの処理
+    /// </summary>
     public void OnClickWeapon()
     {
         Debug.Log("兵器強化");
@@ -101,11 +107,11 @@ public class WeaponManager : MonoBehaviour
         m_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         m_spriteRenderer.sprite = m_weaponSprite[m_spriteIndex];
         //Statusを上げる
+        //兵器の弾生成間隔の強化
         m_shootTimeIndex++;
         m_shootingTime = LoadWeaponData(m_shootTimeIndex);
         SetWeaponData(m_shootingTime);
         Debug.Log("STime" + m_shootingTime);
     }
-
 }
  
