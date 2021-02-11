@@ -51,17 +51,26 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    
+
+
+    /// <summary> 兵器強化に必要なコスト </summary>
+    int m_needCost = 10;
+    public int NeedCost { get { return m_needCost; } }
+
+    SpriteRenderer m_spriteRenderer;
+    /// <summary> 兵器が強化されたときのSprite </summary>
+    [SerializeField] Sprite[] m_weaponSprite;
+    int m_spriteIndex = 0;
 
     public void OnClickWeapon()
     {
         Debug.Log("兵器強化");
         //Spriteを入れ替える
+        m_spriteIndex++;
+        m_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        m_spriteRenderer.sprite = m_weaponSprite[m_spriteIndex];
         //Statusを上げる
-        //コストを減らす
     }
-    /// <summary> 兵器強化に必要なコスト </summary>
-    int m_needCost = 10;
-    public int NeedCost { get { return m_needCost; } }
+
 }
  
