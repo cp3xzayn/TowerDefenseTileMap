@@ -47,7 +47,7 @@ public class WeaponData : MonoBehaviour
     {
         // 発射間隔を初期化する
         m_shootingTime = LoadWeaponData(m_index);
-        Debug.Log("Weapon ShootTime:" + m_shootingTime);
+        //Debug.Log("Weapon ShootTime:" + m_shootingTime);
         wMana = GetComponent<WeaponManager>();
         wMana.SetWeaponData(m_shootingTime);
     }
@@ -71,7 +71,7 @@ public class WeaponData : MonoBehaviour
                 isStr = true;
             }
         }
-        Debug.Log("Weapon ShootTime:" + m_shootingTime);
+        //Debug.Log("Weapon ShootTime:" + m_shootingTime);
     }
 
 

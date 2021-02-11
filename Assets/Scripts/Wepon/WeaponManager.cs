@@ -38,7 +38,7 @@ public class WeaponManager : MonoBehaviour
             if (this.name == "Weapon(Clone)")
             {
                 //弾を生成する
-                Debug.Log("弾生成" + coolTime);
+                Debug.Log("弾生成");
                 Instantiate(m_bullet, this.transform.position, Quaternion.identity);
             }
             if (this.name == "Weapon1(Clone)")
@@ -49,6 +49,14 @@ public class WeaponManager : MonoBehaviour
             }
             m_time = 0;
         }
+    }
+
+    public void OnClickWeapon()
+    {
+        Debug.Log("兵器強化");
+        //Spriteを入れ替える
+        //Statusを上げる
+        //コストを減らす
     }
 }
  

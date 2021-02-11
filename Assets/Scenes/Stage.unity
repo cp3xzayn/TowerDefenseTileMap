@@ -6186,7 +6186,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u8010\u4E45\u5024"
+  m_Text: "\u305F\u3044\u304D\u3085\u3046"
 --- !u!222 &401446289
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6437,7 +6437,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5F37\u5316"
+  m_Text: "\u304D\u3087\u3046\u304B"
 --- !u!222 &604114151
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6560,7 +6560,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 80, y: 80}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 80, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687255924
 MonoBehaviour:
@@ -6687,7 +6687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -110, y: -100}
+  m_AnchoredPosition: {x: -120, y: -100}
   m_SizeDelta: {x: 150, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &688604122
@@ -10176,6 +10176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1987468297}
   - component: {fileID: 1987468298}
+  - component: {fileID: 1987468299}
   m_Layer: 0
   m_Name: WeaponManager
   m_TagString: Untagged
@@ -10207,6 +10208,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58c834d906a415a4891289d01a04a9c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1987468299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987468296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 916d79f4229269f4db1d6f4ca50a6ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2073220119

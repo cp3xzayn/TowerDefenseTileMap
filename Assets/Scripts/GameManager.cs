@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     bool isWaveTimeReset = true;
 
     //仮にタイマーをセットしている
-    float m_nextTime = 7;
+    float m_nextTime = 10;
     float m_time = 0;
 
     public static GameManager Instance;
@@ -212,10 +212,10 @@ public class GameManager : MonoBehaviour
             isPreTimeSet = false;
         }
         m_preparationTime -= Time.deltaTime;
-        m_preTimeText.text = "準備時間 : " + m_preparationTime.ToString("f1");
+        m_preTimeText.text = "じゅんびじかん : " + m_preparationTime.ToString("f1");
         if (m_preparationTime < 0)
         {
-            m_preTimeText.text = "準備時間 : 0.0";
+            m_preTimeText.text = "じゅんびじかん : 0.0";
             //Battleに変更する
             SetNowState(GameState.Battle);
         }
