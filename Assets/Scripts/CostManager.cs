@@ -18,8 +18,6 @@ public class CostManager : MonoBehaviour
     /// <summary> コストを表示するテキスト</summary>
     Text m_costText;
 
-    WeaponData wd;
-
     void Start()
     {
         m_costText = m_costObject.GetComponent<Text>();
@@ -29,28 +27,39 @@ public class CostManager : MonoBehaviour
     void Update()
     {
         m_costText.text = "コスト : " + m_cost;
+
+        //Rayを飛ばし、当たったものが兵器だった場合強化する
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            //Rayの長さ
+            float maxDistance = 10;
+
+            RaycastHit2D hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction, maxDistance);
+
+            //Hitしたオブジェクトが兵器の時
+            if (hit.collider.gameObject.name == "Weapon(Clone)")
+            {
+                hit.collider.gameObject.GetComponent<WeaponManager>().OnClickWeapon();
+                int needCost = hit.collider.gameObject.GetComponent<WeaponManager>().NeedCost;
+                m_cost -= needCost;
+            }
+        }
     }
 
     /// <summary>
-    /// コストが増えたときの関数
+    /// コストが増えたときの処理
     /// </summary>
     public void UpCost()
     {
         m_cost++;
     }
     /// <summary>
-    /// コストが減らしたときの関数
+    /// コストが減らしたときの処理
     /// </summary>
     public void DecreaseCost()
     {
         m_cost--;
-    }
-
-    /// <summary>
-    /// 兵器を強化したときにコストが減る
-    /// </summary>
-    public void WeaponStronger()
-    {
-        m_cost -= m_needCost;
     }
 }

@@ -51,42 +51,4 @@ public class WeaponData : MonoBehaviour
         wMana = GetComponent<WeaponManager>();
         wMana.SetWeaponData(m_shootingTime);
     }
-
-    void Update()
-    {
-        //WeapnStrButtonのOnClickを設定する
-        m_weaponStr = GameObject.Find("WeaponStr");
-        if (m_weaponStr != null)
-        {
-            m_strWeaponButton = m_weaponStr.GetComponent<Button>();
-            m_strWeaponButton.onClick.AddListener(OnClickWeaponStren);
-        }
-
-        if (!isStr)
-        {
-            //クールタイムが終わったらまた強化できるようにする
-            m_time += Time.deltaTime;
-            if (m_time > m_strCoolTime)
-            {
-                isStr = true;
-            }
-        }
-        //Debug.Log("Weapon ShootTime:" + m_shootingTime);
-    }
-
-
-    // 兵器の強化ボタンが押されたとき
-    public void OnClickWeaponStren()
-    {
-        // indexを一つ進める
-        if (isStr)
-        {
-            //コストを使用する
-            m_index++;
-            isStr = false;
-            m_shootingTime = LoadWeaponData(m_index);
-            wMana = GetComponent<WeaponManager>();
-            wMana.SetWeaponData(m_shootingTime);
-        }
-    }
 }

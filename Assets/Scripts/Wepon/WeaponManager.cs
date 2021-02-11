@@ -51,6 +51,8 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    
+
     public void OnClickWeapon()
     {
         Debug.Log("兵器強化");
@@ -58,5 +60,8 @@ public class WeaponManager : MonoBehaviour
         //Statusを上げる
         //コストを減らす
     }
+    /// <summary> 兵器強化に必要なコスト </summary>
+    int m_needCost = 10;
+    public int NeedCost { get { return m_needCost; } }
 }
  
