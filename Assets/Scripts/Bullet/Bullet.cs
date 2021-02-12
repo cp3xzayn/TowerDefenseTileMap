@@ -5,20 +5,19 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     //弾のステータス
-    int bulletDamage;
-    float bulletRange;
+    int bulletDamage = 1;
+    /// <summary>射程範囲</summary>
+    [SerializeField] float m_limitRange = 5f;
 
     /// <summary>
     /// 弾のダメージをセットする関数
     /// </summary>
     /// <param name="bDamage"></param>
-    /// <param name="bRange"></param>
     public void SetBullet(int bDamage)
     {
         bulletDamage = bDamage;
     }
 
-    // スピード
     //[SerializeField]float m_speed = 1.0f;
     private GameObject[] m_enemy;
     /// <summary>弾の生成ポジション</summary>
@@ -33,12 +32,18 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        //二点間の距離を代入
-        //m_distance = Vector2.Distance(m_startPosition, m_goalPosition);
         //弾と敵のポジションを取得する
         m_startPosition = this.transform.position;
         m_enemy = GameObject.FindGameObjectsWithTag("Enemy");
         m_goalPosition = new Vector3[m_enemy.Length];
+        //弾のダメージを初期化する
+        /*GameObject weapon = GameObject.Find("Weapon(Clone)");
+        WeaponManager wm = weapon.GetComponent<WeaponManager>();
+        int index = wm.WeaponIndex;
+        m_bulDamage = wm.LoadBulletDamage(index);
+        SetBullet(m_bulDamage);*/
+        Debug.Log("弾のダメージは" + bulletDamage);
+        OnshotToEnemy(m_limitRange);
     }
     void Update()
     {
@@ -56,11 +61,7 @@ public class Bullet : MonoBehaviour
     public void OnshotToEnemy(float bRange)
     {
         //弾の射程範囲をセット
-        bulletRange = bRange;
-        // 現在の位置
-        //float nowLocation = (Time.time * m_speed) / m_distance;
-        //オブジェクトの移動
-        //this.transform.position = Vector2.Lerp(m_startPosition, m_goalPosition, nowLocation);
+        float bulletRange = bRange;
         //フィールド上にいる敵を配列に格納
         for (int i = 0; i < m_enemy.Length; i++)
         {
@@ -73,6 +74,19 @@ public class Bullet : MonoBehaviour
                 Debug.Log("敵検知、弾発射");
                 this.transform.position = m_goalPosition[i];
             }
+        }
+    }
+    
+
+    //敵と当たったら弾を破壊する
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject ob = collision.gameObject;
+        //オブジェクトがEnemyだった場合
+        if (ob.tag == ("Enemy"))
+        {
+            Enemy enemy = ob.GetComponent<Enemy>();
+            enemy.SetBulletDamage(bulletDamage);
         }
     }
 }

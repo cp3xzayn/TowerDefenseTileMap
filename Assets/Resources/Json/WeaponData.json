@@ -1,3 +1,5 @@
 {
-  "m_weaponShootData": [4, 3, 2, 1]
+  "m_weaponShootData": [ 4, 4, 3, 3 ],
+  "m_bulDamage": [ 1, 2, 2, 3 ],
+  "m_limitRange": [5, 4, 4, 3]
 }

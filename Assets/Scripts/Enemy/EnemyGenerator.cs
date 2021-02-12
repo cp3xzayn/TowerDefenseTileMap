@@ -6,8 +6,7 @@ using System;
 [Serializable]
 public class InputJson
 {
-    public int[] m_wave1;
-    public int[] m_wave2;
+    public int[] m_wave;
 }
 
 
@@ -35,54 +34,29 @@ public class EnemyGenerator : MonoBehaviour
     }
 
     /// <summary>
-    /// Jsonファイルから敵生成の配列(Wave1)を取得する
+    /// Jsonファイルから敵生成の配列を取得する
     /// </summary>
     /// <param name="index"></param>
     /// <returns></returns>
-    public int LoadEneGeneWave1(int index)
+    public int LoadEneGeneWave(int index)
     {
         m_index = index;
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
         InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
-        m_eneIndex = inputJson.m_wave1[m_index];
+        m_eneIndex = inputJson.m_wave[m_index];
         return m_eneIndex;
     }
 
-    /// <summary>
-    /// Jsonファイルから敵生成の配列(Wave2)を取得する
-    /// </summary>
-    /// <param name="index"></param>
-    /// <returns></returns>
-    public int LoadEneGeneWave2(int index)
-    {
-        m_index = index;
-        string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
-        InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
-        m_eneIndex = inputJson.m_wave2[m_index];
-        return m_eneIndex;
-    }
 
     /// <summary>
-    /// 取得したJsonファイルの配列の長さ(Wave1)を取得する
+    /// 取得したJsonファイルの配列の長さを取得する
     /// </summary>
     /// <returns></returns>
-    public int GetLengthWave1()
+    public int GetLengthWave()
     {
         string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
         InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
-        m_loadEneLength = inputJson.m_wave1.Length;
-        return m_loadEneLength;
-    }
-
-    /// <summary>
-    /// 取得したJsonファイルの配列の長さ(Wave2)を取得する
-    /// </summary>
-    /// <returns></returns>
-    public int GetLengthWave2()
-    {
-        string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
-        InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
-        m_loadEneLength = inputJson.m_wave2.Length;
+        m_loadEneLength = inputJson.m_wave.Length;
         return m_loadEneLength;
     }
 
@@ -93,14 +67,14 @@ public class EnemyGenerator : MonoBehaviour
     /// <param name="x"></param>
     /// <param name="y"></param>
     /// <param name="index"></param>
-    public void EneGene1(int x, int y, int index)
+    public void EneGene(int x, int y, int index)
     {
         //Mapの情報を取得する
         MapGenerator t = mapGene.GetComponent<MapGenerator>();
         int[,] m = t.Map;
         enePosition = new Vector3Int(x, y, 0);
         //TileがEnemyStartの時生成する
-        switch (LoadEneGeneWave1(index))
+        switch (LoadEneGeneWave(index))
         {
             case 0:
                 if (m[x, y] == 0)
@@ -112,36 +86,6 @@ public class EnemyGenerator : MonoBehaviour
                 if (m[x, y] == 0)
                 {
                     Instantiate(m_boss,　enePosition, Quaternion.identity);
-                }
-                break;
-        }
-    }
-
-    /// <summary>
-    /// 敵を生成する関数wave
-    /// </summary>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    /// <param name="index"></param>
-    public void EneGene2(int x, int y, int index)
-    {
-        //Mapの情報を取得する
-        MapGenerator t = mapGene.GetComponent<MapGenerator>();
-        int[,] m = t.Map;
-        enePosition = new Vector3Int(x, y, 0);
-        //敵の配列2の時のスイッチ分
-        switch (LoadEneGeneWave2(index))
-        {
-            case 0:
-                if (m[x, y] == 0)
-                {
-                    Instantiate(m_enemy, enePosition, Quaternion.identity);
-                }
-                break;
-            case 1:
-                if (m[x, y] == 0)
-                {
-                    Instantiate(m_boss, enePosition, Quaternion.identity);
                 }
                 break;
         }
