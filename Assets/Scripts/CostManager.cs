@@ -43,6 +43,7 @@ public class CostManager : MonoBehaviour
             {
                 hit.collider.gameObject.GetComponent<WeaponManager>().OnClickWeapon();
                 int needCost = hit.collider.gameObject.GetComponent<WeaponManager>().NeedCost;
+
                 m_cost -= needCost;
             }
         }

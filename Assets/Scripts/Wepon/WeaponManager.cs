@@ -20,9 +20,11 @@ public class WeaponManager : MonoBehaviour
     float m_time = 0;
 
     /// <summary> 配列の要素数 </summary>
-    int m_shootTimeIndex = 0;
+    int m_weaponIndex = 0;
     /// <summary> 発射間隔 </summary>
     float m_shootingTime;
+
+    public int WeaponIndex { get { return m_weaponIndex; } }
 
     /// <summary>
     /// Jsonファイルから兵器の発射間隔を取得する
@@ -31,11 +33,30 @@ public class WeaponManager : MonoBehaviour
     /// <returns></returns>
     public float LoadWeaponData(int index)
     {
-        m_shootTimeIndex = index;
+        m_weaponIndex = index;
         string inputString = Resources.Load<TextAsset>("Json/WeaponData").ToString();
         InputJsonWeaponData inputJsonWeaponData = JsonUtility.FromJson<InputJsonWeaponData>(inputString);
-        m_shootingTime = inputJsonWeaponData.m_weaponShootData[m_shootTimeIndex];
+        m_shootingTime = inputJsonWeaponData.m_weaponShootData[m_weaponIndex];
         return m_shootingTime;
+    }
+
+    /// <summary>弾のダメージ </summary>
+    int m_bulDamage;
+
+    public int BulletDamage { get { return m_bulDamage; } }
+
+    /// <summary>
+    /// Jsonファイルから兵器の発射間隔を取得する
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public int LoadBulletDamage(int index)
+    {
+        m_weaponIndex = index;
+        string inputString = Resources.Load<TextAsset>("Json/WeaponData").ToString();
+        InputJsonWeaponData inputJsonWeaponData = JsonUtility.FromJson<InputJsonWeaponData>(inputString);
+        m_bulDamage = inputJsonWeaponData.m_bulDamage[m_weaponIndex];
+        return m_bulDamage;
     }
 
     /// <summary>
@@ -54,7 +75,7 @@ public class WeaponManager : MonoBehaviour
         m_bullet1 = Resources.Load<GameObject>("Bullet1");
 
         // 発射間隔を初期化する
-        m_shootingTime = LoadWeaponData(m_shootTimeIndex);
+        m_shootingTime = LoadWeaponData(m_weaponIndex);
         SetWeaponData(m_shootingTime);
     }
     
@@ -72,6 +93,8 @@ public class WeaponManager : MonoBehaviour
             {
                 //弾を生成する
                 Debug.Log("弾生成");
+                Bullet b = m_bullet.GetComponent<Bullet>();
+                b.SetBullet(LoadBulletDamage(m_weaponIndex));
                 Instantiate(m_bullet, this.transform.position, Quaternion.identity);
             }
             if (this.name == "Weapon1(Clone)")
@@ -108,10 +131,12 @@ public class WeaponManager : MonoBehaviour
         m_spriteRenderer.sprite = m_weaponSprite[m_spriteIndex];
         //Statusを上げる
         //兵器の弾生成間隔の強化
-        m_shootTimeIndex++;
-        m_shootingTime = LoadWeaponData(m_shootTimeIndex);
+        m_weaponIndex++;
+        m_shootingTime = LoadWeaponData(m_weaponIndex);
         SetWeaponData(m_shootingTime);
         Debug.Log("STime" + m_shootingTime);
+        //弾のダメージの強化
+        m_bulDamage = LoadBulletDamage(m_weaponIndex);
     }
 }
  

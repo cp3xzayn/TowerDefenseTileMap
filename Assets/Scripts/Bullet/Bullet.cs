@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     //弾のステータス
-    int bulletDamage;
+    int bulletDamage = 1;
     /// <summary>射程範囲</summary>
     [SerializeField] float m_limitRange = 5f;
 
@@ -13,28 +13,9 @@ public class Bullet : MonoBehaviour
     /// 弾のダメージをセットする関数
     /// </summary>
     /// <param name="bDamage"></param>
-    /// <param name="bRange"></param>
     public void SetBullet(int bDamage)
     {
         bulletDamage = bDamage;
-    }
-
-    int m_bulDamageIndex = 0;
-    /// <summary>弾のダメージ </summary>
-    int m_bulDamage;
-
-    /// <summary>
-    /// Jsonファイルから兵器の発射間隔を取得する
-    /// </summary>
-    /// <param name="index"></param>
-    /// <returns></returns>
-    public int LoadBulletDamage(int index)
-    {
-        m_bulDamageIndex = index;
-        string inputString = Resources.Load<TextAsset>("Json/WeaponData").ToString();
-        InputJsonWeaponData inputJsonWeaponData = JsonUtility.FromJson<InputJsonWeaponData>(inputString);
-        m_bulDamage = inputJsonWeaponData.m_bulDamage[m_bulDamageIndex];
-        return m_bulDamage;
     }
 
     //[SerializeField]float m_speed = 1.0f;
@@ -56,9 +37,12 @@ public class Bullet : MonoBehaviour
         m_enemy = GameObject.FindGameObjectsWithTag("Enemy");
         m_goalPosition = new Vector3[m_enemy.Length];
         //弾のダメージを初期化する
-        m_bulDamage = LoadBulletDamage(m_bulDamageIndex);
-        SetBullet(m_bulDamage);
-        Debug.Log("弾のダメージは" + m_bulDamage);
+        /*GameObject weapon = GameObject.Find("Weapon(Clone)");
+        WeaponManager wm = weapon.GetComponent<WeaponManager>();
+        int index = wm.WeaponIndex;
+        m_bulDamage = wm.LoadBulletDamage(index);
+        SetBullet(m_bulDamage);*/
+        Debug.Log("弾のダメージは" + bulletDamage);
         OnshotToEnemy(m_limitRange);
     }
     void Update()
@@ -92,14 +76,7 @@ public class Bullet : MonoBehaviour
             }
         }
     }
-    /// <summary>
-    /// 弾のダメージを強化する関数
-    /// </summary>
-    public void BulletStren()
-    {
-        m_bulDamageIndex++;
-        m_bulDamage = LoadBulletDamage(m_bulDamageIndex);
-    }
+    
 
     //敵と当たったら弾を破壊する
     void OnTriggerEnter2D(Collider2D collision)
