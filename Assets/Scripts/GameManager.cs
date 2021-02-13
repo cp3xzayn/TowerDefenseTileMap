@@ -48,7 +48,10 @@ public class GameManager : MonoBehaviour
     /// <summary> Waveが始まるときに表示するテキスト </summary>
     [SerializeField] GameObject m_waveObject;
     Text m_waveText;
+    /// <summary> Waveクリア時に表示するText </summary>
     [SerializeField] Text m_waveClearText;
+    /// <summary> WaveTimeを表示するText </summary>
+    [SerializeField] Text m_waveTimeText;
 
     /// <summary> 準備期間の時間 /// </summary>
     [SerializeField] float m_preparationTimeSet = 10f;
@@ -57,8 +60,10 @@ public class GameManager : MonoBehaviour
     bool isPreTimeSet = true;
 
     /// <summary> Waveの時間 </summary>
-    [SerializeField] float m_waveTime = 20f;
+    [SerializeField] float m_waveTimeSet = 20f;
+    float m_waveTime;
     float m_wTime;
+    bool isWaveTime = true;
     /// <summary>現在のWave </summary>
     public int m_nowWave = 1;
     /// <summary>敵生成の間隔 </summary>
@@ -222,7 +227,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //GameStateがBattleになったときの処理
+    /// <summary>
+    /// GameStateがBattleになったときの処理
+    /// </summary>
     void BattleUpdate()
     {
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
@@ -253,11 +260,18 @@ public class GameManager : MonoBehaviour
         {
             item.OnShot();
         }
-        m_wTime += Time.deltaTime;
-        if (m_wTime > m_waveTime)
+
+        //Wave時間を初期化する
+        if (isWaveTime)
+        {
+            m_waveTime = m_waveTimeSet;
+            isWaveTime = false;
+        }
+        m_waveTime -= Time.deltaTime;
+        m_waveTimeText.text = "Waveじかん : " + m_waveTime.ToString("f1");
+        if (m_waveTime < 0)
         {
             SetNowState(GameState.Result);
-            m_wTime = 0;
         }
     }
 
@@ -277,6 +291,7 @@ public class GameManager : MonoBehaviour
         //PreparationTimeをセットするため
         isPreTimeSet = true;
         isWaveTimeReset = true;
+        isWaveTime = true;
         //時間の動きを再開する
         Time.timeScale = 1f;
         Debug.Log("Wave" + m_nowWave);
