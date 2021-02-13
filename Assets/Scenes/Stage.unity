@@ -7085,7 +7085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b19821c6dae03ed45b1fe48be57bbc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_player: {fileID: 2450994060733675586, guid: 5a7fb2a04c3f04f4389ef3dd7eb5a3b5,
+  m_player: {fileID: 8676141020125737293, guid: 5a7fb2a04c3f04f4389ef3dd7eb5a3b5,
     type: 3}
   m_canvas: {fileID: 1000545606}
   m_preTimeObject: {fileID: 688604120}
@@ -7098,9 +7098,9 @@ MonoBehaviour:
   m_costObject: {fileID: 1574861988}
   m_waveObject: {fileID: 374137942}
   m_preparationTimeSet: 10
-  m_eneGeneTime: 5
-  m_eneWave: 3
+  m_waveTime: 20
   m_nowWave: 1
+  m_eneGeneTime: 5
 --- !u!4 &1155626783
 Transform:
   m_ObjectHideFlags: 0

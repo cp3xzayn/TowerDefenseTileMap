@@ -33,8 +33,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_resultObject;
     /// <summary>ゲームオーバー時に表示するオブジェクト</summary>
     [SerializeField] GameObject m_gameoverText;
-    /// <summary>プレイヤーの生成ポジション </summary>
-    Vector3Int plaPosition;
     /// <summary>プレイヤーのポジションを生成ポジに戻すための関数 </summary>
     Vector3Int plaRestPosition;
     /// <summary>拠点の耐久値のSlider </summary>
@@ -50,13 +48,19 @@ public class GameManager : MonoBehaviour
     /// <summary> Waveが始まるときに表示するテキスト </summary>
     [SerializeField] GameObject m_waveObject;
     Text m_waveText;
+    [SerializeField] Text m_waveClearText;
 
     /// <summary> 準備期間の時間 /// </summary>
     [SerializeField] float m_preparationTimeSet = 10f;
     float m_preparationTime;
+    /// <summary> 準備時間を一度だけセットするための変数 </summary>
+    bool isPreTimeSet = true;
+
     /// <summary> Waveの時間 </summary>
     [SerializeField] float m_waveTime = 20f;
     float m_wTime;
+    /// <summary>現在のWave </summary>
+    public int m_nowWave = 1;
     /// <summary>敵生成の間隔 </summary>
     [SerializeField] float m_eneGeneTime = 3.0f;
     float m_eTime = 0;
@@ -66,10 +70,7 @@ public class GameManager : MonoBehaviour
     int m_eneGeneIndex;
     /// <summary> 敵生成時に用いるインデックス </summary>
     int m_index = 0;
-    /// <summary>現在のWave </summary>
-    public int m_nowWave = 1;
-    /// <summary> 準備時間を一度だけセットするための変数 </summary>
-    bool isPreTimeSet = true;
+    
 
     /// <summary> Waveが始まるときに表示するテキストの時間 </summary>
     float m_waveTextTime = 2f;
@@ -266,6 +267,7 @@ public class GameManager : MonoBehaviour
         //時間を止める
         Time.timeScale = 0f;
         m_resultObject.SetActive(true);
+        m_waveClearText.text = "Wave" + m_nowWave + "クリア";
     }
     //次へボタンが押されたときの処理
     public void OnClickNextWave()
@@ -296,6 +298,7 @@ public class GameManager : MonoBehaviour
     /// <param name="y"></param>
     void PlayerInstance(int x, int y)
     {
+        Vector3Int plaPosition;
         //Mapの情報を取得する
         MapGenerator t = m_mapGene.GetComponent<MapGenerator>();
         int[,] m = t.Map;
@@ -304,15 +307,5 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(m_player, plaPosition, Quaternion.identity);
         }
-    }
-
-    /// <summary>
-    /// Playerのポジションを拠点に戻すための変数
-    /// </summary>
-    public void PlayerPosReset()
-    {
-        //まだ未実装
-        //Debug.Log("PlyaerPosReset");
-        //m_player.transform.position = new Vector3Int(6, 6, 0);
     }
 }
