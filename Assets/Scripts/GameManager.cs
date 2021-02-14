@@ -33,8 +33,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_resultObject;
     /// <summary>ゲームオーバー時に表示するオブジェクト</summary>
     [SerializeField] GameObject m_gameoverText;
-    /// <summary>プレイヤーの生成ポジション </summary>
-    Vector3Int plaPosition;
     /// <summary>プレイヤーのポジションを生成ポジに戻すための関数 </summary>
     Vector3Int plaRestPosition;
     /// <summary>拠点の耐久値のSlider </summary>
@@ -50,37 +48,60 @@ public class GameManager : MonoBehaviour
     /// <summary> Waveが始まるときに表示するテキスト </summary>
     [SerializeField] GameObject m_waveObject;
     Text m_waveText;
+    /// <summary> Waveクリア時に表示するText </summary>
+    [SerializeField] Text m_waveClearText;
+    /// <summary> WaveTimeを表示するText </summary>
+    [SerializeField] Text m_waveTimeText;
 
     /// <summary> 準備期間の時間 /// </summary>
     [SerializeField] float m_preparationTimeSet = 10f;
     float m_preparationTime;
+    /// <summary> 準備時間を一度だけセットするための変数 </summary>
+    bool isPreTimeSet = true;
+
     /// <summary> Waveの時間 </summary>
-    [SerializeField] float m_waveTime = 20f;
-    float m_wTime;
-    /// <summary>敵生成の間隔 </summary>
-    [SerializeField] float m_eneGeneTime = 3.0f;
-    float m_eTime = 0;
+    [SerializeField] float m_waveTimeSet = 20f;
+    float m_waveTime;
+    bool isWaveTime = true;
+    /// <summary>現在のWave </summary>
+    public int m_nowWave = 1;
     /// <summary> 敵生成の配列のIndexを進めるか判定する </summary>
     bool isIndexPulse;
     /// <summary> 取得した配列の長さ </summary>
     int m_eneGeneIndex;
     /// <summary> 敵生成時に用いるインデックス </summary>
     int m_index = 0;
-    /// <summary>現在のWave </summary>
-    public int m_nowWave = 1;
-    /// <summary> 準備時間を一度だけセットするための変数 </summary>
-    bool isPreTimeSet = true;
-
+    
     /// <summary> Waveが始まるときに表示するテキストの時間 </summary>
     float m_waveTextTime = 2f;
     float m_timer;
     /// <summary> m_timerを一度だけセットするための変数 </summary>
     bool isWaveTimeReset = true;
 
+
+    /// <summary>敵生成の間隔 </summary>
+    float m_eneGeneTime;
+    float m_eTime = 0;
+    /// <summary> 取得した敵の生成間隔 </summary>
+    float m_eneGeneCoolTime;
+    int m_eGCTIndex = 0;
+
+
     public static GameManager Instance;
     /// <summary>現在の状態 </summary>
     private GameState nowState;
- 
+
+    
+    public float LoadEneGeneCoolTime(int index)
+    {
+        m_eGCTIndex = index;
+        string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
+        InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
+        m_eneGeneCoolTime = inputJson.m_waveCoolTime[m_eGCTIndex];
+        return m_eneGeneCoolTime;
+    }
+
+
     void Awake()
     {
         Instance = this;
@@ -221,9 +242,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //GameStateがBattleになったときの処理
+    /// <summary>
+    /// GameStateがBattleになったときの処理
+    /// </summary>
     void BattleUpdate()
     {
+        m_eneGeneTime = LoadEneGeneCoolTime(m_eGCTIndex);
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
         //生成のクールタイムが終わったら
         m_eTime += Time.deltaTime;
@@ -252,11 +276,18 @@ public class GameManager : MonoBehaviour
         {
             item.OnShot();
         }
-        m_wTime += Time.deltaTime;
-        if (m_wTime > m_waveTime)
+
+        //Wave時間を初期化する
+        if (isWaveTime)
+        {
+            m_waveTime = m_waveTimeSet;
+            isWaveTime = false;
+        }
+        m_waveTime -= Time.deltaTime;
+        m_waveTimeText.text = "Waveじかん : " + m_waveTime.ToString("f1");
+        if (m_waveTime < 0)
         {
             SetNowState(GameState.Result);
-            m_wTime = 0;
         }
     }
 
@@ -266,15 +297,19 @@ public class GameManager : MonoBehaviour
         //時間を止める
         Time.timeScale = 0f;
         m_resultObject.SetActive(true);
+        m_waveClearText.text = "Wave" + m_nowWave + "クリア";
     }
+
     //次へボタンが押されたときの処理
     public void OnClickNextWave()
     {
         m_nowWave++;
+        m_eGCTIndex++;
         m_resultObject.SetActive(false);
         //PreparationTimeをセットするため
         isPreTimeSet = true;
         isWaveTimeReset = true;
+        isWaveTime = true;
         //時間の動きを再開する
         Time.timeScale = 1f;
         Debug.Log("Wave" + m_nowWave);
@@ -296,6 +331,7 @@ public class GameManager : MonoBehaviour
     /// <param name="y"></param>
     void PlayerInstance(int x, int y)
     {
+        Vector3Int plaPosition;
         //Mapの情報を取得する
         MapGenerator t = m_mapGene.GetComponent<MapGenerator>();
         int[,] m = t.Map;
@@ -304,15 +340,5 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(m_player, plaPosition, Quaternion.identity);
         }
-    }
-
-    /// <summary>
-    /// Playerのポジションを拠点に戻すための変数
-    /// </summary>
-    public void PlayerPosReset()
-    {
-        //まだ未実装
-        //Debug.Log("PlyaerPosReset");
-        //m_player.transform.position = new Vector3Int(6, 6, 0);
     }
 }

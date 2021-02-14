@@ -7,6 +7,7 @@ using System;
 public class InputJson
 {
     public int[] m_wave;
+    public float[] m_waveCoolTime;
 }
 
 
@@ -25,6 +26,7 @@ public class EnemyGenerator : MonoBehaviour
     int m_eneIndex;
     /// <summary> 取得した配列の長さ </summary>
     int m_loadEneLength;
+
 
     void Start()
     {
@@ -46,7 +48,6 @@ public class EnemyGenerator : MonoBehaviour
         m_eneIndex = inputJson.m_wave[m_index];
         return m_eneIndex;
     }
-
 
     /// <summary>
     /// 取得したJsonファイルの配列の長さを取得する

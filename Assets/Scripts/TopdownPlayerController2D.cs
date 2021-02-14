@@ -30,6 +30,9 @@ public class TopdownPlayerController2D : MonoBehaviour
 
     Weapon weapon;
 
+    Button button;
+    GameObject m_resetButton;
+
     void Start()
     {
         m_sprite = GetComponent<SpriteRenderer>();
@@ -39,7 +42,11 @@ public class TopdownPlayerController2D : MonoBehaviour
         m_wepMana = GameObject.Find("WeaponManager");
         m_costMana = GameObject.Find("CostManager");
         weapon = m_wepMana.GetComponent<Weapon>();
-        
+
+        //Playerのポジションをリセットする処理を書く。ボタンを設定する
+        m_resetButton = GameObject.Find("PlayerPosReset");
+        button = m_resetButton.GetComponent<Button>();
+        button.onClick.AddListener(OnClickPosReset);
     }
 
     void Update()
@@ -173,6 +180,30 @@ public class TopdownPlayerController2D : MonoBehaviour
             else if (m_lastMovedDirection.y < 0)
             {
                 m_anim.Play("IdolDown");
+            }
+        }
+    }
+
+    void PlayerPosReset(int x, int y)
+    {
+        Vector3Int plaPosition;
+        //Mapの情報を取得する
+        MapGenerator t = m_mapGene.GetComponent<MapGenerator>();
+        int[,] m = t.Map;
+        plaPosition = new Vector3Int(x, y, 0);
+        if (m[x, y] == 6)
+        {
+            this.transform.position = plaPosition;
+        }
+    }
+
+    public void OnClickPosReset()
+    {
+        for (int i = 0; i < 13; i++)
+        {
+            for (int j = 0; j < 13; j++)
+            {
+                PlayerPosReset(i, j);
             }
         }
     }
