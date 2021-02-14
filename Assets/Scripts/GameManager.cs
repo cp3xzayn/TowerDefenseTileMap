@@ -62,13 +62,9 @@ public class GameManager : MonoBehaviour
     /// <summary> Waveの時間 </summary>
     [SerializeField] float m_waveTimeSet = 20f;
     float m_waveTime;
-    float m_wTime;
     bool isWaveTime = true;
     /// <summary>現在のWave </summary>
     public int m_nowWave = 1;
-    /// <summary>敵生成の間隔 </summary>
-    [SerializeField] float m_eneGeneTime = 3.0f;
-    float m_eTime = 0;
     /// <summary> 敵生成の配列のIndexを進めるか判定する </summary>
     bool isIndexPulse;
     /// <summary> 取得した配列の長さ </summary>
@@ -76,17 +72,36 @@ public class GameManager : MonoBehaviour
     /// <summary> 敵生成時に用いるインデックス </summary>
     int m_index = 0;
     
-
     /// <summary> Waveが始まるときに表示するテキストの時間 </summary>
     float m_waveTextTime = 2f;
     float m_timer;
     /// <summary> m_timerを一度だけセットするための変数 </summary>
     bool isWaveTimeReset = true;
 
+
+    /// <summary>敵生成の間隔 </summary>
+    float m_eneGeneTime;
+    float m_eTime = 0;
+    /// <summary> 取得した敵の生成間隔 </summary>
+    float m_eneGeneCoolTime;
+    int m_eGCTIndex = 0;
+
+
     public static GameManager Instance;
     /// <summary>現在の状態 </summary>
     private GameState nowState;
- 
+
+    
+    public float LoadEneGeneCoolTime(int index)
+    {
+        m_eGCTIndex = index;
+        string inputString = Resources.Load<TextAsset>("Json/EnemyGenerator").ToString();
+        InputJson inputJson = JsonUtility.FromJson<InputJson>(inputString);
+        m_eneGeneCoolTime = inputJson.m_waveCoolTime[m_eGCTIndex];
+        return m_eneGeneCoolTime;
+    }
+
+
     void Awake()
     {
         Instance = this;
@@ -232,6 +247,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void BattleUpdate()
     {
+        m_eneGeneTime = LoadEneGeneCoolTime(m_eGCTIndex);
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
         //生成のクールタイムが終わったら
         m_eTime += Time.deltaTime;
@@ -283,10 +299,12 @@ public class GameManager : MonoBehaviour
         m_resultObject.SetActive(true);
         m_waveClearText.text = "Wave" + m_nowWave + "クリア";
     }
+
     //次へボタンが押されたときの処理
     public void OnClickNextWave()
     {
         m_nowWave++;
+        m_eGCTIndex++;
         m_resultObject.SetActive(false);
         //PreparationTimeをセットするため
         isPreTimeSet = true;

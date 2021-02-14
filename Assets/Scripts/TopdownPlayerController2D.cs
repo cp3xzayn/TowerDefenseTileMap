@@ -44,9 +44,9 @@ public class TopdownPlayerController2D : MonoBehaviour
         weapon = m_wepMana.GetComponent<Weapon>();
 
         //Playerのポジションをリセットする処理を書く。ボタンを設定する
-        /*m_resetButton = GameObject.Find("PlayerPosReset");
+        m_resetButton = GameObject.Find("PlayerPosReset");
         button = m_resetButton.GetComponent<Button>();
-        button.onClick.AddListener(OnClickPosReset);*/
+        button.onClick.AddListener(OnClickPosReset);
     }
 
     void Update()
