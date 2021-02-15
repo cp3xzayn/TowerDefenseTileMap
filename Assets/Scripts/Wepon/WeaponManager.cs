@@ -24,8 +24,6 @@ public class WeaponManager : MonoBehaviour
     /// <summary> 発射間隔 </summary>
     float m_shootingTime;
 
-    public int WeaponIndex { get { return m_weaponIndex; } }
-
     /// <summary>
     /// Jsonファイルから兵器の発射間隔を取得する
     /// </summary>
@@ -43,8 +41,6 @@ public class WeaponManager : MonoBehaviour
     /// <summary>弾のダメージ </summary>
     int m_bulDamage;
 
-    public int BulletDamage { get { return m_bulDamage; } }
-
     /// <summary>
     /// Jsonファイルから兵器の発射間隔を取得する
     /// </summary>
@@ -57,6 +53,23 @@ public class WeaponManager : MonoBehaviour
         InputJsonWeaponData inputJsonWeaponData = JsonUtility.FromJson<InputJsonWeaponData>(inputString);
         m_bulDamage = inputJsonWeaponData.m_bulDamage[m_weaponIndex];
         return m_bulDamage;
+    }
+
+    /// <summary> 射程範囲 </summary>
+    float m_bulRange;
+
+    /// <summary>
+    /// Jsonファイルから兵器の射程範囲を取得する
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public float LoadBulletRange(int index)
+    {
+        m_weaponIndex = index;
+        string inputString = Resources.Load<TextAsset>("Json/WeaponData").ToString();
+        InputJsonWeaponData inputJsonWeaponData = JsonUtility.FromJson<InputJsonWeaponData>(inputString);
+        m_bulRange = inputJsonWeaponData.m_limitRange[m_weaponIndex];
+        return m_bulRange;
     }
 
     /// <summary>
@@ -95,7 +108,8 @@ public class WeaponManager : MonoBehaviour
                 Debug.Log("弾生成");
                 GameObject go = Instantiate(m_bullet, this.transform.position, Quaternion.identity);
                 Bullet b = go.GetComponent<Bullet>();
-                b.Damage = 10;
+                b.Damage = LoadBulletDamage(m_weaponIndex);
+                b.Range = LoadBulletRange(m_weaponIndex);
             }
             if (this.name == "Weapon1(Clone)")
             {
@@ -106,8 +120,6 @@ public class WeaponManager : MonoBehaviour
             m_time = 0;
         }
     }
-
-
 
     /// <summary> 兵器強化に必要なコスト </summary>
     int m_needCost = 10;
@@ -129,14 +141,13 @@ public class WeaponManager : MonoBehaviour
         m_spriteIndex++;
         m_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         m_spriteRenderer.sprite = m_weaponSprite[m_spriteIndex];
-        //Statusを上げる
         //兵器の弾生成間隔の強化
         m_weaponIndex++;
         m_shootingTime = LoadWeaponData(m_weaponIndex);
         SetWeaponData(m_shootingTime);
-        Debug.Log("STime" + m_shootingTime);
         //弾のダメージの強化
         m_bulDamage = LoadBulletDamage(m_weaponIndex);
+        
     }
 }
  

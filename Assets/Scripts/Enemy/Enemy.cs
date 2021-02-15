@@ -28,8 +28,8 @@ public class Enemy : MonoBehaviour
         m_base = m_baseHPObj.GetComponent<BaseHpManager>();
         //m_effect = Resources.Load<GameObject>("Explosion");
         m_costMana = GameObject.Find("CostManager");
-        audioSource.GetComponent<AudioSource>();
-        audioSource.clip = m_enemyDeathClip;
+        //audioSource.GetComponent<AudioSource>();
+        //audioSource.clip = m_enemyDeathClip;
     }
 
     /// <summary>
@@ -71,7 +71,7 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
             //敵を破壊する
-            audioSource.Play();
+            //audioSource.Play();
             Destroy(this.gameObject);
             //敵が倒されたときにエフェクトを発生させる
             //Instantiate(m_effect, this.transform.position, Quaternion.identity);
