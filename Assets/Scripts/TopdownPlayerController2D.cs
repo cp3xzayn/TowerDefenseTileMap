@@ -199,6 +199,8 @@ public class TopdownPlayerController2D : MonoBehaviour
 
     public void OnClickPosReset()
     {
+        Debug.Log("OnClickPosReset");
+
         for (int i = 0; i < 13; i++)
         {
             for (int j = 0; j < 13; j++)

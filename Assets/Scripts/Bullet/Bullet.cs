@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    //弾のステータス
-    int bulletDamage = 1;
-    /// <summary>射程範囲</summary>
-    [SerializeField] float m_limitRange = 5f;
+    /// <summary>弾のダメージ </summary>
+    int bulletDamage;
 
     /// <summary>
-    /// 弾のダメージをセットする関数
+    /// 弾のダメージをセットするプロパティ
     /// </summary>
-    /// <param name="bDamage"></param>
-    public void SetBullet(int bDamage)
+    public int Damage
     {
-        bulletDamage = bDamage;
+        set { bulletDamage = value; }
+        get { return bulletDamage; }
+    }
+
+    float bulletRange;
+
+    public float Range
+    {
+        set { bulletRange = value; }
+        get { return bulletRange; }
     }
 
     //[SerializeField]float m_speed = 1.0f;
@@ -36,14 +42,7 @@ public class Bullet : MonoBehaviour
         m_startPosition = this.transform.position;
         m_enemy = GameObject.FindGameObjectsWithTag("Enemy");
         m_goalPosition = new Vector3[m_enemy.Length];
-        //弾のダメージを初期化する
-        /*GameObject weapon = GameObject.Find("Weapon(Clone)");
-        WeaponManager wm = weapon.GetComponent<WeaponManager>();
-        int index = wm.WeaponIndex;
-        m_bulDamage = wm.LoadBulletDamage(index);
-        SetBullet(m_bulDamage);*/
-        Debug.Log("弾のダメージは" + bulletDamage);
-        OnshotToEnemy(m_limitRange);
+        OnshotToEnemy(Range);
     }
     void Update()
     {
@@ -72,6 +71,8 @@ public class Bullet : MonoBehaviour
             if (m_distance < bulletRange)
             {
                 Debug.Log("敵検知、弾発射");
+                Debug.Log($"弾のダメージは{bulletDamage}");
+                Debug.Log($"弾の射程範囲は{bulletRange}");
                 this.transform.position = m_goalPosition[i];
             }
         }

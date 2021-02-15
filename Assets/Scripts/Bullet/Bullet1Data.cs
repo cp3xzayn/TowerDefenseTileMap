@@ -19,7 +19,7 @@ public class Bullet1Data : MonoBehaviour
     {
         bullet = GetComponent<Bullet>();
         //弾のステータスをセットする
-        bullet.SetBullet(m_bulDamage);
+        //bullet.SetBullet(m_bulDamage);
         bullet.OnshotToEnemy(m_limitRange);
     }
 
