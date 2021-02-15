@@ -93,9 +93,9 @@ public class WeaponManager : MonoBehaviour
             {
                 //弾を生成する
                 Debug.Log("弾生成");
-                Bullet b = m_bullet.GetComponent<Bullet>();
-                b.SetBullet(LoadBulletDamage(m_weaponIndex));
-                Instantiate(m_bullet, this.transform.position, Quaternion.identity);
+                GameObject go = Instantiate(m_bullet, this.transform.position, Quaternion.identity);
+                Bullet b = go.GetComponent<Bullet>();
+                b.Damage = 10;
             }
             if (this.name == "Weapon1(Clone)")
             {

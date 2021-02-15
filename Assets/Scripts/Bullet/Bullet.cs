@@ -18,6 +18,12 @@ public class Bullet : MonoBehaviour
         bulletDamage = bDamage;
     }
 
+    public int Damage
+    {
+        set { bulletDamage = value; }
+        get { return bulletDamage; }
+    }
+
     //[SerializeField]float m_speed = 1.0f;
     private GameObject[] m_enemy;
     /// <summary>弾の生成ポジション</summary>
