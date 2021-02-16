@@ -23,8 +23,6 @@ public class GameManager : MonoBehaviour
     GameObject m_eneGene;
     /// <summary>Playerのオブジェクト</summary>
     [SerializeField] GameObject m_player;
-    /// <summary> Canvasのオブジェクト </summary>
-    [SerializeField] GameObject m_canvas;
     /// <summary>準備時間のTextオブジェクト</summary>
     [SerializeField] GameObject m_preTimeObject;
     /// <summary>準備時間を表示するテキスト</summary>
@@ -33,14 +31,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_resultObject;
     /// <summary>ゲームオーバー時に表示するオブジェクト</summary>
     [SerializeField] GameObject m_gameoverText;
-    /// <summary>プレイヤーのポジションを生成ポジに戻すための関数 </summary>
-    Vector3Int plaRestPosition;
     /// <summary>拠点の耐久値のSlider </summary>
     [SerializeField]GameObject m_baseHPSlider;
-    /// <summary>兵器選択ボタン</summary>
-    [SerializeField] GameObject m_weapon;
-    /// <summary>兵器1選択ボタン </summary>
-    [SerializeField] GameObject m_weapon1;
     /// <summary>背景のTileSet</summary>
     [SerializeField] GameObject m_backGroundTileSet;
     /// <summary> 所持しているコストのテキスト </summary>
@@ -188,8 +180,6 @@ public class GameManager : MonoBehaviour
             }
         }
         m_baseHPSlider.SetActive(true);
-        m_weapon.SetActive(true);
-        m_weapon1.SetActive(true);
         m_backGroundTileSet.SetActive(true);
         m_costObject.SetActive(true);
         //GameStateを準備期間に変更する

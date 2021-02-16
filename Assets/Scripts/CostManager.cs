@@ -7,7 +7,6 @@ public class CostManager : MonoBehaviour
 {
     [SerializeField] int m_cost= 4;
 
-    int m_needCost = 10;
     /// <summary>
     /// プロパティ
     /// </summary>
@@ -43,7 +42,6 @@ public class CostManager : MonoBehaviour
             {
                 hit.collider.gameObject.GetComponent<WeaponManager>().OnClickWeapon();
                 int needCost = hit.collider.gameObject.GetComponent<WeaponManager>().NeedCost;
-
                 m_cost -= needCost;
             }
         }
@@ -56,6 +54,7 @@ public class CostManager : MonoBehaviour
     {
         m_cost++;
     }
+
     /// <summary>
     /// コストが減らしたときの処理
     /// </summary>

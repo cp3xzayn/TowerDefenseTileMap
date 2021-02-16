@@ -81,7 +81,6 @@ public class WeaponManager : MonoBehaviour
         coolTime = cTime;
     }
 
-
     void Start()
     {
         m_bullet = Resources.Load<GameObject>("Bullet");
@@ -145,9 +144,6 @@ public class WeaponManager : MonoBehaviour
         m_weaponIndex++;
         m_shootingTime = LoadWeaponData(m_weaponIndex);
         SetWeaponData(m_shootingTime);
-        //弾のダメージの強化
-        m_bulDamage = LoadBulletDamage(m_weaponIndex);
-        
     }
 }
  

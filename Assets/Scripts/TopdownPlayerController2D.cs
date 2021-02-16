@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D))]
 public class TopdownPlayerController2D : MonoBehaviour
@@ -27,11 +26,8 @@ public class TopdownPlayerController2D : MonoBehaviour
     int m_weaponCost = 1;
 
     GameObject m_costMana;
-
     Weapon weapon;
 
-    Button button;
-    GameObject m_resetButton;
 
     void Start()
     {
@@ -42,11 +38,6 @@ public class TopdownPlayerController2D : MonoBehaviour
         m_wepMana = GameObject.Find("WeaponManager");
         m_costMana = GameObject.Find("CostManager");
         weapon = m_wepMana.GetComponent<Weapon>();
-
-        //Playerのポジションをリセットする処理を書く。ボタンを設定する
-        m_resetButton = GameObject.Find("PlayerPosReset");
-        button = m_resetButton.GetComponent<Button>();
-        button.onClick.AddListener(OnClickPosReset);
     }
 
     void Update()
@@ -194,19 +185,6 @@ public class TopdownPlayerController2D : MonoBehaviour
         if (m[x, y] == 6)
         {
             this.transform.position = plaPosition;
-        }
-    }
-
-    public void OnClickPosReset()
-    {
-        Debug.Log("OnClickPosReset");
-
-        for (int i = 0; i < 13; i++)
-        {
-            for (int j = 0; j < 13; j++)
-            {
-                PlayerPosReset(i, j);
-            }
         }
     }
 }
