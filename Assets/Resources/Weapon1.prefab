@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5691198104595743384}
   - component: {fileID: 3821918950926762437}
-  - component: {fileID: -4136603077758421724}
   - component: {fileID: 7781065068166763238}
-  - component: {fileID: 1303022038960231798}
+  - component: {fileID: 4239091922647672949}
   m_Layer: 10
   m_Name: Weapon1
   m_TagString: Weapon
@@ -84,22 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &-4136603077758421724
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5802876666567336894}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.08
 --- !u!114 &7781065068166763238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,16 +95,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e415da9ee8aaf0347b7927e5617022cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1303022038960231798
-MonoBehaviour:
+  m_weaponSprite:
+  - {fileID: 21300000, guid: ebff3dfe75a534761ae901e76a7b4a17, type: 3}
+  - {fileID: 21300000, guid: 151032beff0704901aa06bcd5d1b8e8f, type: 3}
+  - {fileID: 21300000, guid: 2748b47c509074184b84ae0d1a186454, type: 3}
+  - {fileID: 21300000, guid: 5de9a771aeb5040aea57a8f3333a47dd, type: 3}
+--- !u!61 &4239091922647672949
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5802876666567336894}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d467a86c452a38479180a37d39ff096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_shootTime: 4
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14, y: 0.14}
+  m_EdgeRadius: 0

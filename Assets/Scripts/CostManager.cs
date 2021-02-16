@@ -44,6 +44,12 @@ public class CostManager : MonoBehaviour
                 int needCost = hit.collider.gameObject.GetComponent<WeaponManager>().NeedCost;
                 m_cost -= needCost;
             }
+            else if (hit.collider.gameObject.name == "Weapon1(Clone)")
+            {
+                hit.collider.gameObject.GetComponent<WeaponManager>().OnClickWeapon1();
+                int needCost = hit.collider.gameObject.GetComponent<WeaponManager>().NeedCost;
+                m_cost -= needCost;
+            }
         }
     }
 
