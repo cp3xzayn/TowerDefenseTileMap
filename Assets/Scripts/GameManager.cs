@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
 
     AudioSource audioSource;
     [SerializeField] AudioClip m_waveClearSound;
+    [SerializeField] AudioClip m_gameOverSound;
 
 
     public static GameManager Instance;
@@ -316,6 +317,7 @@ public class GameManager : MonoBehaviour
         //Resultを表示
         m_gameoverText.SetActive(true);
         Time.timeScale = 0f;
+        audioSource.PlayOneShot(m_gameOverSound);
     }
 
     /// <summary>

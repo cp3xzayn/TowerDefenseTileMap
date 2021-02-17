@@ -6918,6 +6918,7 @@ MonoBehaviour:
   m_waveTimeSet: 20
   m_nowWave: 1
   m_waveClearSound: {fileID: 8300000, guid: 1401793a3ada7ad46a47b1430ab0ccf7, type: 3}
+  m_gameOverSound: {fileID: 8300000, guid: 288b1134f22b66e42aa04657cb2dea5c, type: 3}
 --- !u!4 &1155626783
 Transform:
   m_ObjectHideFlags: 0
