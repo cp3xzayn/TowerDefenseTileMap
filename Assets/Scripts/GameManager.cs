@@ -70,13 +70,15 @@ public class GameManager : MonoBehaviour
     /// <summary> m_timerを一度だけセットするための変数 </summary>
     bool isWaveTimeReset = true;
 
-
     /// <summary>敵生成の間隔 </summary>
     float m_eneGeneTime;
     float m_eTime = 0;
     /// <summary> 取得した敵の生成間隔 </summary>
     float m_eneGeneCoolTime;
     int m_eGCTIndex = 0;
+
+    AudioSource audioSource;
+    [SerializeField] AudioClip m_waveClearSound;
 
 
     public static GameManager Instance;
@@ -107,6 +109,7 @@ public class GameManager : MonoBehaviour
         m_eneGene = GameObject.Find("EnemyGenerator");
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
         m_eneGeneIndex = e.GetLengthWave();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -288,6 +291,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         m_resultObject.SetActive(true);
         m_waveClearText.text = "Wave" + m_nowWave + "クリア";
+        audioSource.PlayOneShot(m_waveClearSound);
     }
 
     //次へボタンが押されたときの処理
