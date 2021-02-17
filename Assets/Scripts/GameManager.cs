@@ -23,8 +23,6 @@ public class GameManager : MonoBehaviour
     GameObject m_eneGene;
     /// <summary>Playerのオブジェクト</summary>
     [SerializeField] GameObject m_player;
-    /// <summary> Canvasのオブジェクト </summary>
-    [SerializeField] GameObject m_canvas;
     /// <summary>準備時間のTextオブジェクト</summary>
     [SerializeField] GameObject m_preTimeObject;
     /// <summary>準備時間を表示するテキスト</summary>
@@ -33,14 +31,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_resultObject;
     /// <summary>ゲームオーバー時に表示するオブジェクト</summary>
     [SerializeField] GameObject m_gameoverText;
-    /// <summary>プレイヤーのポジションを生成ポジに戻すための関数 </summary>
-    Vector3Int plaRestPosition;
     /// <summary>拠点の耐久値のSlider </summary>
     [SerializeField]GameObject m_baseHPSlider;
-    /// <summary>兵器選択ボタン</summary>
-    [SerializeField] GameObject m_weapon;
-    /// <summary>兵器1選択ボタン </summary>
-    [SerializeField] GameObject m_weapon1;
     /// <summary>背景のTileSet</summary>
     [SerializeField] GameObject m_backGroundTileSet;
     /// <summary> 所持しているコストのテキスト </summary>
@@ -78,13 +70,16 @@ public class GameManager : MonoBehaviour
     /// <summary> m_timerを一度だけセットするための変数 </summary>
     bool isWaveTimeReset = true;
 
-
     /// <summary>敵生成の間隔 </summary>
     float m_eneGeneTime;
     float m_eTime = 0;
     /// <summary> 取得した敵の生成間隔 </summary>
     float m_eneGeneCoolTime;
     int m_eGCTIndex = 0;
+
+    AudioSource audioSource;
+    [SerializeField] AudioClip m_waveClearSound;
+    [SerializeField] AudioClip m_gameOverSound;
 
 
     public static GameManager Instance;
@@ -115,6 +110,7 @@ public class GameManager : MonoBehaviour
         m_eneGene = GameObject.Find("EnemyGenerator");
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
         m_eneGeneIndex = e.GetLengthWave();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -188,8 +184,6 @@ public class GameManager : MonoBehaviour
             }
         }
         m_baseHPSlider.SetActive(true);
-        m_weapon.SetActive(true);
-        m_weapon1.SetActive(true);
         m_backGroundTileSet.SetActive(true);
         m_costObject.SetActive(true);
         //GameStateを準備期間に変更する
@@ -298,6 +292,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         m_resultObject.SetActive(true);
         m_waveClearText.text = "Wave" + m_nowWave + "クリア";
+        audioSource.PlayOneShot(m_waveClearSound);
     }
 
     //次へボタンが押されたときの処理
@@ -322,6 +317,7 @@ public class GameManager : MonoBehaviour
         //Resultを表示
         m_gameoverText.SetActive(true);
         Time.timeScale = 0f;
+        audioSource.PlayOneShot(m_gameOverSound);
     }
 
     /// <summary>
