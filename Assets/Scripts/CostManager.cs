@@ -38,17 +38,20 @@ public class CostManager : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction, maxDistance);
 
             //Hitしたオブジェクトが兵器の時
-            if (hit.collider.gameObject.name == "Weapon(Clone)")
+            if (hit != false)
             {
-                hit.collider.gameObject.GetComponent<WeaponManager>().OnClickWeapon();
-                int needCost = hit.collider.gameObject.GetComponent<WeaponManager>().NeedCost;
-                m_cost -= needCost;
-            }
-            else if (hit.collider.gameObject.name == "Weapon1(Clone)")
-            {
-                hit.collider.gameObject.GetComponent<WeaponManager>().OnClickWeapon1();
-                int needCost = hit.collider.gameObject.GetComponent<WeaponManager>().NeedCost;
-                m_cost -= needCost;
+                if (hit.collider.gameObject.name == "Weapon(Clone)")
+                {
+                    hit.collider.gameObject.GetComponent<WeaponManager>().OnClickWeapon();
+                    int needCost = hit.collider.gameObject.GetComponent<WeaponManager>().NeedCost;
+                    m_cost -= needCost;
+                }
+                else if (hit.collider.gameObject.name == "Weapon1(Clone)")
+                {
+                    hit.collider.gameObject.GetComponent<WeaponManager>().OnClickWeapon1();
+                    int needCost = hit.collider.gameObject.GetComponent<WeaponManager>().NeedCost;
+                    m_cost -= needCost;
+                }
             }
         }
     }

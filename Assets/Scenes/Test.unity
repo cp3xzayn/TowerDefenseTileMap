@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &283093513
 Transform:
   m_ObjectHideFlags: 0
@@ -458,7 +458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1561516555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_tilemap: {fileID: 892052753}
-  m_mapWidth: 20
+  m_mapWidth: 13
   a: 1
 --- !u!4 &1561516556
 Transform:
@@ -625,7 +625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1986471477
 MonoBehaviour:
   m_ObjectHideFlags: 0
