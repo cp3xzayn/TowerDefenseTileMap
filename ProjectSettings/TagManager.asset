@@ -4,10 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Bullet
-  - Weapon
-  - WeaponButton
+  - Shootable
   layers:
   - Default
   - TransparentFX
@@ -17,11 +14,11 @@ TagManager:
   - UI
   - 
   - 
+  - Lighting
+  - Ground
+  - Postprocessing
   - Player
-  - WeaponSet
   - Weapon
-  - WeaponButton
-  - 
   - 
   - 
   - 
@@ -42,24 +39,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Map
-    uniqueID: 2237482077
-    locked: 0
-  - name: Enemy
-    uniqueID: 2079694791
+    uniqueID: 3804908061
     locked: 0
   - name: Bullet
-    uniqueID: 3109086103
+    uniqueID: 1921566765
+    locked: 0
+  - name: Enemy
+    uniqueID: 1245099369
     locked: 0
   - name: Weapon
-    uniqueID: 2213749877
+    uniqueID: 2550311067
     locked: 0
   - name: Player
-    uniqueID: 3016602691
+    uniqueID: 1208582627
     locked: 0
-  - name: Explosion
-    uniqueID: 987254857
+  - name: Default
+    uniqueID: 0
     locked: 0

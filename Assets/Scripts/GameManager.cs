@@ -31,10 +31,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject m_resultObject;
     /// <summary>ゲームオーバー時に表示するオブジェクト</summary>
     [SerializeField] GameObject m_gameoverText;
-    /// <summary>拠点の耐久値のSlider </summary>
-    [SerializeField]GameObject m_baseHPSlider;
-    /// <summary>背景のTileSet</summary>
-    [SerializeField] GameObject m_backGroundTileSet;
     /// <summary> 所持しているコストのテキスト </summary>
     [SerializeField] GameObject m_costObject;
     /// <summary> Waveが始まるときに表示するテキスト </summary>
@@ -184,8 +180,6 @@ public class GameManager : MonoBehaviour
                 PlayerInstance(i, j);
             }
         }
-        m_baseHPSlider.SetActive(true);
-        m_backGroundTileSet.SetActive(true);
         m_costObject.SetActive(true);
         //GameStateを準備期間に変更する
         SetNowState(GameState.WaveStart);
