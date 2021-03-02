@@ -14,8 +14,6 @@ public class Enemy : MonoBehaviour
     /// <summary>　敵死亡時のエフェクト </summary>
     GameObject m_effect;
 
-    [SerializeField] AudioClip m_death;
-    AudioSource audioSource;
     GameObject m_costMana;
 
     GameObject m_baseHPObj;
@@ -27,7 +25,6 @@ public class Enemy : MonoBehaviour
         m_base = m_baseHPObj.GetComponent<BaseHpManager>();
         m_effect = Resources.Load<GameObject>("EnemyDeath");
         m_costMana = GameObject.Find("CostManager");
-        audioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -68,7 +65,6 @@ public class Enemy : MonoBehaviour
         //敵のHPが0以下になったら
         if (hp <= 0)
         {
-            audioSource.PlayOneShot(m_death);
             //敵が倒されたときにエフェクトを発生させる
             DeathEffectGenerate();
             //Costを増やす
