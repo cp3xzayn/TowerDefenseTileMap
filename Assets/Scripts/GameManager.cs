@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     Text m_waveText;
     /// <summary> Waveクリア時に表示するText </summary>
     [SerializeField] Text m_waveClearText;
+    [SerializeField] GameObject m_waveTimeObject;
     /// <summary> WaveTimeを表示するText </summary>
     [SerializeField] Text m_waveTimeText;
 
@@ -225,6 +226,8 @@ public class GameManager : MonoBehaviour
         if (m_preparationTime < 0)
         {
             m_preTimeText.text = "じゅんびじかん : 0.0";
+            m_preTimeObject.SetActive(false);
+            m_waveTimeObject.SetActive(true);
             //Battleに変更する
             SetNowState(GameState.Battle);
         }
