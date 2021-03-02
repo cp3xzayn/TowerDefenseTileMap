@@ -89,7 +89,6 @@ public class TopdownPlayerController2D : MonoBehaviour
                 if (Input.GetKeyDown("space"))
                 {
                     weapon.WeaponInstance(weaPos);
-                    StartCoroutine("SetWeapon");
                     //コストを減らす
                     m_cost -= m_weaponCost;
                     //CostManager c = m_costMana.GetComponent<CostManager>();
@@ -97,15 +96,6 @@ public class TopdownPlayerController2D : MonoBehaviour
                 }
             }
         }
-    }
-    //兵器を置いたときにLayerを変更してぶつかることを阻止する
-    IEnumerator SetWeapon()
-    {
-        //レイヤーをWeaponSetに変更
-        gameObject.layer = LayerMask.NameToLayer("WeaponSet");
-        yield return new WaitForSeconds(1f);
-        //レイヤーをPlayerに戻す
-        gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
     /// <summary>

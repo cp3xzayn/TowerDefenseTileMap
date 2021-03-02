@@ -473,7 +473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!483693784 &369824814
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -510,8 +510,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -490059235
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -6908,8 +6908,6 @@ MonoBehaviour:
   m_preTimeObject: {fileID: 688604120}
   m_resultObject: {fileID: 644642623}
   m_gameoverText: {fileID: 1776219221}
-  m_baseHPSlider: {fileID: 112506571}
-  m_backGroundTileSet: {fileID: 369824813}
   m_costObject: {fileID: 1574861988}
   m_waveObject: {fileID: 374137942}
   m_waveClearText: {fileID: 1904909933}
@@ -7367,8 +7365,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2057485219
-  m_SortingLayer: 1
+  m_SortingLayerID: -490059235
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
