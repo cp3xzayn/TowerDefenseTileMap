@@ -171,6 +171,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void StartAction()
     {
+        Time.timeScale = 1;
         m_mapGene = GameObject.Find("MapGenerator");
         //playerを生成する
         for (int i = 0; i < 13; i++)
@@ -298,8 +299,6 @@ public class GameManager : MonoBehaviour
         m_nowWave++;
         m_eGCTIndex++;
         m_resultObject.SetActive(false);
-        //PreparationTimeをセットするため
-        isPreTimeSet = true;
         isWaveTimeReset = true;
         isWaveTime = true;
         //時間の動きを再開する
@@ -315,6 +314,10 @@ public class GameManager : MonoBehaviour
         m_gameoverText.SetActive(true);
         Time.timeScale = 0f;
         audioSource.PlayOneShot(m_gameOverSound);
+        //諸々の初期化を行う
+        isPreTimeSet = true;
+        isWaveTimeReset = true;
+        isWaveTime = true;
     }
 
     /// <summary>

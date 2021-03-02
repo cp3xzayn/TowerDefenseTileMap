@@ -11,6 +11,8 @@ public class Scene : MonoBehaviour
     public void OnClickTitle()
     {
         SceneManager.LoadScene("Title");
+        //Phaseを戻すための処理
+        GameManager.Instance.SetNowState(GameState.Start);
     }
 
     /// <summary>
@@ -19,26 +21,8 @@ public class Scene : MonoBehaviour
     public void OnClickRetry()
     {
         SceneManager.LoadScene("Stage");
-        //Phaseを戻す必要がある
+        //Phaseを戻すための処理
+        GameManager.Instance.SetNowState(GameState.Start);
     }
 
-    [SerializeField] GameObject StrengtheningPanel;
-
-    /// <summary>
-    /// 強化ボタンが押されたとき
-    /// </summary>
-    public void OnClickStrengthening()
-    {
-        StrengtheningPanel.SetActive(true);
-        Time.timeScale = 0f;
-    }
-
-    /// <summary>
-    /// 強化Panelから戻るとき
-    /// </summary>
-    public void OnClickReturnStr()
-    {
-        StrengtheningPanel.SetActive(false);
-        Time.timeScale = 1f;
-    }
 }
