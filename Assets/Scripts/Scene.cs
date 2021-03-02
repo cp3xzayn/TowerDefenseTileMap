@@ -11,6 +11,8 @@ public class Scene : MonoBehaviour
     public void OnClickTitle()
     {
         SceneManager.LoadScene("Title");
+        //Phaseを戻すための処理
+        GameManager.Instance.SetNowState(GameState.Start);
     }
 
     /// <summary>
@@ -19,7 +21,7 @@ public class Scene : MonoBehaviour
     public void OnClickRetry()
     {
         SceneManager.LoadScene("Stage");
-        //Phaseを戻す必要がある
+        //Phaseを戻すための処理
         GameManager.Instance.SetNowState(GameState.Start);
     }
 
