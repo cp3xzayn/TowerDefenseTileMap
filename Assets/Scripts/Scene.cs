@@ -20,25 +20,7 @@ public class Scene : MonoBehaviour
     {
         SceneManager.LoadScene("Stage");
         //Phaseを戻す必要がある
+        GameManager.Instance.SetNowState(GameState.Start);
     }
 
-    [SerializeField] GameObject StrengtheningPanel;
-
-    /// <summary>
-    /// 強化ボタンが押されたとき
-    /// </summary>
-    public void OnClickStrengthening()
-    {
-        StrengtheningPanel.SetActive(true);
-        Time.timeScale = 0f;
-    }
-
-    /// <summary>
-    /// 強化Panelから戻るとき
-    /// </summary>
-    public void OnClickReturnStr()
-    {
-        StrengtheningPanel.SetActive(false);
-        Time.timeScale = 1f;
-    }
 }
