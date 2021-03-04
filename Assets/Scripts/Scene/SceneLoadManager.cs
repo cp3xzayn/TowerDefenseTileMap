@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scene : MonoBehaviour
+public class SceneLoadManager : MonoBehaviour
 {
+
     /// <summary>
     /// TitleButtonが押されたとき
     /// </summary>
