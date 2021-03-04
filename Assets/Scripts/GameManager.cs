@@ -31,8 +31,6 @@ public class GameManager : MonoBehaviour
     Text m_preTimeText;
     /// <summary>ResultのTextオブジェクト </summary>
     [SerializeField] GameObject m_waveClearObject;
-    /// <summary> WaveClear時に表示するButton </summary>
-    [SerializeField] GameObject m_waveClearNextButton;
     /// <summary>ゲームオーバー時に表示するオブジェクト</summary>
     [SerializeField] GameObject m_gameoverText;
     /// <summary> 所持しているコストのテキスト </summary>
@@ -304,7 +302,6 @@ public class GameManager : MonoBehaviour
         //時間を止める
         Time.timeScale = 0f;
         m_waveClearObject.SetActive(true);
-        m_waveClearNextButton.SetActive(true);
         m_waveClearText.text = "Wave" + m_nowWave + "クリア";
         audioSource.PlayOneShot(m_waveClearSound);
     }
@@ -317,20 +314,21 @@ public class GameManager : MonoBehaviour
         m_nowWave++;
         m_eGCTIndex++;
         m_waveClearObject.SetActive(false);
-        m_waveClearNextButton.SetActive(false);
         isWaveTimeReset = true;
         isWaveTime = true;
         //時間の動きを再開する
         Time.timeScale = 1f;
         SetNowState(GameState.WaveStart);
     }
-
+    /// <summary> GameClear時に表示するObject </summary>
+    [SerializeField] GameObject m_gameClear;
     /// <summary>
     /// GameState.Clearになったときに一回だけ呼ばれる処理
     /// </summary>
     void GameClearAction()
     {
-        Debug.Log("a");
+        Time.timeScale = 0f;
+        m_gameClear.SetActive(true);
     }
 
     /// <summary>
