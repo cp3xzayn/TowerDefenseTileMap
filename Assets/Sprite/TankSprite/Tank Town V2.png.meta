@@ -1,0 +1,3197 @@
+fileFormatVersion: 2
+guid: 1f7010c38abe0e248a7d4514000c5ee8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4327074643214617213
+    second: Tank Town V2_0
+  - first:
+      213: 8529836212346316655
+    second: Tank Town V2_1
+  - first:
+      213: -2861189583372748075
+    second: Tank Town V2_2
+  - first:
+      213: 440818558387802179
+    second: Tank Town V2_3
+  - first:
+      213: -8064126368999095951
+    second: Tank Town V2_4
+  - first:
+      213: 6609516386770986026
+    second: Tank Town V2_5
+  - first:
+      213: 6796131166958664303
+    second: Tank Town V2_6
+  - first:
+      213: 1592911364117756680
+    second: Tank Town V2_7
+  - first:
+      213: -7973121524301407443
+    second: Tank Town V2_8
+  - first:
+      213: 6347416776385848455
+    second: Tank Town V2_9
+  - first:
+      213: -5927141360053748932
+    second: Tank Town V2_10
+  - first:
+      213: -6753133369917895500
+    second: Tank Town V2_11
+  - first:
+      213: -8490322749501041614
+    second: Tank Town V2_12
+  - first:
+      213: 5377732705367656610
+    second: Tank Town V2_13
+  - first:
+      213: 6051201860891617443
+    second: Tank Town V2_14
+  - first:
+      213: 2956361927549703772
+    second: Tank Town V2_15
+  - first:
+      213: 2539132371441578340
+    second: Tank Town V2_16
+  - first:
+      213: -6585535244411542256
+    second: Tank Town V2_17
+  - first:
+      213: 5369116190101371998
+    second: Tank Town V2_18
+  - first:
+      213: 7314440178581767101
+    second: Tank Town V2_19
+  - first:
+      213: 7790580484023756562
+    second: Tank Town V2_20
+  - first:
+      213: -5636106175940962826
+    second: Tank Town V2_21
+  - first:
+      213: 2650316258639046553
+    second: Tank Town V2_22
+  - first:
+      213: -4754596776721452347
+    second: Tank Town V2_23
+  - first:
+      213: -5104848927283462498
+    second: Tank Town V2_24
+  - first:
+      213: -5502432833692915752
+    second: Tank Town V2_25
+  - first:
+      213: -105212116839090730
+    second: Tank Town V2_26
+  - first:
+      213: -6072677234794644724
+    second: Tank Town V2_27
+  - first:
+      213: 4204856775135908983
+    second: Tank Town V2_28
+  - first:
+      213: 7086010640384388885
+    second: Tank Town V2_29
+  - first:
+      213: -7022439042234945547
+    second: Tank Town V2_30
+  - first:
+      213: -3246504638458307093
+    second: Tank Town V2_31
+  - first:
+      213: 6331126056246846384
+    second: Tank Town V2_32
+  - first:
+      213: -4384397757717706692
+    second: Tank Town V2_33
+  - first:
+      213: 380418092276647826
+    second: Tank Town V2_34
+  - first:
+      213: -6225543779114434454
+    second: Tank Town V2_35
+  - first:
+      213: -8032658582512844392
+    second: Tank Town V2_36
+  - first:
+      213: -9067339220515165270
+    second: Tank Town V2_37
+  - first:
+      213: -8971657795960469974
+    second: Tank Town V2_38
+  - first:
+      213: -7281101857727678452
+    second: Tank Town V2_39
+  - first:
+      213: 4677231887114721042
+    second: Tank Town V2_40
+  - first:
+      213: 8569655977936142147
+    second: Tank Town V2_41
+  - first:
+      213: -130255349613554512
+    second: Tank Town V2_42
+  - first:
+      213: -2438930481354554874
+    second: Tank Town V2_43
+  - first:
+      213: 3788810036998044004
+    second: Tank Town V2_44
+  - first:
+      213: -2532698889258074188
+    second: Tank Town V2_45
+  - first:
+      213: -5582661123580548240
+    second: Tank Town V2_46
+  - first:
+      213: -4820264158109570309
+    second: Tank Town V2_47
+  - first:
+      213: 2727468600614537401
+    second: Tank Town V2_48
+  - first:
+      213: 7735728023144609988
+    second: Tank Town V2_49
+  - first:
+      213: 8835875783440680288
+    second: Tank Town V2_50
+  - first:
+      213: 3314366430560689224
+    second: Tank Town V2_51
+  - first:
+      213: 6594152429458598405
+    second: Tank Town V2_52
+  - first:
+      213: -3351573698101145
+    second: Tank Town V2_53
+  - first:
+      213: 9205586876327556140
+    second: Tank Town V2_54
+  - first:
+      213: 211958258186588677
+    second: Tank Town V2_55
+  - first:
+      213: 1208661427850001039
+    second: Tank Town V2_56
+  - first:
+      213: 6153157313730407289
+    second: Tank Town V2_57
+  - first:
+      213: 8326267222861159086
+    second: Tank Town V2_58
+  - first:
+      213: -7650718208831633290
+    second: Tank Town V2_59
+  - first:
+      213: -3164796646574615565
+    second: Tank Town V2_60
+  - first:
+      213: -2983743656946825249
+    second: Tank Town V2_61
+  - first:
+      213: 4594354992782818486
+    second: Tank Town V2_62
+  - first:
+      213: -3701458049264090733
+    second: Tank Town V2_63
+  - first:
+      213: 8293449805826693973
+    second: Tank Town V2_64
+  - first:
+      213: 2160915481078599986
+    second: Tank Town V2_65
+  - first:
+      213: -1148335789735673457
+    second: Tank Town V2_66
+  - first:
+      213: 4766062947757974508
+    second: Tank Town V2_67
+  - first:
+      213: 7537870404615135452
+    second: Tank Town V2_68
+  - first:
+      213: -2484007651310963890
+    second: Tank Town V2_69
+  - first:
+      213: -3978873015472857718
+    second: Tank Town V2_70
+  - first:
+      213: -7927727745121948896
+    second: Tank Town V2_71
+  - first:
+      213: -3199998998046475340
+    second: Tank Town V2_72
+  - first:
+      213: 4274872241556738009
+    second: Tank Town V2_73
+  - first:
+      213: -1820613365860438754
+    second: Tank Town V2_74
+  - first:
+      213: -3751827074839122681
+    second: Tank Town V2_75
+  - first:
+      213: -1583258053862962142
+    second: Tank Town V2_76
+  - first:
+      213: 1165999153017971256
+    second: Tank Town V2_77
+  - first:
+      213: -5801510813985928180
+    second: Tank Town V2_78
+  - first:
+      213: 47236696644185960
+    second: Tank Town V2_79
+  - first:
+      213: 4097208694138766628
+    second: Tank Town V2_80
+  - first:
+      213: 8937423562168326412
+    second: Tank Town V2_81
+  - first:
+      213: 6958954976943672664
+    second: Tank Town V2_82
+  - first:
+      213: -6508308848529443178
+    second: Tank Town V2_83
+  - first:
+      213: -6731549762547034834
+    second: Tank Town V2_84
+  - first:
+      213: -4947489926190509021
+    second: Tank Town V2_85
+  - first:
+      213: -4023060516566245250
+    second: Tank Town V2_86
+  - first:
+      213: 5258694861968161518
+    second: Tank Town V2_87
+  - first:
+      213: 7021718247327903873
+    second: Tank Town V2_88
+  - first:
+      213: -5267362007529111819
+    second: Tank Town V2_89
+  - first:
+      213: 2226115890122082360
+    second: Tank Town V2_90
+  - first:
+      213: 1336698711220340005
+    second: Tank Town V2_91
+  - first:
+      213: 6654751533284774723
+    second: Tank Town V2_92
+  - first:
+      213: 8815797094982152803
+    second: Tank Town V2_93
+  - first:
+      213: 8873232441745201269
+    second: Tank Town V2_94
+  - first:
+      213: -3601552450512422419
+    second: Tank Town V2_95
+  - first:
+      213: -9172529014318519000
+    second: Tank Town V2_96
+  - first:
+      213: 2733023841000428178
+    second: Tank Town V2_97
+  - first:
+      213: -8053117422498628713
+    second: Tank Town V2_98
+  - first:
+      213: -6560138994311467946
+    second: Tank Town V2_99
+  - first:
+      213: -1422874624538657559
+    second: Tank Town V2_100
+  - first:
+      213: -5658021102133273943
+    second: Tank Town V2_101
+  - first:
+      213: 4362940371833848462
+    second: Tank Town V2_102
+  - first:
+      213: 3364389577975879092
+    second: Tank Town V2_103
+  - first:
+      213: -6589292250289675059
+    second: Tank Town V2_104
+  - first:
+      213: -4692198420541547569
+    second: Tank Town V2_105
+  - first:
+      213: -2380373222763999224
+    second: Tank Town V2_106
+  - first:
+      213: 3184691310793585357
+    second: Tank Town V2_107
+  - first:
+      213: 2711088401935143761
+    second: Tank Town V2_108
+  - first:
+      213: 7104103274609504363
+    second: Tank Town V2_109
+  - first:
+      213: 5885127172729461164
+    second: Tank Town V2_110
+  - first:
+      213: 238915551471741956
+    second: Tank Town V2_111
+  - first:
+      213: -5508471846413824782
+    second: Tank Town V2_112
+  - first:
+      213: 3304651758367620774
+    second: Tank Town V2_113
+  - first:
+      213: 3103486839158291220
+    second: Tank Town V2_114
+  - first:
+      213: 6343953098750696048
+    second: Tank Town V2_115
+  - first:
+      213: 3775812529694634431
+    second: Tank Town V2_116
+  - first:
+      213: -6666576003377011668
+    second: Tank Town V2_117
+  - first:
+      213: -211533317609269430
+    second: Tank Town V2_118
+  - first:
+      213: -1754851157093398917
+    second: Tank Town V2_119
+  - first:
+      213: -617304970386172634
+    second: Tank Town V2_120
+  - first:
+      213: -7126414839574187328
+    second: Tank Town V2_121
+  - first:
+      213: 5052895555826422210
+    second: Tank Town V2_122
+  - first:
+      213: -4882048909867941412
+    second: Tank Town V2_123
+  - first:
+      213: -4570759996042528189
+    second: Tank Town V2_124
+  - first:
+      213: -1681472101369599226
+    second: Tank Town V2_125
+  - first:
+      213: -6772523549031816626
+    second: Tank Town V2_126
+  - first:
+      213: -659467234864702358
+    second: Tank Town V2_127
+  - first:
+      213: 8927941738914697915
+    second: Tank Town V2_128
+  - first:
+      213: 8941503248870249131
+    second: Tank Town V2_129
+  - first:
+      213: 4411374416762948528
+    second: Tank Town V2_130
+  - first:
+      213: -5928095808349093636
+    second: Tank Town V2_131
+  - first:
+      213: 3139201326019755177
+    second: Tank Town V2_132
+  - first:
+      213: 336000578337855174
+    second: Tank Town V2_133
+  - first:
+      213: -6085797620114777490
+    second: Tank Town V2_134
+  - first:
+      213: 7650910680374489638
+    second: Tank Town V2_135
+  - first:
+      213: -7328015876063883788
+    second: Tank Town V2_136
+  - first:
+      213: -8640264202933213579
+    second: Tank Town V2_137
+  - first:
+      213: -1820461415014070526
+    second: Tank Town V2_138
+  - first:
+      213: -4037697498268507987
+    second: Tank Town V2_139
+  - first:
+      213: -5946771422403605633
+    second: Tank Town V2_140
+  - first:
+      213: -4140512945938946600
+    second: Tank Town V2_141
+  - first:
+      213: 7928453507932078816
+    second: Tank Town V2_142
+  - first:
+      213: 8445846681127086565
+    second: Tank Town V2_143
+  - first:
+      213: 9185743202696453940
+    second: Tank Town V2_144
+  - first:
+      213: 8559258471784100198
+    second: Tank Town V2_145
+  - first:
+      213: 7497567770504445601
+    second: Tank Town V2_146
+  - first:
+      213: 8408039281297089788
+    second: Tank Town V2_147
+  - first:
+      213: -1004750192525819402
+    second: Tank Town V2_148
+  - first:
+      213: 3235735369389165956
+    second: Tank Town V2_149
+  - first:
+      213: 200582220506739391
+    second: Tank Town V2_150
+  - first:
+      213: -2907375750553522315
+    second: Tank Town V2_151
+  - first:
+      213: 4300052105561178838
+    second: Tank Town V2_152
+  - first:
+      213: 3385481024480219941
+    second: Tank Town V2_153
+  - first:
+      213: 2826525453548126198
+    second: Tank Town V2_154
+  - first:
+      213: -3517768704035636591
+    second: Tank Town V2_155
+  - first:
+      213: 8517300705609513687
+    second: Tank Town V2_156
+  - first:
+      213: 5794902763217388357
+    second: Tank Town V2_157
+  - first:
+      213: -3033545096717761133
+    second: Tank Town V2_158
+  - first:
+      213: -8354666404356293590
+    second: Tank Town V2_159
+  - first:
+      213: 3438380115937699299
+    second: Tank Town V2_160
+  - first:
+      213: -4471230823596444542
+    second: Tank Town V2_161
+  - first:
+      213: -4713958918714050279
+    second: Tank Town V2_162
+  - first:
+      213: 1998300740689640326
+    second: Tank Town V2_163
+  - first:
+      213: 2288615595872208757
+    second: Tank Town V2_164
+  - first:
+      213: -1590131839314463737
+    second: Tank Town V2_165
+  - first:
+      213: -3815154935392615058
+    second: Tank Town V2_166
+  - first:
+      213: -5218575710724262576
+    second: Tank Town V2_167
+  - first:
+      213: 7317922528550333891
+    second: Tank Town V2_168
+  - first:
+      213: 3724811804794501414
+    second: Tank Town V2_169
+  - first:
+      213: -9214098181975796441
+    second: Tank Town V2_170
+  - first:
+      213: -376749020629529175
+    second: Tank Town V2_171
+  - first:
+      213: 2833122823016718732
+    second: Tank Town V2_172
+  - first:
+      213: -4818120700255798153
+    second: Tank Town V2_173
+  - first:
+      213: -2097449109129657355
+    second: Tank Town V2_174
+  - first:
+      213: -3549890027602449499
+    second: Tank Town V2_175
+  - first:
+      213: 8175774531854008104
+    second: Tank Town V2_176
+  - first:
+      213: 822036262404769106
+    second: Tank Town V2_177
+  - first:
+      213: -3759244082360041275
+    second: Tank Town V2_178
+  - first:
+      213: -6170436562307490002
+    second: Tank Town V2_179
+  - first:
+      213: 8244135766279189457
+    second: Tank Town V2_180
+  - first:
+      213: -2822923885039415393
+    second: Tank Town V2_181
+  - first:
+      213: -8576056616228484204
+    second: Tank Town V2_182
+  - first:
+      213: -7339764540586847712
+    second: Tank Town V2_183
+  - first:
+      213: -5250005988988346320
+    second: Tank Town V2_184
+  - first:
+      213: 331084638780404006
+    second: Tank Town V2_185
+  - first:
+      213: 4504728451673703922
+    second: Tank Town V2_186
+  - first:
+      213: 5706947570220645338
+    second: Tank Town V2_187
+  - first:
+      213: -7797247257268479010
+    second: Tank Town V2_188
+  - first:
+      213: 3147025746315984522
+    second: Tank Town V2_189
+  - first:
+      213: 17410288331671922
+    second: Tank Town V2_190
+  - first:
+      213: -4539724270516515544
+    second: Tank Town V2_191
+  - first:
+      213: -4221399555948479484
+    second: Tank Town V2_192
+  - first:
+      213: 6841503555490846440
+    second: Tank Town V2_193
+  - first:
+      213: -3747433870697016059
+    second: Tank Town V2_194
+  - first:
+      213: -2776953910932202615
+    second: Tank Town V2_195
+  - first:
+      213: 1294259672702899976
+    second: Tank Town V2_196
+  - first:
+      213: -866804383278287102
+    second: Tank Town V2_197
+  - first:
+      213: 4412743523928463787
+    second: Tank Town V2_198
+  - first:
+      213: -2287929968590752884
+    second: Tank Town V2_199
+  - first:
+      213: 1221641352916696450
+    second: Tank Town V2_200
+  - first:
+      213: 7316500345240625384
+    second: Tank Town V2_201
+  - first:
+      213: -5230090103756667533
+    second: Tank Town V2_202
+  - first:
+      213: 8139419848016023450
+    second: Tank Town V2_203
+  - first:
+      213: 7303134663631774746
+    second: Tank Town V2_204
+  - first:
+      213: -5783378975862306395
+    second: Tank Town V2_205
+  - first:
+      213: 5351863450563116387
+    second: Tank Town V2_206
+  - first:
+      213: 8513376926479423238
+    second: Tank Town V2_207
+  - first:
+      213: -5529409744614984818
+    second: Tank Town V2_208
+  - first:
+      213: 5046526900823939749
+    second: Tank Town V2_209
+  - first:
+      213: 6472977589065355741
+    second: Tank Town V2_210
+  - first:
+      213: 8271205084897755664
+    second: Tank Town V2_211
+  - first:
+      213: -3974396576362339569
+    second: Tank Town V2_212
+  - first:
+      213: -1624068227652593586
+    second: Tank Town V2_213
+  - first:
+      213: -8765542574026454137
+    second: Tank Town V2_214
+  - first:
+      213: -58751306291969087
+    second: Tank Town V2_215
+  - first:
+      213: -3650207574739979430
+    second: Tank Town V2_216
+  - first:
+      213: -3340250556601961607
+    second: Tank Town V2_217
+  - first:
+      213: 6427233604490800977
+    second: Tank Town V2_218
+  - first:
+      213: -8735560591349887186
+    second: Tank Town V2_219
+  - first:
+      213: -1640734280194515203
+    second: Tank Town V2_220
+  - first:
+      213: -5036281163590294509
+    second: Tank Town V2_221
+  - first:
+      213: 2309174836463062376
+    second: Tank Town V2_222
+  - first:
+      213: 131232201532745102
+    second: Tank Town V2_223
+  - first:
+      213: -7063096532235418802
+    second: Tank Town V2_224
+  - first:
+      213: -7314477794088202464
+    second: Tank Town V2_225
+  - first:
+      213: 885681579641307281
+    second: Tank Town V2_226
+  - first:
+      213: -7592753626756580481
+    second: Tank Town V2_227
+  - first:
+      213: -7962847737171920755
+    second: Tank Town V2_228
+  - first:
+      213: -5005877029783593835
+    second: Tank Town V2_229
+  - first:
+      213: -8711831775375371120
+    second: Tank Town V2_230
+  - first:
+      213: 1793277378115889088
+    second: Tank Town V2_231
+  - first:
+      213: 6496097593970297401
+    second: Tank Town V2_232
+  - first:
+      213: 4341664514098597042
+    second: Tank Town V2_233
+  - first:
+      213: 556453141592129676
+    second: Tank Town V2_234
+  - first:
+      213: -2034065291711958418
+    second: Tank Town V2_235
+  - first:
+      213: 5639112148179530589
+    second: Tank Town V2_236
+  - first:
+      213: -6361480528953393825
+    second: Tank Town V2_237
+  - first:
+      213: -4551601776600495511
+    second: Tank Town V2_238
+  - first:
+      213: -508811383991238866
+    second: Tank Town V2_239
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Tank Town V2_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 385b79ea98423f3c0800000000000000
+      internalID: -4327074643214617213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f676a2597d0106670800000000000000
+      internalID: 8529836212346316655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5daf400bb330b48d0800000000000000
+      internalID: -2861189583372748075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 340da1fa42a1e1600800000000000000
+      internalID: 440818558387802179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 171c2fffac7761090800000000000000
+      internalID: -8064126368999095951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a24ab929228b9bb50800000000000000
+      internalID: 6609516386770986026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a3885f945b05e50800000000000000
+      internalID: 6796131166958664303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80bfbe032782b1610800000000000000
+      internalID: 1592911364117756680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b5ef09738c95190800000000000000
+      internalID: -7973121524301407443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78465d59ded861850800000000000000
+      internalID: 6347416776385848455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b787c16509ebda0800000000000000
+      internalID: -5927141360053748932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc053dcafc0842a0800000000000000
+      internalID: -6753133369917895500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234929761705c2a80800000000000000
+      internalID: -8490322749501041614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a88070376b81aa40800000000000000
+      internalID: 5377732705367656610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_14
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a8a0a628003af350800000000000000
+      internalID: 6051201860891617443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_15
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c56d617728b170920800000000000000
+      internalID: 2956361927549703772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 461787d507fcc3320800000000000000
+      internalID: 2539132371441578340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_17
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 015e80d369a7b94a0800000000000000
+      internalID: -6585535244411542256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_18
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c7ac46abee28a40800000000000000
+      internalID: 5369116190101371998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db3063fb69c128560800000000000000
+      internalID: 7314440178581767101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217a3588ca3bd1c60800000000000000
+      internalID: 7790580484023756562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_21
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f557aa5b4788c1b0800000000000000
+      internalID: -5636106175940962826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9976f926890d7c420800000000000000
+      internalID: 2650316258639046553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_23
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c2fc492c67440eb0800000000000000
+      internalID: -4754596776721452347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e3c3182fee729b0800000000000000
+      internalID: -5104848927283462498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7a94bad7e63a3b0800000000000000
+      internalID: -5502432833692915752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_26
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d53dbd13263a8ef0800000000000000
+      internalID: -105212116839090730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_27
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0bb678ba3489bba0800000000000000
+      internalID: -6072677234794644724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_28
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 774de5d65f6aa5a30800000000000000
+      internalID: 4204856775135908983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_29
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51fefb65221965260800000000000000
+      internalID: 7086010640384388885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_30
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff60c6c5e84b8e90800000000000000
+      internalID: -7022439042234945547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_31
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bedd8076b3912f2d0800000000000000
+      internalID: -3246504638458307093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_32
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b320daba9dacd750800000000000000
+      internalID: 6331126056246846384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_33
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c388739087d7723c0800000000000000
+      internalID: -4384397757717706692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_34
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29708484d34874500800000000000000
+      internalID: 380418092276647826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a60cd30daec6a99a0800000000000000
+      internalID: -6225543779114434454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_36
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 891445bf393468090800000000000000
+      internalID: -8032658582512844392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_37
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aabe93f05075a2280800000000000000
+      internalID: -9067339220515165270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_38
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a268969b4c44e7380800000000000000
+      internalID: -8971657795960469974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_39
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0874b4ff6454fa90800000000000000
+      internalID: -7281101857727678452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_40
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2175a9bce9dd8e040800000000000000
+      internalID: 4677231887114721042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_41
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34fbf2c35b88de670800000000000000
+      internalID: 8569655977936142147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_42
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b4903c137d313ef0800000000000000
+      internalID: -130255349613554512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_43
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6024df236ad272ed0800000000000000
+      internalID: -2438930481354554874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_44
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469f3b897ae849430800000000000000
+      internalID: 3788810036998044004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bffebe67cb0adcd0800000000000000
+      internalID: -2532698889258074188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_46
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07b299b49476682b0800000000000000
+      internalID: -5582661123580548240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_47
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfae45c794bfa1db0800000000000000
+      internalID: -4820264158109570309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_48
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b849a3dd3ae9d520800000000000000
+      internalID: 2727468600614537401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_49
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c8b192c6a3da5b60800000000000000
+      internalID: 7735728023144609988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_50
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0654577e5365f9a70800000000000000
+      internalID: 8835875783440680288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_51
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84c9c0555befefd20800000000000000
+      internalID: 3314366430560689224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_52
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50aa8a082b2238b50800000000000000
+      internalID: 6594152429458598405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_53
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7604940f2c714fff0800000000000000
+      internalID: -3351573698101145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_54
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c247080ad70d0cf70800000000000000
+      internalID: 9205586876327556140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5021c6ea9e601f200800000000000000
+      internalID: 211958258186588677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_56
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a37b43a2706c010800000000000000
+      internalID: 1208661427850001039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_57
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97b6ffbd9f7646550800000000000000
+      internalID: 6153157313730407289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_58
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa1e9bbce7dc8370800000000000000
+      internalID: 8326267222861159086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_59
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6784af5035033d590800000000000000
+      internalID: -7650718208831633290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_60
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3929eb7326414d0800000000000000
+      internalID: -3164796646574615565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_61
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd70cdad3fc9796d0800000000000000
+      internalID: -2983743656946825249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_62
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bcbcd4268d62cf30800000000000000
+      internalID: 4594354992782818486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_63
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3918a9ee387c1acc0800000000000000
+      internalID: -3701458049264090733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_64
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b15d668a0481370800000000000000
+      internalID: 8293449805826693973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23115575e2d1dfd10800000000000000
+      internalID: 2160915481078599986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_66
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8100f1feaa4010f0800000000000000
+      internalID: -1148335789735673457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_67
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce3e342dff4742240800000000000000
+      internalID: 4766062947757974508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_68
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd0e3061235eb9860800000000000000
+      internalID: 7537870404615135452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_69
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e43f144b338078dd0800000000000000
+      internalID: -2484007651310963890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_70
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8d5a5ac21438c8c0800000000000000
+      internalID: -3978873015472857718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_71
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b6ff36e9d0bf190800000000000000
+      internalID: -7927727745121948896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_72
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bb75d79dd15793d0800000000000000
+      internalID: -3199998998046475340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_73
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dfca2a87a5635b30800000000000000
+      internalID: 4274872241556738009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_74
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1d6f8e2ac1ebb6e0800000000000000
+      internalID: -1820613365860438754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_75
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d65894725deebc0800000000000000
+      internalID: -3751827074839122681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_76
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22cc8bf3033270ae0800000000000000
+      internalID: -1583258053862962142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_77
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832ea0c4d067e2010800000000000000
+      internalID: 1165999153017971256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_78
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c08c307a4ec7fa0800000000000000
+      internalID: -5801510813985928180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_79
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86fe6db7681d7a000800000000000000
+      internalID: 47236696644185960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_80
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42588c079953cd830800000000000000
+      internalID: 4097208694138766628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_81
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09df36906b180c70800000000000000
+      internalID: 8937423562168326412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_82
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d0aa07eac239060800000000000000
+      internalID: 6958954976943672664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_83
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696fed2b597dda5a0800000000000000
+      internalID: -6508308848529443178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_84
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e25d48ff72bb492a0800000000000000
+      internalID: -6731549762547034834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_85
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3245793002cf65bb0800000000000000
+      internalID: -4947489926190509021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_86
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e706b2876c73b28c0800000000000000
+      internalID: -4023060516566245250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_87
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeab8cd7d13aaf840800000000000000
+      internalID: 5258694861968161518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_88
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180bbd41b87227160800000000000000
+      internalID: 7021718247327903873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_89
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5feb6dd692296e6b0800000000000000
+      internalID: -5267362007529111819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_90
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838449b8b90c4ee10800000000000000
+      internalID: 2226115890122082360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_91
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 525c20e4568ec8210800000000000000
+      internalID: 1336698711220340005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_92
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 343dce9d24d6a5c50800000000000000
+      internalID: 6654751533284774723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_93
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362f452ffb0085a70800000000000000
+      internalID: 8815797094982152803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_94
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578d1b3b4ed042b70800000000000000
+      internalID: 8873232441745201269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_95
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de9f44bc027b40ec0800000000000000
+      internalID: -3601552450512422419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_96
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82da499a571a4b080800000000000000
+      internalID: -9172529014318519000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_97
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292118504b6ade520800000000000000
+      internalID: 2733023841000428178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_98
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79bb5791f549d3090800000000000000
+      internalID: -8053117422498628713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_99
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c60ee7754b5f4a0800000000000000
+      internalID: -6560138994311467946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_100
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ecb474511fe04ce0800000000000000
+      internalID: -1422874624538657559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_101
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aa9eabf8cbaa71b0800000000000000
+      internalID: -5658021102133273943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_102
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e820e5ff6274c8c30800000000000000
+      internalID: 4362940371833848462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_103
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b55741fe76b0be20800000000000000
+      internalID: 3364389577975879092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_104
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc4ef342c912e84a0800000000000000
+      internalID: -6589292250289675059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_105
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcbd8f79566f1eeb0800000000000000
+      internalID: -4692198420541547569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_106
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 800dc486a2737fed0800000000000000
+      internalID: -2380373222763999224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_107
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc2ff1bbfdb423c20800000000000000
+      internalID: 3184691310793585357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_108
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1539600a988bf9520800000000000000
+      internalID: 2711088401935143761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_109
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60f9c20a48d69260800000000000000
+      internalID: 7104103274609504363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_110
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca9d98c9bfb2ca150800000000000000
+      internalID: 5885127172729461164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_111
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c2ac0ad6cc05300800000000000000
+      internalID: 238915551471741956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tank Town V2_112
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc83437a0afd83b0800000000000000
+      internalID: -5508471846413824782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: aff2c950eb33e5f479bcd2896a25a04f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

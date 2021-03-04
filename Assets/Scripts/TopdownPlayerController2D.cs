@@ -21,13 +21,14 @@ public class TopdownPlayerController2D : MonoBehaviour
     Vector3Int weaPos;
     /// <summary>置くことができる兵器の制限 </summary>
     int m_cost;
-
     /// <summary>兵器のコスト </summary>
     int m_weaponCost = 1;
 
     GameObject m_costMana;
     Weapon weapon;
 
+    [SerializeField] AudioClip m_weaponSet;
+    AudioSource audioSource;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class TopdownPlayerController2D : MonoBehaviour
         m_wepMana = GameObject.Find("WeaponManager");
         m_costMana = GameObject.Find("CostManager");
         weapon = m_wepMana.GetComponent<Weapon>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -88,6 +90,7 @@ public class TopdownPlayerController2D : MonoBehaviour
                 //SpaceKeyを押されたとき兵器を置く
                 if (Input.GetKeyDown("space"))
                 {
+                    audioSource.PlayOneShot(m_weaponSet);
                     weapon.WeaponInstance(weaPos);
                     //コストを減らす
                     m_cost -= m_weaponCost;
@@ -165,16 +168,4 @@ public class TopdownPlayerController2D : MonoBehaviour
         }
     }
 
-    void PlayerPosReset(int x, int y)
-    {
-        Vector3Int plaPosition;
-        //Mapの情報を取得する
-        MapGenerator t = m_mapGene.GetComponent<MapGenerator>();
-        int[,] m = t.Map;
-        plaPosition = new Vector3Int(x, y, 0);
-        if (m[x, y] == 6)
-        {
-            this.transform.position = plaPosition;
-        }
-    }
 }

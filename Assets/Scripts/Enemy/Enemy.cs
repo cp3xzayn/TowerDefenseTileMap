@@ -15,9 +15,11 @@ public class Enemy : MonoBehaviour
     GameObject m_effect;
 
     GameObject m_costMana;
-
     GameObject m_baseHPObj;
     BaseHpManager m_base;
+
+    [SerializeField] AudioClip m_enemyAttack;
+    AudioSource audioSource;
 
     void Start()
     {
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour
         m_base = m_baseHPObj.GetComponent<BaseHpManager>();
         m_effect = Resources.Load<GameObject>("EnemyDeath");
         m_costMana = GameObject.Find("CostManager");
+        audioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -49,6 +52,7 @@ public class Enemy : MonoBehaviour
         if (m_time > coolTime)
         {
             Debug.Log("攻撃" + attack);
+            EneAttackSound();
             m_base.DecreaseHP(attack);
             m_time = 0f;
         }
@@ -73,6 +77,11 @@ public class Enemy : MonoBehaviour
             //敵を破壊する
             Destroy(this.gameObject);
         }
+    }
+
+    void EneAttackSound()
+    {
+        audioSource.PlayOneShot(m_enemyAttack);
     }
 
     /// <summary>

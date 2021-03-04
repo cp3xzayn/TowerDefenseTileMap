@@ -7,18 +7,28 @@ public class Weapon : MonoBehaviour
     GameObject m_weapon;
     GameObject m_weapon1;
 
+    [SerializeField] AudioClip m_weaponClick;
+    AudioSource audioSource;
+
     bool isWeapon = true;
     bool isWeapon1 = false;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     //Weaponのボタンが押されたとき
     public void OnClickWep()
     {
+        audioSource.PlayOneShot(m_weaponClick);
         isWeapon = true;
         isWeapon1 = false;
     }
     //Weapon1のボタンが押されたとき
     public void OnClickWep1()
     {
+        audioSource.PlayOneShot(m_weaponClick);
         isWeapon = false;
         isWeapon1 = true;
     }

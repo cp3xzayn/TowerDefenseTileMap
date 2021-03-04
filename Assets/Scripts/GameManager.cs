@@ -13,7 +13,9 @@ public enum GameState
     Finish,
     GameOver
 }
-
+/// <summary>
+/// Phaseを管理するクラス
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     GameObject m_mapGene;
