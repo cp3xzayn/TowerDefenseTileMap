@@ -127,11 +127,13 @@ public class WeaponManager : MonoBehaviour
         coolTime = cTime;
     }
 
+    AudioSource audioSource;
+    
     void Start()
     {
         m_bullet = Resources.Load<GameObject>("Bullet");
         m_bullet1 = Resources.Load<GameObject>("Bullet1");
-
+        audioSource = GetComponent<AudioSource>();
         // 発射間隔を初期化する
         if (this.gameObject.name == "Weapon(Clone)")
         {
@@ -179,7 +181,8 @@ public class WeaponManager : MonoBehaviour
     /// <summary> 兵器強化に必要なコスト </summary>
     int m_needCost = 10;
     public int NeedCost { get { return m_needCost; } }
-
+    /// <summary> 兵器が強化されたときのSound </summary>
+    [SerializeField] AudioClip m_weaponStren;
     SpriteRenderer m_spriteRenderer;
     /// <summary> 兵器が強化されたときのSprite </summary>
     [SerializeField] Sprite[] m_weaponSprite;
@@ -190,6 +193,7 @@ public class WeaponManager : MonoBehaviour
     public void OnClickWeapon()
     {
         Debug.Log("兵器強化");
+        audioSource.PlayOneShot(m_weaponStren);
         //兵器の強化が最大になるまでの処理を追加で書く
         //Spriteを入れ替える
         m_weaponIndex++;
@@ -206,6 +210,7 @@ public class WeaponManager : MonoBehaviour
     public void OnClickWeapon1()
     {
         Debug.Log("兵器強化");
+        audioSource.PlayOneShot(m_weaponStren);
         //兵器の強化が最大になるまでの処理を追加で書く
         //Spriteを入れ替える
         m_weaponIndex++;
