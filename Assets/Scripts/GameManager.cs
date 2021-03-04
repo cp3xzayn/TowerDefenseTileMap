@@ -10,7 +10,7 @@ public enum GameState
     Preparation,
     Battle,
     Result,
-    Finish,
+    Clear,
     GameOver
 }
 /// <summary>
@@ -30,7 +30,9 @@ public class GameManager : MonoBehaviour
     /// <summary>準備時間を表示するテキスト</summary>
     Text m_preTimeText;
     /// <summary>ResultのTextオブジェクト </summary>
-    [SerializeField] GameObject m_resultObject;
+    [SerializeField] GameObject m_waveClearObject;
+    /// <summary> WaveClear時に表示するButton </summary>
+    [SerializeField] GameObject m_waveClearNextButton;
     /// <summary>ゲームオーバー時に表示するオブジェクト</summary>
     [SerializeField] GameObject m_gameoverText;
     /// <summary> 所持しているコストのテキスト </summary>
@@ -44,16 +46,6 @@ public class GameManager : MonoBehaviour
     /// <summary> WaveTimeを表示するText </summary>
     [SerializeField] Text m_waveTimeText;
 
-    /// <summary> 準備期間の時間 /// </summary>
-    [SerializeField] float m_preparationTimeSet = 10f;
-    float m_preparationTime;
-    /// <summary> 準備時間を一度だけセットするための変数 </summary>
-    bool isPreTimeSet = true;
-
-    /// <summary> Waveの時間 </summary>
-    [SerializeField] float m_waveTimeSet = 20f;
-    float m_waveTime;
-    bool isWaveTime = true;
     /// <summary>現在のWave </summary>
     public int m_nowWave = 1;
     /// <summary> 敵生成の配列のIndexを進めるか判定する </summary>
@@ -63,12 +55,6 @@ public class GameManager : MonoBehaviour
     /// <summary> 敵生成時に用いるインデックス </summary>
     int m_index = 0;
     
-    /// <summary> Waveが始まるときに表示するテキストの時間 </summary>
-    float m_waveTextTime = 2f;
-    float m_timer;
-    /// <summary> m_timerを一度だけセットするための変数 </summary>
-    bool isWaveTimeReset = true;
-
     /// <summary>敵生成の間隔 </summary>
     float m_eneGeneTime;
     float m_eTime = 0;
@@ -80,12 +66,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip m_waveClearSound;
     [SerializeField] AudioClip m_gameOverSound;
 
-
     public static GameManager Instance;
     /// <summary>現在の状態 </summary>
     private GameState nowState;
 
-    
     public float LoadEneGeneCoolTime(int index)
     {
         m_eGCTIndex = index;
@@ -114,8 +98,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        //WeaponManagerを探して配列に格納する
-        m_wepMana = FindObjectsOfType<WeaponManager>();
+        // Waveが6以上になったら
+        if (m_nowWave > 5)
+        {
+            SetNowState(GameState.Clear);
+        }
         switch (nowState)
         {
             case GameState.WaveStart:
@@ -130,7 +117,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //外からこのメソッドを使って状態を変更
+    /// <summary>
+    /// 外からこのメソッドを使って状態を変更
+    /// </summary>
+    /// <param name="state"></param>
     public void SetNowState(GameState state)
     {
         nowState = state;
@@ -159,7 +149,9 @@ public class GameManager : MonoBehaviour
                 Debug.Log("GameState.Result");
                 ResultAction();
                 break;
-            case GameState.Finish:
+            case GameState.Clear:
+                Debug.Log("GameState.Clear");
+                GameClearAction();
                 break;
             case GameState.GameOver:
                 Debug.Log("GameState.GameOver");
@@ -188,6 +180,11 @@ public class GameManager : MonoBehaviour
         SetNowState(GameState.WaveStart);
     }
 
+    /// <summary> Waveが始まるときに表示するテキストの時間 </summary>
+    float m_waveTextTime = 2f;
+    float m_timer;
+    /// <summary> m_timerを一度だけセットするための変数 </summary>
+    bool isWaveTimeReset = true;
     /// <summary>
     /// GameState.WaveStartになったときに一度だけ呼ばれる関数
     /// </summary>
@@ -215,7 +212,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //GameStateがPreparationになったときの処理
+
+    /// <summary> 準備期間の時間 /// </summary>
+    [SerializeField] float m_preparationTimeSet = 10f;
+    float m_preparationTime;
+    /// <summary> 準備時間を一度だけセットするための変数 </summary>
+    bool isPreTimeSet = true;
+    /// <summary>
+    /// GameStateがPreparationになったときの処理
+    /// </summary>
     void PreparationUpdate()
     {
         //準備時間を初期化する
@@ -236,11 +241,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary> Waveの時間 </summary>
+    [SerializeField] float m_waveTimeSet = 20f;
+    float m_waveTime;
+    bool isWaveTime = true;
     /// <summary>
     /// GameStateがBattleになったときの処理
     /// </summary>
     void BattleUpdate()
     {
+        //WeaponManagerを探して配列に格納する
+        m_wepMana = FindObjectsOfType<WeaponManager>();
         m_eneGeneTime = LoadEneGeneCoolTime(m_eGCTIndex);
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
         //生成のクールタイムが終わったら
@@ -285,31 +296,46 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //GameState.Resultになったときに一回だけ呼ばれる処理
+    /// <summary>
+    /// GameState.Resultになったときに一回だけ呼ばれる処理
+    /// </summary>
     void ResultAction()
     {
         //時間を止める
         Time.timeScale = 0f;
-        m_resultObject.SetActive(true);
+        m_waveClearObject.SetActive(true);
+        m_waveClearNextButton.SetActive(true);
         m_waveClearText.text = "Wave" + m_nowWave + "クリア";
         audioSource.PlayOneShot(m_waveClearSound);
     }
 
-    //次へボタンが押されたときの処理
+    /// <summary>
+    /// WaveClear時の次へボタンが押されたときの処理
+    /// </summary>
     public void OnClickNextWave()
     {
         m_nowWave++;
         m_eGCTIndex++;
-        m_resultObject.SetActive(false);
+        m_waveClearObject.SetActive(false);
+        m_waveClearNextButton.SetActive(false);
         isWaveTimeReset = true;
         isWaveTime = true;
         //時間の動きを再開する
         Time.timeScale = 1f;
-        Debug.Log("Wave" + m_nowWave);
         SetNowState(GameState.WaveStart);
     }
 
-    //GameState.GameOverになったときに一回だけ呼ばれる処理
+    /// <summary>
+    /// GameState.Clearになったときに一回だけ呼ばれる処理
+    /// </summary>
+    void GameClearAction()
+    {
+        Debug.Log("a");
+    }
+
+    /// <summary>
+    /// GameState.GameOverになったときに一回だけ呼ばれる処理
+    /// </summary>
     void GameOverAction()
     {
         //Resultを表示
