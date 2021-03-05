@@ -35,7 +35,6 @@ public class Bullet : MonoBehaviour
     /// <summary>弾を破壊するまでの時間 </summary>
     private float m_destroyTime = 0.1f;
 
-
     void Start()
     {
         //弾と敵のポジションを取得する
