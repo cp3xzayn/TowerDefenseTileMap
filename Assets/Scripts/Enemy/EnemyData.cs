@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyData : MonoBehaviour
 {
@@ -24,4 +25,8 @@ public class EnemyData : MonoBehaviour
     {
         EnemyStates();
     }
+
+    [SerializeField] GameObject m_enemyHPObject;
+    Slider m_enemyHPSlider;
+
 }

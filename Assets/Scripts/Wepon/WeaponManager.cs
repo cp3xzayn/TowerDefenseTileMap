@@ -25,6 +25,8 @@ public class WeaponManager : MonoBehaviour
     /// <summary> 配列の要素数 </summary>
     int m_weaponIndex = 0;
 
+    public int WeaponIndex { get { return m_weaponIndex; } }
+
     /// <summary> 兵器の発射間隔 </summary>
     float m_shootingTime;
     /// <summary> 兵器1の発射間隔 </summary>
@@ -192,16 +194,19 @@ public class WeaponManager : MonoBehaviour
     /// </summary>
     public void OnClickWeapon()
     {
-        Debug.Log("兵器強化");
-        audioSource.PlayOneShot(m_weaponStren);
-        //兵器の強化が最大になるまでの処理を追加で書く
-        //Spriteを入れ替える
-        m_weaponIndex++;
-        m_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        m_spriteRenderer.sprite = m_weaponSprite[m_weaponIndex];
-        //兵器の弾生成間隔の強化
-        m_shootingTime = LoadWeaponData(m_weaponIndex);
-        SetWeaponData(m_shootingTime);
+        if (m_weaponIndex < 3)
+        {
+            Debug.Log("兵器強化");
+            audioSource.PlayOneShot(m_weaponStren);
+            //兵器の強化が最大になるまでの処理を追加で書く
+            //Spriteを入れ替える
+            m_weaponIndex++;
+            m_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            m_spriteRenderer.sprite = m_weaponSprite[m_weaponIndex];
+            //兵器の弾生成間隔の強化
+            m_shootingTime = LoadWeaponData(m_weaponIndex);
+            SetWeaponData(m_shootingTime);
+        }
     }
 
     /// <summary>
@@ -209,16 +214,19 @@ public class WeaponManager : MonoBehaviour
     /// </summary>
     public void OnClickWeapon1()
     {
-        Debug.Log("兵器強化");
-        audioSource.PlayOneShot(m_weaponStren);
-        //兵器の強化が最大になるまでの処理を追加で書く
-        //Spriteを入れ替える
-        m_weaponIndex++;
-        m_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        m_spriteRenderer.sprite = m_weaponSprite[m_weaponIndex];
-        //兵器の弾生成間隔の強化
-        m_shooting1Time = LoadWeaponData(m_weaponIndex);
-        SetWeaponData(m_shooting1Time);
+        if (m_weaponIndex < 3)
+        {
+            Debug.Log("兵器強化");
+            audioSource.PlayOneShot(m_weaponStren);
+            //兵器の強化が最大になるまでの処理を追加で書く
+            //Spriteを入れ替える
+            m_weaponIndex++;
+            m_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            m_spriteRenderer.sprite = m_weaponSprite[m_weaponIndex];
+            //兵器の弾生成間隔の強化
+            m_shooting1Time = LoadWeaponData(m_weaponIndex);
+            SetWeaponData(m_shooting1Time);
+        }
     }
 }
  
