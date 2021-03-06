@@ -19,25 +19,41 @@ public class MapGenerator : MonoBehaviour
     /// <summary> Playerが歩ける拠点のタイル</summary>
     Tile[] m_hubRoadTile;
     /// <summary>mapの幅</summary>
-    [SerializeField] int m_mapWidth = 13;
+    int m_mapWidth = 13;
+    public int MapWidth { get { return m_mapWidth; } }
+    /// <summary> Mapの情報 </summary>
+    int[,] map = new int[13, 13];
 
-    //mapを配列で定義
-    int[,] map = new int[13, 13]{
-        {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 0},
-        {1, 1, 1, 2, 4, 2, 4, 2, 2, 2, 1, 2, 2},
-        {2, 2, 1, 2, 4, 2, 2, 4, 2, 1, 1, 2, 4},
-        {2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2},
-        {2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 2, 4, 2},
-        {2, 2, 2, 2, 2, 3, 5, 3, 4, 2, 2, 2, 2},
-        {2, 2, 4, 2, 2, 5, 6, 5, 2, 2, 4, 2, 4},
-        {2, 2, 2, 2, 4, 3, 5, 3, 2, 4, 2, 2, 2},
-        {2, 4, 2, 2, 1, 1, 2, 1, 2, 2, 2, 4, 2},
-        {2, 2, 2, 1, 1, 2, 2, 1, 2, 4, 2, 2, 2},
-        {2, 2, 2, 1, 4, 2, 4, 1, 2, 2, 2, 2, 2},
-        {2, 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 4, 2},
-        {0, 1, 4, 2, 2, 4, 2, 2, 2, 4, 1, 1, 0}
-    };
-    //プロパティ
+    /// <summary> どのステージが選択されたかを判定する </summary>
+    StageSelectJugment sJudgment;
+
+    void Awake()
+    {
+        MapInfoSet();
+    }
+
+    /// <summary>
+    /// マップの情報をセットする関数
+    /// </summary>
+    void MapInfoSet()
+    {
+        sJudgment = GameObject.Find("StageSelectManager(Clone)").GetComponent<StageSelectJugment>();
+        switch (sJudgment.StageJudgment)
+        {
+            case 1:
+                Stage1Info s1 = new Stage1Info();
+                map = s1.Map1;
+                break;
+            case 2:
+                Stage2Info s2 = new Stage2Info();
+                map = s2.Map2;
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Mapの情報のプロパティ
+    /// </summary>
     public int[,] Map { get { return map; } }
 
     // Start is called before the first frame update
