@@ -85,7 +85,9 @@ public class Enemy : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
+    /// <summary>
+    /// 敵が攻撃したときに効果音を鳴らす
+    /// </summary>
     void EneAttackSound()
     {
         audioSource.PlayOneShot(m_enemyAttack);

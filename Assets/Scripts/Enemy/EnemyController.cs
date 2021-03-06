@@ -5,26 +5,17 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     GameObject m_mapGene;
-    GameObject m_eneGene;
     /// <summary>敵の進むスピード </summary>
     [SerializeField] float m_move = 1.0f;
-    SpriteRenderer m_sprite;
-    Animator m_anim;
     Rigidbody2D m_rb;
     /// <summary>敵のポジション</summary>
     Vector3 m_enePos;
-    /// <summary>敵が攻撃したか判定する</summary>
-    bool isEneAttack;
-    int m_attackTime;
     Enemy enemy;
     
     void Start()
     {
-        m_sprite = GetComponent<SpriteRenderer>();
         m_rb = GetComponent<Rigidbody2D>();
-        m_anim = GetComponent<Animator>();
         m_mapGene = GameObject.Find("MapGenerator");
-        m_eneGene = GameObject.Find("EnemyGenerator");
         enemy = GetComponent<Enemy>();
     }
 
@@ -51,12 +42,13 @@ public class EnemyController : MonoBehaviour
         int y2 = (int)Mathf.Ceil(fy);
         //Mapの情報を取得する
         MapGenerator t = m_mapGene.GetComponent<MapGenerator>();
+        int mWidht = t.MapWidth;
         int[,] m = t.Map;
         //進んだ先の配列の情報を取得するための変数
         int nextX;
         int nextY;
         //敵が左下から沸いたとき
-        if (x < 6 && y < 6)
+        if (x < mWidht/2 && y < mWidht / 2)
         {
             //敵がいる場所に応じて処理を変える
             switch (m[x, y])
@@ -109,7 +101,7 @@ public class EnemyController : MonoBehaviour
             }
         }
         //敵が左上から沸いたとき
-        if (x < 6 && y2 > 6)
+        if (x < mWidht / 2 && y2 > mWidht / 2)
         {
             //敵がいる場所に応じて処理を変える
             switch (m[x, y2])
@@ -162,7 +154,7 @@ public class EnemyController : MonoBehaviour
             }
         }
         //敵が右下から沸いたとき
-        if (x2 > 6 && y < 6)
+        if (x2 > mWidht / 2 && y < mWidht / 2)
         {
             //敵がいる場所に応じて処理を変える
             switch (m[x2, y])
@@ -215,7 +207,7 @@ public class EnemyController : MonoBehaviour
             }
         }
         //敵が右上から沸いたとき
-        if (x2 > 6 && y2 > 6)
+        if (x2 > mWidht / 2 && y2 > mWidht / 2)
         {
             //敵がいる場所に応じて処理を変える
             switch (m[x2, y2])

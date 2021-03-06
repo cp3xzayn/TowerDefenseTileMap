@@ -21,6 +21,8 @@ public class MapGenerator : MonoBehaviour
     /// <summary>mapの幅</summary>
     [SerializeField] int m_mapWidth = 13;
 
+    public int MapWidth { get { return m_mapWidth; } }
+
     //mapを配列で定義
     int[,] map = new int[13, 13]{
         {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 0},
