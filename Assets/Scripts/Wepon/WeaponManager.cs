@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 [Serializable]
 public class InputJsonWeaponData
@@ -189,6 +190,9 @@ public class WeaponManager : MonoBehaviour
     /// <summary> 兵器が強化されたときのSprite </summary>
     [SerializeField] Sprite[] m_weaponSprite;
 
+    int m_nowLevel = 1;
+    [SerializeField] Text m_levelText;
+
     /// <summary>
     /// 兵器が強化されたときの処理
     /// </summary>
@@ -206,6 +210,8 @@ public class WeaponManager : MonoBehaviour
             //兵器の弾生成間隔の強化
             m_shootingTime = LoadWeaponData(m_weaponIndex);
             SetWeaponData(m_shootingTime);
+            m_nowLevel++;
+            m_levelText.text = "レベル" + m_nowLevel;
         }
     }
 
@@ -226,6 +232,8 @@ public class WeaponManager : MonoBehaviour
             //兵器の弾生成間隔の強化
             m_shooting1Time = LoadWeaponData(m_weaponIndex);
             SetWeaponData(m_shooting1Time);
+            m_nowLevel++;
+            m_levelText.text = "レベル" + m_nowLevel;
         }
     }
 }
