@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class StageSelectJugment : MonoBehaviour
 {
-    int m_stageJugment;
+    int m_stageJudgment;
 
-    public int StageJugment
+    /// <summary>
+    /// どのステージが選択されたか判断するためのプロパティ
+    /// </summary>
+    public int StageJudgment
     {
-        set { m_stageJugment = value; }
-        get { return m_stageJugment; }
+        set { m_stageJudgment = value; }
+        get { return m_stageJudgment; }
     }
 }
