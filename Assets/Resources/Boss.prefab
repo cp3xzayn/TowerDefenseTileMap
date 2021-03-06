@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyAttack: {fileID: 8300000, guid: 154536660e3213b44a5cc97c81f6ada9, type: 3}
+  m_enemyHPObject: {fileID: 9121118373433795358}
 --- !u!114 &1846199514526045789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,9 +628,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 3
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] AudioClip m_enemyAttack;
     AudioSource audioSource;
 
+    [SerializeField] GameObject m_enemyHPObject;
+    Slider m_enemyHPSlider;
+
     void Start()
     {
         m_baseHPObj = GameObject.Find("BaseHPManager");
@@ -28,6 +32,7 @@ public class Enemy : MonoBehaviour
         m_effect = Resources.Load<GameObject>("EnemyDeath");
         m_costMana = GameObject.Find("CostManager");
         audioSource = GetComponent<AudioSource>();
+        m_enemyHPSlider = m_enemyHPObject.GetComponent<Slider>();
     }
 
     /// <summary>
@@ -66,6 +71,8 @@ public class Enemy : MonoBehaviour
     {
         bulletDamage = bDamage;
         hp -= bulletDamage;
+        Debug.Log($"現在のHPは{hp}");
+        m_enemyHPSlider.value = hp;
         //敵のHPが0以下になったら
         if (hp <= 0)
         {
