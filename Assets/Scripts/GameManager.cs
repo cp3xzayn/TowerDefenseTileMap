@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        SetNowState(GameState.Start);
     }
 
     void Start()
@@ -92,6 +91,7 @@ public class GameManager : MonoBehaviour
         EnemyGenerator e = m_eneGene.GetComponent<EnemyGenerator>();
         m_eneGeneIndex = e.GetLengthWave();
         audioSource = GetComponent<AudioSource>();
+        SetNowState(GameState.Start);
     }
 
     void Update()
