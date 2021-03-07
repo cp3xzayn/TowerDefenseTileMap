@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : AudioEventSubscriber
 {
     [SerializeField, Range(0f, 1f), Tooltip("BGMの音量")] float BGMVolume = 1;
     [SerializeField, Range(0f, 1f), Tooltip("効果音の音量")] float SeVolume = 1;
@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
     {
         titleBGM = GameObject.Find("TitleBGM").GetComponent<AudioSource>();
         bgmSlider = GameObject.Find("BGMSlider").GetComponent<Slider>();
-        
+        AudioManager.SetVolume();
     }
 
     void Update()
@@ -32,10 +32,14 @@ public class SoundManager : MonoBehaviour
         titleBGM.volume = bgmSlider.value;
     }
 
-
-    void StageBGMVolumeSet()
+    public override void OnSetVolume()
     {
-        stageBGM = GameObject.Find("StageBGM").GetComponent<AudioSource>();
-        stageBGM.volume = 1f;
+        Debug.Log("1");
     }
+
+    //void StageBGMVolumeSet()
+    //{
+    //    stageBGM = GameObject.Find("StageBGM").GetComponent<AudioSource>();
+    //    stageBGM.volume = 1f;
+    //}
 }
