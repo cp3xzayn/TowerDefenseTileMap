@@ -23,15 +23,13 @@ public class SceneLoadOnTitle : MonoBehaviour
         SceneManager.LoadScene("Stage");
     }
 
+    /// <summary> 操作説明のPanel </summary>
     [SerializeField] GameObject m_howToPlay;
+    public void OnClickHowToPlay() { m_howToPlay.SetActive(true); }
+    public void OnClickHowToPlayBack() { m_howToPlay.SetActive(false); }
 
-    public void OnClickHowToPlay()
-    {
-        m_howToPlay.SetActive(true);
-    }
-
-    public void OnClickHowToPlayBack()
-    {
-        m_howToPlay.SetActive(false);
-    }
+    /// <summary> 音量設定のPanel </summary>
+    [SerializeField] GameObject m_soundPanel;
+    public void OnClickSetting() { m_soundPanel.SetActive(true); }
+    public void OnClickSettingBack() { m_soundPanel.SetActive(false); }
 }

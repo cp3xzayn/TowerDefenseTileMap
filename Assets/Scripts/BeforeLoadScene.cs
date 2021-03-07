@@ -6,8 +6,10 @@ public class BeforeLoadScene
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void InitializeBeforeSceneLoad()
     {
-        var manager = GameObject.Instantiate(Resources.Load("StageSelectManager"));
+        var stageSelectmanager = GameObject.Instantiate(Resources.Load("StageSelectManager"));
+        var soundManager = GameObject.Instantiate(Resources.Load("SoundManager"));
         //シーンをまたいでもこのオブジェクトは破壊されないようにする
-        GameObject.DontDestroyOnLoad(manager);
+        GameObject.DontDestroyOnLoad(stageSelectmanager);
+        GameObject.DontDestroyOnLoad(soundManager);
     }
 }
