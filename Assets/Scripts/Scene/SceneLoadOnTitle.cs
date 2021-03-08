@@ -23,15 +23,9 @@ public class SceneLoadOnTitle : MonoBehaviour
         SceneManager.LoadScene("Stage");
     }
 
+    /// <summary> 操作説明のPanel </summary>
     [SerializeField] GameObject m_howToPlay;
+    public void OnClickHowToPlay() { m_howToPlay.SetActive(true); }
+    public void OnClickHowToPlayBack() { m_howToPlay.SetActive(false); }
 
-    public void OnClickHowToPlay()
-    {
-        m_howToPlay.SetActive(true);
-    }
-
-    public void OnClickHowToPlayBack()
-    {
-        m_howToPlay.SetActive(false);
-    }
 }

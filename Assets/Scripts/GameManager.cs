@@ -13,6 +13,7 @@ public enum GameState
     Clear,
     GameOver
 }
+
 /// <summary>
 /// Phaseを管理するクラス
 /// </summary>

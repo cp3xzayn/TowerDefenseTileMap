@@ -7434,7 +7434,7 @@ GameObject:
   - component: {fileID: 1191812869}
   - component: {fileID: 1191812868}
   m_Layer: 0
-  m_Name: BGM
+  m_Name: StageBGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8196,7 +8196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_tilemap: {fileID: 1297574266}
-  m_mapWidth: 13
 --- !u!1 &1561249145
 GameObject:
   m_ObjectHideFlags: 0
