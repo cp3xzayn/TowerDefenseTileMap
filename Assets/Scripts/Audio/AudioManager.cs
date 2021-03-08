@@ -1,18 +1,21 @@
 ﻿public class AudioManager
 {
-    //引数なしのデリゲート型を宣言する
-    public delegate void DelegateAudio();
+    /// <summary> 現在のBGMの音量 </summary>
+    static float m_bGMVolume;
+    static float m_sEVolume;
 
-    public static DelegateAudio OnSetVolume;
-    public static DelegateAudio OnReturnVolume;
-
-    public static void SetVolume()
+    /// <summary>
+    /// BGMの音量
+    /// </summary>
+    public static float BGMVolume
     {
-        OnSetVolume?.Invoke();
+        set { m_bGMVolume = value; }
+        get { return m_bGMVolume; }
     }
 
-    public static void ReturnVolume()
+    public static float SEVolume
     {
-        OnReturnVolume?.Invoke();
+        set { m_sEVolume = value; }
+        get { return m_sEVolume; }
     }
 }
