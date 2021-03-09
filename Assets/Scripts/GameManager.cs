@@ -339,7 +339,6 @@ public class GameManager : MonoBehaviour
     {
         //Resultを表示
         m_gameoverText.SetActive(true);
-        Time.timeScale = 0f;
         audioSource.PlayOneShot(m_gameOverSound);
         //諸々の初期化を行う
         isPreTimeSet = true;
