@@ -10,7 +10,7 @@ public class SceneLoadOnTitle : MonoBehaviour
     {
         sJudgment = GameObject.Find("StageSelectManager(Clone)").GetComponent<StageSelectJugment>();
     }
-
+    
     public void OnClickStage1()
     {
         sJudgment.StageJudgment = 1;

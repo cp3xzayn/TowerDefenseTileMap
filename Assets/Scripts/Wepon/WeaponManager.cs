@@ -137,6 +137,7 @@ public class WeaponManager : MonoBehaviour
         m_bullet = Resources.Load<GameObject>("Bullet");
         m_bullet1 = Resources.Load<GameObject>("Bullet1");
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = AudioManager.SEVolume;
         // 発射間隔を初期化する
         if (this.gameObject.name == "Weapon(Clone)")
         {

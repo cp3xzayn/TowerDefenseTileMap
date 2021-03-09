@@ -40,6 +40,7 @@ public class TopdownPlayerController2D : MonoBehaviour
         m_costMana = GameObject.Find("CostManager");
         weapon = m_wepMana.GetComponent<Weapon>();
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = AudioManager.SEVolume;
     }
 
     void Update()

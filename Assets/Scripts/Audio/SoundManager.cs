@@ -14,7 +14,8 @@ public class SoundManager : MonoBehaviour
     Slider seSlider;
 
     // Updateで一度だけ呼び出すためのbool
-    bool isStageOnTime = true;
+    bool isTitleOneTime = true;
+    bool isStageOneTime = true;
 
     void Start()
     {
@@ -40,15 +41,22 @@ public class SoundManager : MonoBehaviour
         // Scene名がTitleの時
         if (SceneManager.GetActiveScene().name == "Title")
         {
+            if (isTitleOneTime)
+            {
+                isStageOneTime = true;
+                titleBGM = GameObject.Find("TitleBGM").GetComponent<AudioSource>();
+                isTitleOneTime = false;
+            }
             titleBGM.volume = AudioManager.BGMVolume;
         }
         // Scene名がStageの時
         else if (SceneManager.GetActiveScene().name == "Stage")
         {
-            if (isStageOnTime)
+            if (isStageOneTime)
             {
+                isTitleOneTime = true;
                 stageBGM = GameObject.Find("StageBGM").GetComponent<AudioSource>();
-                isStageOnTime = false;
+                isStageOneTime = false;
             }
             stageBGM.volume = AudioManager.BGMVolume;
         }
