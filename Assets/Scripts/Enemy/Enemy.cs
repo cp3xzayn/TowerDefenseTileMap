@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
         m_effect = Resources.Load<GameObject>("EnemyDeath");
         m_costMana = GameObject.Find("CostManager");
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = AudioManager.SEVolume;
         m_enemyHPSlider = m_enemyHPObject.GetComponent<Slider>();
     }
 
