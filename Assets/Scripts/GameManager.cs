@@ -328,7 +328,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void GameClearAction()
     {
-        Time.timeScale = 0f;
         m_gameClear.SetActive(true);
     }
 
